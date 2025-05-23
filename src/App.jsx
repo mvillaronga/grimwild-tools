@@ -29,6 +29,7 @@ function App() {
     canvas.toBlob(async (blob) => {
       if (blob && navigator.clipboard && window.ClipboardItem) {
         try {
+          // Always use "image/png" as MIME type
           await navigator.clipboard.write([
             new window.ClipboardItem({ "image/png": blob })
           ]);
