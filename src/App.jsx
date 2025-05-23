@@ -63,21 +63,28 @@ function App() {
           }}
           onSubmit={e => e.preventDefault()}
         >
-          {/* Challenge Pool and Name on same line */}
+          {/* Common header for Challenge Pool and Name */}
+          <div style={{ fontWeight: 700, marginBottom: "0.25rem" }}>
+            Challenge
+          </div>
           <div style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <label style={{ margin: 0 }}>
-              <span style={{ fontSize: "0.95em" }}>Challenge Pool</span><br />
+              <span style={{ fontSize: "0.95em" }}>Pool</span><br />
               <input
                 type="number"
                 min="1"
                 max="99"
                 value={pool}
-                onChange={e => setPool(e.target.value)}
+                onChange={e => {
+                  let val = e.target.value.replace(/[^0-9]/g, "");
+                  if (val.length > 2) val = val.slice(0, 2);
+                  setPool(val);
+                }}
                 style={{ width: "2.5em", textAlign: "center" }}
               />
             </label>
             <label style={{ flex: 1, margin: 0 }}>
-              <span style={{ fontSize: "0.95em" }}>Challenge Name</span><br />
+              <span style={{ fontSize: "0.95em" }}>Name</span><br />
               <input
                 type="text"
                 value={title}
@@ -108,7 +115,10 @@ function App() {
               />
             </label>
           </div>
-          {/* Fail State Pool and Description on same line */}
+          {/* Common header for Fail State */}
+          <div style={{ fontWeight: 700, marginBottom: "0.25rem" }}>
+            Fail State
+          </div>
           <div style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <label style={{ margin: 0 }}>
               <span style={{ fontSize: "0.95em" }}>Fail State Pool</span><br />
@@ -117,7 +127,11 @@ function App() {
                 min="1"
                 max="99"
                 value={failPool}
-                onChange={e => setFailPool(e.target.value)}
+                onChange={e => {
+                  let val = e.target.value.replace(/[^0-9]/g, "");
+                  if (val.length > 2) val = val.slice(0, 2);
+                  setFailPool(val);
+                }}
                 style={{ width: "2.5em", textAlign: "center" }}
               />
             </label>
