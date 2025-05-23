@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
+import ObstacleCard from "./components/ObstacleCard";
 
 function App() {
   return (
     <div>
       <h1>Grimwild Tools React App</h1>
-      {/* Add your components here */}
+      <ObstacleCard />
     </div>
   );
 }
