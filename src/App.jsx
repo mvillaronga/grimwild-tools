@@ -42,6 +42,35 @@ function App() {
     }, "image/png");
   };
 
+  // Add download handler
+  const handleDownloadImage = async () => {
+    if (!cardRef.current) return;
+    const cardElem = cardRef.current.querySelector(".card");
+    if (!cardElem) return;
+    const prevBg = cardElem.style.backgroundColor;
+    cardElem.style.backgroundColor = "#f6f3eb";
+    const canvas = await html2canvas(cardElem, {
+      backgroundColor: null,
+      useCORS: true,
+      scale: window.devicePixelRatio || 1
+    });
+    cardElem.style.backgroundColor = prevBg;
+    canvas.toBlob((blob) => {
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "grimwild-card.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } else {
+        alert("Failed to generate image.");
+      }
+    }, "image/png");
+  };
+
   // Parse traits and moves from textarea
   const traitsArr = traits.split("\n").map(t => t.trim()).filter(Boolean);
   const movesArr = moves.split("\n").map(m => m.trim()).filter(Boolean);
@@ -77,8 +106,11 @@ function App() {
           </div>
         </div>
       </div>
-      <button onClick={handleCopyImage} style={{ marginTop: "1rem" }}>
+      <button onClick={handleCopyImage} style={{ marginTop: "1rem", marginRight: "0.5rem" }}>
         Copy Card as Image
+      </button>
+      <button onClick={handleDownloadImage} style={{ marginTop: "1rem" }}>
+        Download Card as Image
       </button>
     </div>
   );
