@@ -1,9 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import ObstacleCard from "./components/ObstacleCard";
 import html2canvas from "html2canvas";
 
 function App() {
   const cardRef = useRef(null);
+
+  // State for card data
+  const [pool, setPool] = useState("4");
+  const [title, setTitle] = useState("Goblin Raider");
+  const [traits, setTraits] = useState("Sneaky\nCowardly");
+  const [moves, setMoves] = useState("Ambush\nPack Tactics\nFlee into Shadows");
+  const [failPool, setFailPool] = useState("3");
+  const [failDesc, setFailDesc] = useState("Goblins Scatter");
 
   const handleCopyImage = async () => {
     if (!cardRef.current) return;
@@ -35,11 +43,107 @@ function App() {
     }, "image/png");
   };
 
+  // Parse traits and moves from textarea
+  const traitsArr = traits.split("\n").map(t => t.trim()).filter(Boolean);
+  const movesArr = moves.split("\n").map(m => m.trim()).filter(Boolean);
+
   return (
     <div>
       <h1>Grimwild Tools React App</h1>
-      <div ref={cardRef} style={{ display: "inline-block" }}>
-        <ObstacleCard />
+      <div style={{ display: "flex", alignItems: "flex-start", gap: "2rem" }}>
+        <form
+          style={{
+            background: "#f6f3eb",
+            border: "1px solid #c9c4b4",
+            borderRadius: ".75rem",
+            padding: "1rem",
+            maxWidth: 480,
+            marginBottom: "2rem",
+            flex: "0 0 350px"
+          }}
+          onSubmit={e => e.preventDefault()}
+        >
+          {/* Challenge Pool and Name on same line */}
+          <div style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <label style={{ margin: 0 }}>
+              <span style={{ fontSize: "0.95em" }}>Challenge Pool</span><br />
+              <input
+                type="number"
+                min="1"
+                max="99"
+                value={pool}
+                onChange={e => setPool(e.target.value)}
+                style={{ width: "2.5em", textAlign: "center" }}
+              />
+            </label>
+            <label style={{ flex: 1, margin: 0 }}>
+              <span style={{ fontSize: "0.95em" }}>Challenge Name</span><br />
+              <input
+                type="text"
+                value={title}
+                onChange={e => setTitle(e.target.value)}
+                style={{ width: "100%" }}
+              />
+            </label>
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            <label>
+              Traits (one per line)<br />
+              <textarea
+                value={traits}
+                onChange={e => setTraits(e.target.value)}
+                rows={3}
+                style={{ width: "100%" }}
+              />
+            </label>
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            <label>
+              Moves (one per line)<br />
+              <textarea
+                value={moves}
+                onChange={e => setMoves(e.target.value)}
+                rows={3}
+                style={{ width: "100%" }}
+              />
+            </label>
+          </div>
+          {/* Fail State Pool and Description on same line */}
+          <div style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
+            <label style={{ margin: 0 }}>
+              <span style={{ fontSize: "0.95em" }}>Fail State Pool</span><br />
+              <input
+                type="number"
+                min="1"
+                max="99"
+                value={failPool}
+                onChange={e => setFailPool(e.target.value)}
+                style={{ width: "2.5em", textAlign: "center" }}
+              />
+            </label>
+            <label style={{ flex: 1, margin: 0 }}>
+              <span style={{ fontSize: "0.95em" }}>Fail State Description</span><br />
+              <input
+                type="text"
+                value={failDesc}
+                onChange={e => setFailDesc(e.target.value)}
+                style={{ width: "100%" }}
+              />
+            </label>
+          </div>
+        </form>
+        <div>
+          <div ref={cardRef} style={{ display: "inline-block" }}>
+            <ObstacleCard
+              pool={pool}
+              title={title}
+              traits={traitsArr}
+              moves={movesArr}
+              failPool={failPool}
+              failDesc={failDesc}
+            />
+          </div>
+        </div>
       </div>
       <button onClick={handleCopyImage} style={{ marginTop: "1rem" }}>
         Copy Card as Image
