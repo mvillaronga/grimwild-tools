@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Grimwild Card Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { margin:0; font-family:"Libre Baskerville",serif; background:#ede9dd; padding:1rem; }
+    .form-container { max-width:600px; margin:0 auto 2rem; background:#f6f3eb; padding:1rem; border:1px solid #c9c4b4; border-radius:.75rem; }
+    .form-container h2 { font-family:'Arvo',serif; font-size:1.5rem; margin-bottom:.5rem; }
+    .form-group { margin-bottom:1rem; }
+    label { display:block; font-weight:700; margin-bottom:.25rem; }
+    input[type=text], input[type=number], textarea { width:250px; margin-right:1rem; padding:.5rem; border:1px solid #c9c4b4; border-radius:.25rem; }
+    button { background:#3d2e2a; color:#f8f5ef; border:none; padding:.5rem 1rem; border-radius:.5rem; cursor:pointer; font-family:'Arvo',serif; }
+    .card { display:inline-block; border:1px solid #c9c4b4; box-shadow:0 2px 4px rgba(0,0,0,.25); background:#f6f3eb; border-radius:.75rem; overflow:hidden; }
+    .header { position:relative; background:#3d2e2a; color:#f8f5ef; margin:.5rem .5rem 0; padding:.6rem 1rem; border-top-left-radius:.75rem; border-top-right-radius:.75rem; font-family:'Arvo',serif; font-size:1.2rem; font-weight:700; letter-spacing:.02em; text-transform:uppercase; }
+    .pool-size { font-size:1.3em; }
+    .header::after { content:"○○"; position:absolute; right:.5rem; bottom:-1rem; transform:translateY(50%); font-family:'Arvo',serif; font-size:1.4rem; color:#3d2e2a; }
+    .first-letter { font-size:1.3em; display:inline-block; }
+    hr.divider { margin:1.2rem .5rem 0; border:0; border-top:1px solid #c9c4b4; }
+    .section { padding:.75rem 1rem 1rem; font-size:1.2rem; }
+    ul.traits, ul.moves { list-style:none; margin:0; padding:0; }
+    .first-letter-trait { font-size:1.3em; display:inline-block; }
+    ul.moves li { margin:.15rem 0; font-weight:900; }
+    .first-letter-move { font-size:1.3em; display:inline-block; }
+    .fail { margin-top:.6rem; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Card Generator</h2>
+    <div class="form-group">
+      <label for="title">Challenge Name</label>
+      <input type="text" id="title" placeholder="e.g. Goblin Raider">
+    </div>
+    <div class="form-group">
+      <label for="poolSize">Challenge Pool (number of dice)</label>
+      <input type="number" id="poolSize" placeholder="e.g. 4" min="1">
+    </div>
+    <div class="form-group">
+      <label for="traits">Traits (one per line)</label>
+      <textarea id="traits" rows="3" placeholder="Sneaky\nCowardly"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="moves">Moves (one per line)</label>
+      <textarea id="moves" rows="3" placeholder="Ambush\nPack Tactics\nFlee into Shadows"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="failPool">Fail State Pool (optional number of dice)</label>
+      <input type="number" id="failPool" placeholder="e.g. 3" min="1">
+    </div>
+    <div class="form-group">
+      <label for="failDesc">Fail State Description (optional)</label>
+      <input type="text" id="failDesc" placeholder="Goblins Scatter">
+    </div>
+    <button onclick="generateCard()">Generate Card</button>
+  </div>
+
+  <div id="cardOutput"></div>
+
+  <script>
+    function capitalizeFirst(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    function generateCard() {
+      const titleRaw = document.getElementById('title').value.trim();
+      const poolSize = document.getElementById('poolSize').value;
+      const traitsArr = document.getElementById('traits').value.split('\n').filter(t => t.trim());
+      const movesArr = document.getElementById('moves').value.split('\n').filter(m => m.trim());
+      const failPool = document.getElementById('failPool').value;
+      const failDescRaw = document.getElementById('failDesc').value.trim();
+
+      // Title: uppercase with first letters larger
+      const titleWords = titleRaw.toUpperCase().split(' ').map(word => {
+        const first = word.charAt(0);
+        const rest = word.slice(1).toLowerCase();
+        return `<span class="word"><span class="first-letter">${first}</span>${rest}</span>`;
+      }).join(' ');
+
+      // Traits: each word capitalized, first letters larger
+      const traits = traitsArr.map(t => {
+        return `<li><em>${t.split(' ').map(word => {
+          const w = word.trim();
+          const first = w.charAt(0).toUpperCase();
+          const rest = w.slice(1);
+          return `<span class="first-letter-trait">${first}</span>${rest}`;
+        }).join(' ')}</em></li>`;
+      });
+
+      // Moves: each word uppercase, first letters larger
+      const moves = movesArr.map(m => {
+        return `<li>${m.split(' ').map(word => {
+          const w = word.trim().toUpperCase();
+          const first = w.charAt(0);
+          const rest = w.slice(1);
+          return `<span class="first-letter-move">${first}</span>${rest}`;
+        }).join(' ')}</li>`;
+      });
+
+      // Fail description: capitalize first letter
+      const failDesc = failDescRaw ? capitalizeFirst(failDescRaw) : '';
+
+      let html = '<div class="card">';
+      const headerText = `<span class="pool-size">${poolSize}D</span> | ${titleWords}`;
+      html += `<div class="header">${headerText}</div>`;
+      html += '<div class="section">';
+
+      if (traits.length) {
+        html += '<ul class="traits">' + traits.join('') + '</ul><hr class="divider">';
+      }
+      if (moves.length) {
+        html += '<ul class="moves">' + moves.join('') + '</ul><hr class="divider">';
+      }
+      if (failPool && failDesc) {
+        html += `<div class="fail">✘ <span class="pool-size">${failPool}D</span> ${failDesc}</div>`;
+      }
+      html += '</div></div>';
+
+      document.getElementById('cardOutput').innerHTML = html;
+    }
+  </script>
+</body>
+</html>

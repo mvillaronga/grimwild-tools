@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Goblin Raider – Grimwild block</title>
+
+<!-- Google Font similar to Tiller: Arvo Bold (free) -->
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  body{
+    margin:0;
+    font-family:"Libre Baskerville",serif;
+    background:#ede9dd;
+  }
+
+  /* Card - auto width based on content */
+  .card{
+    display:inline-block;
+    border:1px solid #c9c4b4;
+    box-shadow:0 2px 4px rgba(0,0,0,.25);
+    background:#f6f3eb;
+    border-radius:.75rem;
+    overflow:hidden;
+  }
+
+  /* Header block */
+  .header{
+    position:relative;
+    background:#3d2e2a;
+    color:#f8f5ef;
+    margin:.5rem .5rem 0 .5rem;
+    padding:.6rem 1rem;
+    border-top-left-radius:.75rem;
+    border-top-right-radius:.75rem;
+    font-family:'Arvo',serif;
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+
+  /* Slightly larger first letter of each word in header */
+  .header .initcap {
+    font-size:1.5em;
+    vertical-align:-0.1em;
+    letter-spacing:normal;
+    display:inline-block;
+  }
+
+  /* two hollow circles, right‑justified & vertically centred at header bottom */
+  .header::after{
+    content:"○○";
+    position:absolute;
+    right:.5rem;
+    bottom:-.6rem;
+    transform:translateY(50%);
+    font-family:'Arvo',serif;
+    font-size:1.4rem;
+    color:#3d2e2a;
+  }
+
+  /* Divider below header/circles */
+  hr.divider{
+    margin:1.2rem .5rem 0 .5rem;
+    border:0;
+    border-top:1px solid #c9c4b4;
+  }
+
+  /* Main section */
+  .section{
+    padding:.75rem 1rem 1rem 1rem;
+    font-size:1.2rem;
+  }
+
+  /* ✱ bullets for traits */
+  ul.traits{
+    list-style:none;
+    margin:.25rem 0 0;
+    padding:0;
+  }
+  ul.traits li{
+    margin:.15rem 0;
+  }
+  ul.traits li::before{
+    content:"✱ ";
+    font-weight:700;
+  }
+  ul.traits em{font-style:italic;}
+
+  /* ◉ bullets for moves */
+  ul.moves{
+    list-style:none;
+    margin:.6rem 0 0;
+    padding:0;
+  }
+  ul.moves li{
+    margin:.15rem 0;
+    font-weight:900;
+  }
+  ul.moves li::before{
+    content:"◉ ";
+    font-weight:700;
+  }
+
+  /* Failure line */
+  .fail{
+    margin-top:.6rem;
+    font-weight:700;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <span class="initcap">4</span>d | 
+      <span class="initcap">G</span>oblin 
+      <span class="initcap">R</span>aider
+    </div>
+
+    <div class="section">
+      <!-- Traits -->
+      <ul class="traits">
+        <li><em>Sneaky</em></li>
+        <li><em>Cowardly</em></li>
+      </ul>
+      <hr class="divider">
+
+      <!-- Moves -->
+      <ul class="moves">
+        <li>Ambush</li>
+        <li>Pack Tactics</li>
+        <li>Flee into Shadows</li>
+      </ul>
+      <hr class="divider">
+
+      <!-- Failure state -->
+      <div class="fail">✘ 3d Goblins Scatter</div>
+    </div>
+  </div>
+</body>
+</html>
