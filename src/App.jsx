@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div>
-      <h1>Grimwild Tools React App</h1>
+      <h1>Grimwild Challenge Creator</h1>
       <div style={{ display: "flex", alignItems: "flex-start", gap: "2rem" }}>
         <ObstacleForm
           pool={pool}
