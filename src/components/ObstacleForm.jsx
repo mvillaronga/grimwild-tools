@@ -76,7 +76,7 @@ export default function ObstacleForm({
       </div>
       {/* Common header for Fail State */}
       <div style={{ fontWeight: 700, marginBottom: "0.25rem" }}>
-        Fail State
+        Fail State <span style={{ fontWeight: 400, fontSize: "0.95em" }}>(optional)</span>
       </div>
       <div style={{ marginBottom: "1rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
         <label style={{ margin: 0 }}>

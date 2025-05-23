@@ -46,6 +46,9 @@ export default function ObstacleCard({
       ));
   }
 
+  // Only show fail state if both failPool and failDesc are provided and non-empty
+  const showFail = !!(failPool && failDesc && String(failDesc).trim());
+
   return (
     <div className="card">
       <div
@@ -85,10 +88,12 @@ export default function ObstacleCard({
             <li key={i}>{renderMove(move)}</li>
           ))}
         </ul>
-        <hr className="divider" />
-        <div className="fail">
-          ✘ <span>{failPool}d</span> {renderFail(failDesc)}
-        </div>
+        {showFail && <hr className="divider" />}
+        {showFail && (
+          <div className="fail">
+            ✘ <span>{failPool}d</span> {renderFail(failDesc)}
+          </div>
+        )}
       </div>
     </div>
   );
