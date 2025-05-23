@@ -59,9 +59,16 @@ function App() {
     canvas.toBlob((blob) => {
       if (blob) {
         const url = URL.createObjectURL(blob);
+        const sanitize = (str) =>
+          str
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/gi, "_")
+            .replace(/^_+|_+$/g, "")
+            .replace(/_+/g, "_");
+        const filename = `${sanitize(title) || "grimwild-challenge"}.png`;
         const a = document.createElement("a");
         a.href = url;
-        a.download = "grimwild-card.png";
+        a.download = filename;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

@@ -3,3 +3,7 @@ body {
   font-family: "Libre Baskerville", serif;
   background: #ede9dd;
 }
+
+html, body, #root {
+  height: 100%;
+}
