@@ -1,7 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import ObstacleCard from "./components/ObstacleCard";
 import html2canvas from "html2canvas";
 import ObstacleForm from "./components/ObstacleForm";
+
+// Move global styles here
+const globalStyle = `
+  body {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    background: #ede9dd;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+`;
 
 function App() {
   const cardRef = useRef(null);
@@ -13,6 +25,16 @@ function App() {
   const [moves, setMoves] = useState("Ambush\nPack Tactics\nFlee into Shadows");
   const [failPool, setFailPool] = useState("3");
   const [failDesc, setFailDesc] = useState("Goblins Scatter");
+
+  // Inject global styles once
+  useEffect(() => {
+    if (!document.getElementById("grimwild-global-style")) {
+      const style = document.createElement("style");
+      style.id = "grimwild-global-style";
+      style.innerHTML = globalStyle;
+      document.head.appendChild(style);
+    }
+  }, []);
 
   const handleCopyImage = async () => {
     if (!cardRef.current) return;
