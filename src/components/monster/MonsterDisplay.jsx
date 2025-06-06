@@ -115,11 +115,34 @@ export default function MonsterDisplay() {
           </header>
           <div className="color-bar">
             {monster.colors.map((color, i) => (
-              <span
+              <div
                 key={i}
                 className={`segment ${color}`}
+                style={{
+                  position: "relative",
+                  border: "1px solid black",
+                  textAlign: "center",
+                }}
                 title={color.replace("-", " ")}
-              ></span>
+              ></div>
+            ))}
+          </div>
+          <div className="color-names">
+            {monster.colors.map((color, i) => (
+              <span
+                key={i}
+                style={{
+                  display: "inline-block",
+                  width: "33.33%",
+                  textAlign: "center",
+                  fontSize: "0.7rem",
+                  fontWeight: "lighter",
+                  color: "#444444", // Slightly darker grey for better readability
+                  textTransform: "uppercase",
+                }}
+              >
+                {color.replace("-", " ")}
+              </span>
             ))}
           </div>
           <p className="description">{monster.description}</p>

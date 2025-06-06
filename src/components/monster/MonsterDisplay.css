@@ -47,14 +47,20 @@ body {
 
 .color-bar {
   display: flex;
-  height: 6px;
-  margin-top: 2px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--ink);
+  height: 10px; /* Doubled height from 5px */
+  margin: 0; /* Remove margin to make it flush with the title bar */
+  border-top: 1px solid var(--ink);
 }
 
 .color-bar .segment {
   flex: 1;
+  position: relative;
+  border: 1px solid var(--ink); /* Add black border */
+}
+
+.color-names {
+  display: flex;
+  margin-top: 2px; /* Reduced spacing between the blocks and text */
 }
 
 .scaly-green {
@@ -78,6 +84,7 @@ body {
 }
 
 .description {
+  margin-top: 0.5rem; /* Reduced spacing above the description */
   margin-bottom: 1rem;
 }
 
