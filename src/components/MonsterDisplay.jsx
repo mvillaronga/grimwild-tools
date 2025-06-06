@@ -13,11 +13,11 @@ export default function MonsterDisplay() {
       moves: ["Petrifying Gaze", "Bite & Thrash", "Slink Away"],
       wants: "Wants to munch on a delicious statue, later.",
       dislikes: "Doesn't want light revealing its hiding places.",
-      sensoryDetails: [
-        "gleam of scales, slithering trails through dust",
-        "silence, rasping hiss, crunching of chewed stone",
-        "chalky scent of ground stone, desiccated air",
-      ],
+      sensoryDetails: {
+        sight: "gleam of scales, slithering trails through dust",
+        sound: "silence, rasping hiss, crunching of chewed stone",
+        smell: "chalky scent of ground stone, desiccated air",
+      },
       flavorTable: {
         title: "Hiding Spots",
         items: [
@@ -40,11 +40,11 @@ export default function MonsterDisplay() {
       moves: ["Electric Breath", "Bite & Constrict", "Swallow Whole"],
       wants: "Wants to expand its hunting grounds, to savor its meal.",
       dislikes: "Doesn't want rival predators challenging its territory.",
-      sensoryDetails: [
-        "deep claw marks, static sparks, lightning strike marks",
-        "sizzling electric snaps, sudden boom, shuffling legs",
-        "metallic tang, faint acrid smell, scorched hide",
-      ],
+      sensoryDetails: {
+        sight: "deep claw marks, static sparks, lightning strike marks",
+        sound: "sizzling electric snaps, sudden boom, shuffling legs",
+        smell: "metallic tang, faint acrid smell, scorched hide",
+      },
       flavorTable: {
         title: "Unearthed By",
         items: [
@@ -108,9 +108,15 @@ export default function MonsterDisplay() {
             </em>
           </p>
           <ul className="sensory-clues">
-            {monster.sensoryDetails.map((detail, i) => (
-              <li key={i}>{detail}</li>
-            ))}
+            <li style={{ listStyleType: "'👁️‍🗨️ '" }}>
+              <em>{monster.sensoryDetails.sight}</em>
+            </li>
+            <li style={{ listStyleType: "'📣 '" }}>
+              <em>{monster.sensoryDetails.sound}</em>
+            </li>
+            <li style={{ listStyleType: "'💨 '" }}>
+              <em>{monster.sensoryDetails.smell}</em>
+            </li>
           </ul>
           {monster.flavorTable && (
             <>
