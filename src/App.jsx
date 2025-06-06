@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ChallengeBuilder from "./components/ChallengeBuilder";
+import ChallengeBuilder from "./components/challenge/ChallengeBuilder";
 import MonsterBuilder from "./components/monster/MonsterBuilder";
 
 function Tabs({ tabs, activeTab, setActiveTab }) {

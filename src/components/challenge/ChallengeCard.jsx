@@ -1,7 +1,7 @@
 import React from "react";
 import "./ChallengeCard.css";
-import TraitBulletList from "./common/TraitBulletList";
-import MovesBulletList from "./common/MovesBulletList";
+import TraitBulletList from "../common/TraitBulletList";
+import MovesBulletList from "../common/MovesBulletList";
 
 export default function ObstacleCard({
   pool = "4",
