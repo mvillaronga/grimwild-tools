@@ -91,8 +91,27 @@ export default function MonsterDisplay() {
       {monsters.map((monster, index) => (
         <article key={index} className="monster-block">
           <header className="monster-header">
-            <span className="monster-name">{monster.name}</span>
-            <span className="monster-role">{monster.type}</span>
+            <span
+              className="monster-name"
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                letterSpacing: "0.05em",
+              }}
+            >
+              {monster.name}
+            </span>
+            <span
+              className="monster-role"
+              style={{
+                fontSize: "1rem",
+                fontWeight: "bold",
+                opacity: 0.8,
+              }}
+            >
+              {monster.type}
+            </span>
           </header>
           <div className="color-bar">
             {monster.colors.map((color, i) => (
