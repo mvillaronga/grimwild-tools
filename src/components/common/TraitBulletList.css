@@ -1,0 +1,22 @@
+.trait-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trait-bullet-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.trait-icon {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: #5c8a37; /* Example color for the icon */
+}
+
+.trait-bullet-list em {
+  font-style: italic;
+  font-weight: 700; /* Ensure traits are bold */
+}

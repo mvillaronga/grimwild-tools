@@ -1,4 +1,5 @@
 import React from "react";
+import TraitBulletList from "./common/TraitBulletList";
 
 // All props are controlled from parent
 export default function ObstacleForm({
@@ -62,6 +63,7 @@ export default function ObstacleForm({
             style={{ width: "100%" }}
           />
         </label>
+        <TraitBulletList traits={traits.split("\n").filter(Boolean)} />
       </div>
       <div style={{ marginBottom: "1rem" }}>
         <label>
