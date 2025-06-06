@@ -1,6 +1,24 @@
 import React from "react";
 import "./MonsterDisplay.css";
 
+// Replace the import with hardcoded data if the file doesn't exist
+const diceFacesData = {
+  diceFaces: [
+    { image: "/images/dice_faces/dice_face_1.png" },
+    { image: "/images/dice_faces/dice_face_2.png" },
+    { image: "/images/dice_faces/dice_face_3.png" },
+    { image: "/images/dice_faces/dice_face_4.png" },
+    { image: "/images/dice_faces/dice_face_5.png" },
+    { image: "/images/dice_faces/dice_face_6.png" },
+  ],
+};
+
+const sensoryIcons = {
+  sight: "/images/sensories/sight.png",
+  sound: "/images/sensories/sound.png",
+  smell: "/images/sensories/smell.png",
+};
+
 export default function MonsterDisplay() {
   const monsters = [
     {
@@ -58,7 +76,6 @@ export default function MonsterDisplay() {
       },
     },
   ];
-  const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
   return (
     <div
       style={{
@@ -107,14 +124,44 @@ export default function MonsterDisplay() {
               <strong>Doesn't want</strong> {monster.dislikes}
             </em>
           </p>
-          <ul className="sensory-clues">
-            <li style={{ listStyleType: "'👁️‍🗨️ '" }}>
+          <ul className="sensory-clues" style={{ textAlign: "left", paddingLeft: "0" }}>
+            <li style={{ listStyleType: "none", display: "flex", alignItems: "center" }}>
+              <img
+                src={sensoryIcons.sight}
+                alt="Sight"
+                className="sensory-icon"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  marginRight: "8px",
+                }} // Adjust size
+              />
               <em>{monster.sensoryDetails.sight}</em>
             </li>
-            <li style={{ listStyleType: "'📣 '" }}>
+            <li style={{ listStyleType: "none", display: "flex", alignItems: "center" }}>
+              <img
+                src={sensoryIcons.sound}
+                alt="Sound"
+                className="sensory-icon"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  marginRight: "8px",
+                }} // Adjust size
+              />
               <em>{monster.sensoryDetails.sound}</em>
             </li>
-            <li style={{ listStyleType: "'💨 '" }}>
+            <li style={{ listStyleType: "none", display: "flex", alignItems: "center" }}>
+              <img
+                src={sensoryIcons.smell}
+                alt="Smell"
+                className="sensory-icon"
+                style={{
+                  width: "16px",
+                  height: "16px",
+                  marginRight: "8px",
+                }} // Adjust size
+              />
               <em>{monster.sensoryDetails.smell}</em>
             </li>
           </ul>
@@ -124,9 +171,15 @@ export default function MonsterDisplay() {
               <ul className="flavor-table">
                 {monster.flavorTable.items.map((item, i) => (
                   <li key={i}>
-                    <span className="dice-face">
-                      {diceFaces[i % diceFaces.length]}
-                    </span>{" "}
+                    <img
+                      className="dice-face"
+                      src={
+                        diceFacesData.diceFaces[
+                          i % diceFacesData.diceFaces.length
+                        ].image
+                      }
+                      alt={`${i + 1}`}
+                    />{" "}
                     {item}
                   </li>
                 ))}
