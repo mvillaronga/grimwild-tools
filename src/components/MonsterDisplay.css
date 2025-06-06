@@ -146,3 +146,29 @@ em {
 .hiding-spots em {
   font-style: italic;
 }
+
+.flavor-table {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.flavor-table li {
+  display: flex;
+  align-items: center;
+  margin: 0.4rem 0;
+}
+
+.flavor-table .dice-face {
+  display: inline-block;
+  background: var(--ink); /* Dark background */
+  color: var(--paper); /* Light pips */
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem; /* Dice size */
+  font-weight: 700;
+  padding: 0.05rem 0.1rem; /* Reduced top and bottom padding */
+  border-radius: 4px; /* Slightly smaller border radius */
+  margin-right: 0.3rem; /* Added padding to the right */
+  text-align: center;
+  line-height: 1; /* Reduced line height */
+}

@@ -18,14 +18,17 @@ export default function MonsterDisplay() {
         "silence, rasping hiss, crunching of chewed stone",
         "chalky scent of ground stone, desiccated air",
       ],
-      hidingSpots: [
-        "Beneath a crumbling, but still-used bridge.",
-        "Within the rotting carcass of a fallen dragon.",
-        "On the fifth floor of a derelict watchtower.",
-        "In a field full of half-eaten bear statues.",
-        "Within a maze of rusted, echoing pipes.",
-        "Among the twisted roots of a giant tree.",
-      ],
+      flavorTable: {
+        title: "Hiding Spots",
+        items: [
+          "Beneath a crumbling, but still-used bridge.",
+          "Within the rotting carcass of a fallen dragon.",
+          "On the fifth floor of a derelict watchtower.",
+          "In a field full of half-eaten bear statues.",
+          "Within a maze of rusted, echoing pipes.",
+          "Among the twisted roots of a giant tree.",
+        ],
+      },
     },
     {
       name: "Behir",
@@ -42,17 +45,20 @@ export default function MonsterDisplay() {
         "sizzling electric snaps, sudden boom, shuffling legs",
         "metallic tang, faint acrid smell, scorched hide",
       ],
-      unearthedBy: [
-        "Landslide during a massive thunderstorm.",
-        "Generational flood wiping out whole villages.",
-        "Earthquake toppling castle walls.",
-        "Collapse of a silver mine, forcing it to flee.",
-        "Lich's minions dug too deep.",
-        "Adventurers left an almost empty dungeon.",
-      ],
+      flavorTable: {
+        title: "Unearthed By",
+        items: [
+          "Landslide during a massive thunderstorm.",
+          "Generational flood wiping out whole villages.",
+          "Earthquake toppling castle walls.",
+          "Collapse of a silver mine, forcing it to flee.",
+          "Lich's minions dug too deep.",
+          "Adventurers left an almost empty dungeon.",
+        ],
+      },
     },
   ];
-
+  const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
   return (
     <div
       style={{
@@ -106,22 +112,17 @@ export default function MonsterDisplay() {
               <li key={i}>{detail}</li>
             ))}
           </ul>
-          {monster.hidingSpots && (
+          {monster.flavorTable && (
             <>
-              <h3 className="section-title">Hiding Spots</h3>
-              <ul className="hiding-spots">
-                {monster.hidingSpots.map((spot, i) => (
-                  <li key={i}>{spot}</li>
-                ))}
-              </ul>
-            </>
-          )}
-          {monster.unearthedBy && (
-            <>
-              <h3 className="section-title">Unearthed By</h3>
-              <ul className="hiding-spots">
-                {monster.unearthedBy.map((event, i) => (
-                  <li key={i}>{event}</li>
+              <h3 className="section-title">{monster.flavorTable.title}</h3>
+              <ul className="flavor-table">
+                {monster.flavorTable.items.map((item, i) => (
+                  <li key={i}>
+                    <span className="dice-face">
+                      {diceFaces[i % diceFaces.length]}
+                    </span>{" "}
+                    {item}
+                  </li>
                 ))}
               </ul>
             </>
