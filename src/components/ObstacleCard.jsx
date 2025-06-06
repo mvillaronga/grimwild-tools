@@ -1,5 +1,7 @@
 import React from "react";
 import "./ObstacleCard.css";
+import TraitBulletList from "./common/TraitBulletList";
+import MovesBulletList from "./common/MovesBulletList";
 
 export default function ObstacleCard({
   pool = "4",
@@ -23,16 +25,6 @@ export default function ObstacleCard({
       {word.slice(1)}
     </span>
   ));
-
-  // For moves: each word's first letter larger
-  function renderMove(move) {
-    return move.split(" ").map((word, i) => (
-      <span key={i} style={{ marginLeft: i === 0 ? 0 : "0.25em" }}>
-        <span className="initcap">{word.charAt(0)}</span>
-        <span className="move-rest">{word.slice(1)}</span>
-      </span>
-    ));
-  }
 
   // For fail: capitalize each word and first letter larger
   function renderFail(desc) {
@@ -75,19 +67,9 @@ export default function ObstacleCard({
         {challengeName}
       </div>
       <div className="section">
-        <ul className="traits">
-          {traits.map((trait, i) => (
-            <li key={i}>
-              <em>{trait}</em>
-            </li>
-          ))}
-        </ul>
+        <TraitBulletList traits={traits} />
         <hr className="divider" />
-        <ul className="moves">
-          {moves.map((move, i) => (
-            <li key={i}>{renderMove(move)}</li>
-          ))}
-        </ul>
+        <MovesBulletList moves={moves} />
         {showFail && <hr className="divider" />}
         {showFail && (
           <div className="fail">

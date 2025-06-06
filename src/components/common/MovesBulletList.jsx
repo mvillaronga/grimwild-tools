@@ -9,8 +9,8 @@ export default function MovesBulletList({ moves }) {
           <span className="move-icon">◉</span>{" "}
           {move.split(" ").map((word, j) => (
             <span key={j} style={{ marginLeft: j === 0 ? 0 : "0.25em" }}>
-              <span className="initcap">{word.charAt(0)}</span>
-              <span className="move-rest">{word.slice(1)}</span>
+              <span className="initcap">{word.charAt(0).toUpperCase()}</span>
+              <span className="move-rest">{word.slice(1).toUpperCase()}</span>
             </span>
           ))}
         </li>

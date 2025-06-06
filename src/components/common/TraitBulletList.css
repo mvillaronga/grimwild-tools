@@ -13,7 +13,7 @@
 .trait-icon {
   margin-right: 0.5rem;
   font-weight: bold;
-  color: #5c8a37; /* Example color for the icon */
+  color: inherit; /* Remove the explicit color to inherit from the surrounding text */
 }
 
 .trait-bullet-list em {

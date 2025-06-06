@@ -8,19 +8,21 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  text-transform: uppercase; /* Ensure all letters are capitalized */
+  font-size: 0.9em; /* Make the font size smaller */
 }
 
 .move-icon {
   margin-right: 0.5rem;
   font-weight: bold;
-  color: #007fff; /* Example color for the icon */
+  color: inherit; /* Match the color of the surrounding text */
 }
 
 .initcap {
-  font-size: 1.2em;
+  font-size: 1.1em; /* Slightly smaller for the first letter */
   font-weight: bold;
 }
 
 .move-rest {
-  font-size: 1em;
+  font-size: 0.9em; /* Match the smaller font size */
 }
