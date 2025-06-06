@@ -1,0 +1,28 @@
+.moves-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.moves-bullet-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase; /* Ensure all letters are capitalized */
+  font-size: 0.9em; /* Make the font size smaller */
+}
+
+.move-icon {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: inherit; /* Match the color of the surrounding text */
+}
+
+.initcap {
+  font-size: 1.1em; /* Slightly smaller for the first letter */
+  font-weight: bold;
+}
+
+.move-rest {
+  font-size: 0.9em; /* Match the smaller font size */
+}

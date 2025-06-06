@@ -1,4 +1,6 @@
 import React from "react";
+import TraitBulletList from "./common/TraitBulletList";
+import MovesBulletList from "./common/MovesBulletList";
 
 // All props are controlled from parent
 export default function ObstacleForm({
@@ -62,6 +64,7 @@ export default function ObstacleForm({
             style={{ width: "100%" }}
           />
         </label>
+        <TraitBulletList traits={traits.split("\n").filter(Boolean)} />
       </div>
       <div style={{ marginBottom: "1rem" }}>
         <label>
@@ -73,6 +76,7 @@ export default function ObstacleForm({
             style={{ width: "100%" }}
           />
         </label>
+        <MovesBulletList moves={moves.split("\n").filter(Boolean)} />
       </div>
       {/* Common header for Fail State */}
       <div style={{ fontWeight: 700, marginBottom: "0.25rem" }}>

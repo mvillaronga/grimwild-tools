@@ -62,7 +62,7 @@
 
   /* Divider below header/circles */
   hr.divider{
-    margin:1.2rem .5rem 0 .5rem;
+    margin:1rem 0; /* Adjusted spacing for evenness */
     border:0;
     border-top:1px solid #c9c4b4;
   }
