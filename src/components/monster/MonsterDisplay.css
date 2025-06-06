@@ -104,13 +104,13 @@ body {
   margin-bottom: 0.25rem;
 }
 
-em,
-strong {
-  font-weight: 700;
-}
-
 em {
   font-style: italic;
+  font-weight: normal; /* Default to normal weight for all em fields */
+}
+
+em.bold {
+  font-weight: 700; /* Apply bold styling only to elements with the "bold" class */
 }
 
 .sensory-clues {
@@ -166,4 +166,3 @@ em {
   text-align: center;
   line-height: 1; /* Reduced line height */
 }
- 

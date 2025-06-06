@@ -1,7 +1,8 @@
 import React from "react";
 import "./MonsterDisplay.css";
-import TraitBulletList from "./common/TraitBulletList";
-import MovesBulletList from "./common/MovesBulletList";
+import TraitBulletList from "../common/TraitBulletList";
+import MovesBulletList from "../common/MovesBulletList";
+import MonsterWants from "./MonsterWants";
 
 // Replace the import with hardcoded data if the file doesn't exist
 const diceFacesData = {
@@ -31,8 +32,8 @@ export default function MonsterDisplay() {
         "Spiny, eight-legged reptiles that lurk in forgotten, shadowy places. They patiently lay in wait to ambush prey, then feast on the petrified remains.",
       traits: ["Sluggish stealth", "Spiny hide", "Keen sense of smell"],
       moves: ["Petrifying Gaze", "Bite & Thrash", "Slink Away"],
-      wants: "Wants to munch on a delicious statue, later.",
-      dislikes: "Doesn't want light revealing its hiding places.",
+      wants: " to munch on a delicious statue, later.",
+      dislikes: " light revealing its hiding places.",
       sensoryDetails: {
         sight: "gleam of scales, slithering trails through dust",
         sound: "silence, rasping hiss, crunching of chewed stone",
@@ -107,15 +108,7 @@ export default function MonsterDisplay() {
             <TraitBulletList traits={monster.traits} />
             <MovesBulletList moves={monster.moves} />
           </section>
-          <p>
-            <em>
-              <strong>Wants</strong> {monster.wants}
-            </em>
-            <br />
-            <em>
-              <strong>Doesn't want</strong> {monster.dislikes}
-            </em>
-          </p>
+          <MonsterWants wants={monster.wants} dislikes={monster.dislikes} />
           <ul className="sensory-clues" style={{ textAlign: "left", paddingLeft: "0" }}>
             <li style={{ listStyleType: "none", display: "flex", alignItems: "center" }}>
               <img
