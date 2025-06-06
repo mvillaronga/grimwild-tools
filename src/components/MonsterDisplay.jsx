@@ -1,5 +1,7 @@
 import React from "react";
 import "./MonsterDisplay.css";
+import TraitBulletList from "./common/TraitBulletList";
+import MovesBulletList from "./common/MovesBulletList";
 
 // Replace the import with hardcoded data if the file doesn't exist
 const diceFacesData = {
@@ -102,18 +104,8 @@ export default function MonsterDisplay() {
           </div>
           <p className="description">{monster.description}</p>
           <section className="traits">
-            <ul className="left">
-              {monster.traits.map((trait, i) => (
-                <li key={i}>{trait}</li>
-              ))}
-            </ul>
-            <ul className="right">
-              {monster.moves.map((move, i) => (
-                <li key={i}>
-                  <strong>{move}</strong>
-                </li>
-              ))}
-            </ul>
+            <TraitBulletList traits={monster.traits} />
+            <MovesBulletList moves={monster.moves} />
           </section>
           <p>
             <em>
