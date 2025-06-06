@@ -10,6 +10,7 @@
   margin-bottom: 0.5rem;
   text-transform: uppercase; /* Ensure all letters are capitalized */
   font-size: 0.9em; /* Make the font size smaller */
+  font-weight: bold; /* Make the text heavier */
 }
 
 .move-icon {
@@ -20,7 +21,6 @@
 
 .initcap {
   font-size: 1.1em; /* Slightly smaller for the first letter */
-  font-weight: bold;
 }
 
 .move-rest {
