@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import ObstacleCard from "./components/ObstacleCard";
+import ChallengeCard from "./components/ChallengeCard";
 import html2canvas from "html2canvas";
-import ObstacleForm from "./components/ObstacleForm";
+import ChallengeForm from "./components/ChallengeForm";
 
 function App() {
   const cardRef = useRef(null);
@@ -87,7 +87,7 @@ function App() {
     <div>
       <h1>Grimwild Challenge Creator</h1>
       <div style={{ display: "flex", alignItems: "flex-start", gap: "2rem" }}>
-        <ObstacleForm
+        <ChallengeForm
           pool={pool}
           setPool={setPool}
           title={title}
@@ -103,7 +103,7 @@ function App() {
         />
         <div>
           <div ref={cardRef} style={{ display: "inline-block" }}>
-            <ObstacleCard
+            <ChallengeCard
               pool={pool}
               title={title}
               traits={traitsArr}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./ObstacleCard.css";
+import "./ChallengeCard.css";
 
 export default function ObstacleCard({
   pool = "4",
