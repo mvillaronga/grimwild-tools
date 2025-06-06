@@ -1,5 +1,5 @@
 import React from "react";
-import "./ObstacleCard.css";
+import "./ChallengeCard.css";
 import TraitBulletList from "./common/TraitBulletList";
 import MovesBulletList from "./common/MovesBulletList";
 
@@ -24,7 +24,7 @@ export default function ObstacleCard({
       <span className="initcap" style={{ verticalAlign: "baseline" }}>{word.charAt(0)}</span>
       {word.slice(1)}
     </span>
-  ));
+  )); 
 
   // For fail: capitalize each word and first letter larger
   function renderFail(desc) {
