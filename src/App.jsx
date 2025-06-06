@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChallengeBuilder from "./components/ChallengeBuilder";
+import MonsterBuilder from "./components/MonsterBuilder";
 
 function Tabs({ tabs, activeTab, setActiveTab }) {
   return (
@@ -40,7 +41,7 @@ function App() {
         setActiveTab={setActiveTab}
       />
       {activeTab === "Challenge" && <ChallengeBuilder />}
-      {activeTab === "Monsters" && <div>{/* Monster generator coming soon */}</div>}
+      {activeTab === "Monsters" && <MonsterBuilder />}
     </div>
   );
 }
