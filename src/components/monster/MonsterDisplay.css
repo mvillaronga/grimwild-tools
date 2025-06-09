@@ -11,20 +11,22 @@
 html,
 body {
   background: var(--paper);
-  margin: 0;
-  padding: 0; /* Remove padding to ensure consistent background */
-  font-family: "Lora", serif;
-  color: var(--ink);
-  line-height: 1.4;
+  margin: 0; /* Remove default browser margins */
+  padding: 0; /* Remove default browser padding */
+  display: flex; /* Center the content */
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  height: 100vh; /* Full viewport height */
 }
 
 .monster-block {
   max-width: 420px;
+  width: fit-content; /* Ensure the block is only as wide as its content */
   background: var(--paper);
-  border: 2px solid var(--ink); /* Reduced border thickness */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
-  padding: 1rem; /* Reduced padding */
-  margin: 0 auto; /* Center the block horizontally */
+  border: 2px solid var(--ink); /* Keep border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keep shadow */
+  padding: 0; /* No padding inside the block */
+  margin: 0; /* Remove all margins */
 }
 
 article.monster-block {
