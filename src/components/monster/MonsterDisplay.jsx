@@ -94,7 +94,7 @@ export default function MonsterDisplay({
                 <li key={i}>
                   <img
                     className="dice-face"
-                    src={`/images/dice_faces/dice_face_${(i % 6) + 1}.png`}
+                    src={`./images/dice_faces/dice_face_${(i % 6) + 1}.png`}
                     alt={`Dice ${i + 1}`}
                     style={{
                       width: "20px",
