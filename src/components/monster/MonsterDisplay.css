@@ -21,10 +21,10 @@ body {
 .monster-block {
   max-width: 420px;
   background: var(--paper);
-  border: 4px solid var(--ink);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  padding: 1.5rem;
-  margin: 0; /* Ensure no extra margin is added */
+  border: 2px solid var(--ink); /* Reduced border thickness */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
+  padding: 1rem; /* Reduced padding */
+  margin: 0 auto; /* Center the block horizontally */
 }
 
 article.monster-block {
@@ -53,20 +53,21 @@ article.monster-block {
 
 .color-bar {
   display: flex;
-  height: 10px; /* Doubled height from 5px */
-  margin: 0; /* Remove margin to make it flush with the title bar */
+  height: 8px; /* Reduced height */
+  margin: 0; /* Ensure no extra margin */
   border-top: 1px solid var(--ink);
 }
 
 .color-bar .segment {
   flex: 1;
   position: relative;
-  border: 1px solid var(--ink); /* Add black border */
+  border: 1px solid var(--ink); /* Keep consistent border */
 }
 
 .color-names {
   display: flex;
-  margin-top: 2px; /* Reduced spacing between the blocks and text */
+  margin-top: 4px; /* Slightly increased spacing for readability */
+  justify-content: space-between; /* Ensure even spacing */
 }
 
 .scaly-green {
@@ -90,8 +91,9 @@ article.monster-block {
 }
 
 .description {
-  margin-top: 0.5rem; /* Reduced spacing above the description */
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
+  text-align: justify; /* Align text for better readability */
 }
 
 .traits {
@@ -103,14 +105,6 @@ article.monster-block {
 .traits ul {
   margin: 0;
   padding-left: 1.4rem;
-}
-
-.traits ul.left {
-  list-style: "✶ ";
-}
-
-.traits ul.right {
-  list-style: "○ ";
 }
 
 .traits li {
@@ -174,8 +168,7 @@ em.bold {
 
 .flavor-table .dice-face {
   display: inline-block;
-  padding: 0.05rem 0.1rem; /* Reduced top and bottom padding */
-  margin-right: 0.3rem; /* Added padding to the right */
+  margin-right: 0.3rem;
   text-align: center;
-  line-height: 1; /* Reduced line height */
+  line-height: 1;
 }
