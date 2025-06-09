@@ -5,7 +5,12 @@ import MonsterForm from "./MonsterForm";
 export default function MonsterBuilder() {
   const [name, setName] = useState("Basilisk");
   const [type, setType] = useState("Lurker");
-  const [colors, setColors] = useState("scaly-green, mossy-brown, rocky-gray");
+  const [color1, setColor1] = useState("#6a8f3c");
+  const [label1, setLabel1] = useState("scaly green");
+  const [color2, setColor2] = useState("#756543");
+  const [label2, setLabel2] = useState("mossy brown");
+  const [color3, setColor3] = useState("#6e7678");
+  const [label3, setLabel3] = useState("rocky gray");
   const [description, setDescription] = useState(
     "Spiny, eight-legged reptiles that lurk in forgotten, shadowy places. They patiently lay in wait to ambush prey, then feast on the petrified remains."
   );
@@ -25,8 +30,18 @@ export default function MonsterBuilder() {
         setName={setName}
         type={type}
         setType={setType}
-        colors={colors}
-        setColors={setColors}
+        color1={color1}
+        setColor1={setColor1}
+        label1={label1}
+        setLabel1={setLabel1}
+        color2={color2}
+        setColor2={setColor2}
+        label2={label2}
+        setLabel2={setLabel2}
+        color3={color3}
+        setColor3={setColor3}
+        label3={label3}
+        setLabel3={setLabel3}
         description={description}
         setDescription={setDescription}
         traits={traits}
@@ -47,7 +62,8 @@ export default function MonsterBuilder() {
         <MonsterDisplay
           name={name}
           type={type}
-          colors={colors}
+          colors={`${label1}, ${label2}, ${label3}`}
+          colorHexes={[color1, color2, color3]} // Pass the hex values
           description={description}
           traits={traits}
           moves={moves}

@@ -1,12 +1,23 @@
 import React from "react";
+import ColorPicker from "../common/ColorPicker";
 
 export default function MonsterForm({
   name,
   setName,
   type,
   setType,
-  colors,
-  setColors,
+  color1,
+  setColor1,
+  label1,
+  setLabel1,
+  color2,
+  setColor2,
+  label2,
+  setLabel2,
+  color3,
+  setColor3,
+  label3,
+  setLabel3,
   description,
   setDescription,
   traits,
@@ -20,7 +31,7 @@ export default function MonsterForm({
   flavorTitle,
   setFlavorTitle,
   flavorItems,
-  setFlavorItems
+  setFlavorItems,
 }) {
   return (
     <form
@@ -31,7 +42,7 @@ export default function MonsterForm({
         padding: "1rem",
         maxWidth: 480,
         marginBottom: "2rem",
-        flex: "0 0 350px"
+        flex: "0 0 350px",
       }}
       onSubmit={(e) => e.preventDefault()}
     >
@@ -60,14 +71,35 @@ export default function MonsterForm({
       {/* Colors */}
       <div style={{ marginBottom: "1rem" }}>
         <label>
-          Colors (comma-separated)
-          <input
-            type="text"
-            value={colors}
-            onChange={(e) => setColors(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
-          />
+          <strong>Colors</strong>
         </label>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+            marginTop: "0.5rem",
+          }}
+        >
+          <ColorPicker
+            selectedColor={color1}
+            setSelectedColor={setColor1}
+            selectedLabel={label1}
+            setSelectedLabel={setLabel1}
+          />
+          <ColorPicker
+            selectedColor={color2}
+            setSelectedColor={setColor2}
+            selectedLabel={label2}
+            setSelectedLabel={setLabel2}
+          />
+          <ColorPicker
+            selectedColor={color3}
+            setSelectedColor={setColor3}
+            selectedLabel={label3}
+            setSelectedLabel={setLabel3}
+          />
+        </div>
       </div>
 
       {/* Description */}

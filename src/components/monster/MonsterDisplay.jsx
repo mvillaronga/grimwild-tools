@@ -8,13 +8,14 @@ export default function MonsterDisplay({
   name,
   type,
   colors,
+  colorHexes, // Add colorHexes prop
   description,
   traits,
   moves,
   wants,
   dislikes,
   flavorTitle,
-  flavorItems
+  flavorItems,
 }) {
   const colorArray = colors.split(",").map((color) => color.trim());
   const traitArray = traits.split("\n").filter(Boolean);
@@ -47,16 +48,15 @@ export default function MonsterDisplay({
         </span>
       </header>
       <div className="color-bar">
-        {colorArray.map((color, i) => (
+        {colorHexes.map((hex, i) => (
           <div
             key={i}
-            className={`segment ${color}`}
             style={{
-              position: "relative",
+              flex: 1,
+              backgroundColor: hex,
               border: "1px solid black",
               textAlign: "center",
             }}
-            title={color}
           ></div>
         ))}
       </div>
