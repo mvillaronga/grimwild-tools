@@ -89,7 +89,19 @@ export default function MonsterDisplay({
           <h3 className="section-title">{flavorTitle}</h3>
           <ul className="flavor-table">
             {flavorItemArray.map((item, i) => (
-              <li key={i}>{item}</li>
+              <li key={i}>
+                <img
+                  className="dice-face"
+                  src={`/images/dice_faces/dice_face_${(i % 6) + 1}.png`}
+                  alt={`Dice ${i + 1}`}
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    marginRight: "0.5rem",
+                  }}
+                />
+                {item}
+              </li>
             ))}
           </ul>
         </>
