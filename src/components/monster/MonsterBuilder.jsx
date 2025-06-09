@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MonsterDisplay from "./MonsterDisplay";
 import MonsterForm from "./MonsterForm";
+import ImageActionsWrapper from "../common/ImageActionsWrapper";
 
 export default function MonsterBuilder() {
   const [name, setName] = useState("Basilisk");
@@ -59,19 +60,21 @@ export default function MonsterBuilder() {
       />
       <div style={{ flex: 1 }}>
         <h2>Monster Builder</h2>
-        <MonsterDisplay
-          name={name}
-          type={type}
-          colors={`${label1}, ${label2}, ${label3}`}
-          colorHexes={[color1, color2, color3]} // Pass the hex values
-          description={description}
-          traits={traits}
-          moves={moves}
-          wants={wants}
-          dislikes={dislikes}
-          flavorTitle={flavorTitle}
-          flavorItems={flavorItems}
-        />
+        <ImageActionsWrapper filename={`${name}.png`}>
+          <MonsterDisplay
+            name={name}
+            type={type}
+            colors={`${label1}, ${label2}, ${label3}`}
+            colorHexes={[color1, color2, color3]} // Pass the hex values
+            description={description}
+            traits={traits}
+            moves={moves}
+            wants={wants}
+            dislikes={dislikes}
+            flavorTitle={flavorTitle}
+            flavorItems={flavorItems}
+          />
+        </ImageActionsWrapper>
       </div>
     </div>
   );
