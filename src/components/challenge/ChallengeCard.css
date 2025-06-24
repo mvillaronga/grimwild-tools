@@ -58,6 +58,8 @@ hr.divider{
 .section{
   padding:.75rem 1rem 1rem 1rem;
   font-size:1.2rem;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
 /* ✱ bullets for traits */
@@ -65,45 +67,61 @@ ul.traits{
   list-style:none;
   margin:.25rem 0 0;
   padding:0;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 ul.traits li{
   margin:.15rem 0;
   font-size:1.3rem;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 ul.traits li::before{
   content:"✱ ";
   font-weight:700;
   pointer-events: none;
   user-select: none;
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
-ul.traits em{font-style:italic;}
+ul.traits em{
+  font-style:italic;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  color: inherit !important; /* Ensure color inheritance */
+}
 
 /* ◉ bullets for moves */
 ul.moves{
   list-style:none;
   margin:.6rem 0 0;
   padding:0;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 ul.moves li{
   margin:.15rem 0;
   font-weight:900;
   text-transform:uppercase;
   font-size:1.0rem;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 /* Make first letter of each word in moves slightly bigger */
 ul.moves li .initcap {
   font-size:1.3em;
   vertical-align:baseline;
   display:inline-block;
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 ul.moves li .move-rest {
   font-size:1.0em;
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 ul.moves li::before{
   content:"◉ ";
   font-weight:700;
   pointer-events: none;
   user-select: none;
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 
 /* Failure line */
@@ -111,4 +129,7 @@ ul.moves li::before{
   margin-top:.6rem;
   font-weight:700;
   font-style:italic;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
+  color: inherit !important; /* Ensure color inheritance */
 }
