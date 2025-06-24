@@ -2,6 +2,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
 .moves-bullet-list li {
@@ -11,18 +13,23 @@
   text-transform: uppercase; /* Ensure all letters are capitalized */
   font-size: 0.9em; /* Make the font size smaller */
   font-weight: bold; /* Make the text heavier */
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
 .move-icon {
   margin-right: 0.5rem;
   font-weight: bold;
   color: inherit; /* Match the color of the surrounding text */
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 
 .initcap {
   font-size: 1.1em; /* Slightly smaller for the first letter */
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 
 .move-rest {
   font-size: 0.9em; /* Match the smaller font size */
+  visibility: visible !important; /* Force visibility for html2canvas */
 }

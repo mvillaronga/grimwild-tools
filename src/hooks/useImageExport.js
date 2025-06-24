@@ -46,10 +46,12 @@ export function useImageExport() {
         allowTaint: true,
         scale: window.devicePixelRatio || 2, // Higher scale for better quality
         logging: false,
-        width: targetElement.offsetWidth,
-        height: targetElement.offsetHeight,
+        width: targetElement.scrollWidth,
+        height: targetElement.scrollHeight,
         scrollX: 0,
         scrollY: 0,
+        x: 0,
+        y: 0,
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight,
         onclone: (clonedDoc) => {
@@ -59,7 +61,18 @@ export function useImageExport() {
             // Force styles that might not be captured properly
             clonedElement.style.borderRadius = '0.75rem';
             clonedElement.style.overflow = 'hidden';
+            clonedElement.style.display = 'inline-block';
+            clonedElement.style.margin = '0';
+            clonedElement.style.padding = '0';
           }
+
+          // Force visibility for all trait and move elements
+          const traitElements = clonedDoc.querySelectorAll('.trait-bullet-list, .trait-bullet-list li, .trait-icon, .moves-bullet-list, .moves-bullet-list li, .move-icon, .initcap, .move-rest');
+          traitElements.forEach(el => {
+            el.style.visibility = 'visible';
+            el.style.opacity = '1';
+            el.style.display = el.style.display || 'inherit';
+          });
         }
       });
 
@@ -125,10 +138,12 @@ export function useImageExport() {
         allowTaint: true,
         scale: window.devicePixelRatio || 2, // Higher scale for better quality
         logging: false,
-        width: targetElement.offsetWidth,
-        height: targetElement.offsetHeight,
+        width: targetElement.scrollWidth,
+        height: targetElement.scrollHeight,
         scrollX: 0,
         scrollY: 0,
+        x: 0,
+        y: 0,
         windowWidth: window.innerWidth,
         windowHeight: window.innerHeight,
         onclone: (clonedDoc) => {
@@ -138,7 +153,18 @@ export function useImageExport() {
             // Force styles that might not be captured properly
             clonedElement.style.borderRadius = '0.75rem';
             clonedElement.style.overflow = 'hidden';
+            clonedElement.style.display = 'inline-block';
+            clonedElement.style.margin = '0';
+            clonedElement.style.padding = '0';
           }
+
+          // Force visibility for all trait and move elements
+          const traitElements = clonedDoc.querySelectorAll('.trait-bullet-list, .trait-bullet-list li, .trait-icon, .moves-bullet-list, .moves-bullet-list li, .move-icon, .initcap, .move-rest');
+          traitElements.forEach(el => {
+            el.style.visibility = 'visible';
+            el.style.opacity = '1';
+            el.style.display = el.style.display || 'inherit';
+          });
         }
       });
 

@@ -9,6 +9,10 @@
   background:#f6f3eb;
   border-radius:.75rem;
   overflow:hidden;
+  margin: 0; /* Remove any margins for precise sizing */
+  padding: 0; /* Remove any padding for precise sizing */
+  width: fit-content; /* Ensure card is only as wide as content */
+  height: fit-content; /* Ensure card is only as tall as content */
 }
 
 /* Header block */
