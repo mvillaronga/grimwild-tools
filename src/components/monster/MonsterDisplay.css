@@ -24,9 +24,11 @@ body {
   width: fit-content; /* Ensure the block is only as wide as its content */
   background: var(--paper);
   border: 2px solid var(--ink); /* Keep border */
+  border-radius: 0.75rem; /* Add rounded corners */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keep shadow */
   padding: 0; /* No padding inside the block */
   margin: 0; /* Remove all margins */
+  overflow: hidden; /* Ensure content respects border radius */
 }
 
 article.monster-block {
@@ -102,6 +104,8 @@ article.monster-block {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
 .traits ul {

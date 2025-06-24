@@ -2,21 +2,27 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 
 .trait-bullet-list li {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  visibility: visible !important; /* Force visibility for html2canvas */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
 .trait-icon {
   margin-right: 0.5rem;
   font-weight: bold;
   color: inherit; /* Remove the explicit color to inherit from the surrounding text */
+  visibility: visible !important; /* Force visibility for html2canvas */
 }
 
 .trait-bullet-list em {
   font-style: italic;
   font-weight: 700; /* Ensure traits are bold */
+  color: inherit !important; /* Ensure color inheritance */
+  visibility: visible !important; /* Force visibility for html2canvas */
 }

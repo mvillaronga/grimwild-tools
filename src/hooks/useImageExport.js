@@ -39,11 +39,28 @@ export function useImageExport() {
         targetElement.style.backgroundColor = options.backgroundColor;
       }
 
-      // Generate canvas
+      // Generate canvas with improved options for better rendering
       const canvas = await html2canvas(targetElement, {
         backgroundColor: null,
         useCORS: true,
-        scale: window.devicePixelRatio || 1
+        allowTaint: true,
+        scale: window.devicePixelRatio || 2, // Higher scale for better quality
+        logging: false,
+        width: targetElement.offsetWidth,
+        height: targetElement.offsetHeight,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        onclone: (clonedDoc) => {
+          // Ensure all styles are properly applied in the cloned document
+          const clonedElement = clonedDoc.querySelector('.monster-block, .card');
+          if (clonedElement) {
+            // Force styles that might not be captured properly
+            clonedElement.style.borderRadius = '0.75rem';
+            clonedElement.style.overflow = 'hidden';
+          }
+        }
       });
 
       // Restore original background
@@ -101,11 +118,28 @@ export function useImageExport() {
         targetElement.style.backgroundColor = options.backgroundColor;
       }
 
-      // Generate canvas
+      // Generate canvas with improved options for better rendering
       const canvas = await html2canvas(targetElement, {
         backgroundColor: null,
         useCORS: true,
-        scale: window.devicePixelRatio || 1
+        allowTaint: true,
+        scale: window.devicePixelRatio || 2, // Higher scale for better quality
+        logging: false,
+        width: targetElement.offsetWidth,
+        height: targetElement.offsetHeight,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        onclone: (clonedDoc) => {
+          // Ensure all styles are properly applied in the cloned document
+          const clonedElement = clonedDoc.querySelector('.monster-block, .card');
+          if (clonedElement) {
+            // Force styles that might not be captured properly
+            clonedElement.style.borderRadius = '0.75rem';
+            clonedElement.style.overflow = 'hidden';
+          }
+        }
       });
 
       // Restore original background
