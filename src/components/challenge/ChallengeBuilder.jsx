@@ -1,122 +1,38 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import ChallengeCard from "./ChallengeCard";
 import ChallengeForm from "./ChallengeForm";
-import html2canvas from "html2canvas";
+import ImageActionsWrapper from "../common/ImageActionsWrapper";
+import { useChallengeState } from "../../hooks/useChallengeState";
+import styles from "./ChallengeBuilder.module.css";
 
 export default function ChallengeBuilder() {
-  const cardRef = useRef(null);
+  const challengeState = useChallengeState();
 
-  // State for challenge data
-  const [pool, setPool] = useState("4");
-  const [title, setTitle] = useState("Goblin Raider");
-  const [traits, setTraits] = useState("Sneaky\nCowardly");
-  const [moves, setMoves] = useState("Ambush\nPack Tactics\nFlee into Shadows");
-  const [failPool, setFailPool] = useState("3");
-  const [failDesc, setFailDesc] = useState("Goblins Scatter");
-
-  const handleCopyImage = async () => {
-    if (!cardRef.current) return;
-    const cardElem = cardRef.current.querySelector(".card");
-    if (!cardElem) return;
-    const prevBg = cardElem.style.backgroundColor;
-    cardElem.style.backgroundColor = "#f6f3eb";
-    const canvas = await html2canvas(cardElem, {
-      backgroundColor: null,
-      useCORS: true,
-      scale: window.devicePixelRatio || 1
-    });
-    cardElem.style.backgroundColor = prevBg;
-    canvas.toBlob(async (blob) => {
-      if (blob && navigator.clipboard && window.ClipboardItem) {
-        try {
-          await navigator.clipboard.write([
-            new window.ClipboardItem({ "image/png": blob })
-          ]);
-          alert("Card image copied to clipboard!");
-        } catch (err) {
-          alert("Failed to copy image to clipboard.");
-        }
-      } else {
-        alert("Clipboard image copy not supported in this browser.");
-      }
-    }, "image/png");
-  };
-
-  const handleDownloadImage = async () => {
-    if (!cardRef.current) return;
-    const cardElem = cardRef.current.querySelector(".card");
-    if (!cardElem) return;
-    const prevBg = cardElem.style.backgroundColor;
-    cardElem.style.backgroundColor = "#f6f3eb";
-    const canvas = await html2canvas(cardElem, {
-      backgroundColor: null,
-      useCORS: true,
-      scale: window.devicePixelRatio || 1
-    });
-    cardElem.style.backgroundColor = prevBg;
-    canvas.toBlob((blob) => {
-      if (blob) {
-        const url = URL.createObjectURL(blob);
-        const sanitize = (str) =>
-          str
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/gi, "_")
-            .replace(/^_+|_+$/g, "")
-            .replace(/_+/g, "_");
-        const filename = `${sanitize(title) || "grimwild-challenge"}.png`;
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      } else {
-        alert("Failed to generate image.");
-      }
-    }, "image/png");
-  };
-
-  // Parse traits and moves from textarea
-  const traitsArr = traits.split("\n").map(t => t.trim()).filter(Boolean);
-  const movesArr = moves.split("\n").map(m => m.trim()).filter(Boolean);
+  const sanitize = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/gi, "_")
+      .replace(/^_+|_+$/g, "")
+      .replace(/_+/g, "_");
+  const filename = `${sanitize(challengeState.title) || "grimwild-challenge"}.png`;
 
   return (
-    <div>
-      <div style={{ display: "flex", alignItems: "flex-start", gap: "2rem" }}>
-        <ChallengeForm
-          pool={pool}
-          setPool={setPool}
-          title={title}
-          setTitle={setTitle}
-          traits={traits}
-          setTraits={setTraits}
-          moves={moves}
-          setMoves={setMoves}
-          failPool={failPool}
-          setFailPool={setFailPool}
-          failDesc={failDesc}
-          setFailDesc={setFailDesc}
-        />
+    <div className={styles.container}>
+      <div className={styles.builderLayout}>
+        <ChallengeForm {...challengeState} />
         <div>
-          <div ref={cardRef} style={{ display: "inline-block" }}>
+          <ImageActionsWrapper filename={filename}>
             <ChallengeCard
-              pool={pool}
-              title={title}
-              traits={traitsArr}
-              moves={movesArr}
-              failPool={failPool}
-              failDesc={failDesc}
+              pool={challengeState.pool}
+              title={challengeState.title}
+              traits={challengeState.traitsArr}
+              moves={challengeState.movesArr}
+              failPool={challengeState.failPool}
+              failDesc={challengeState.failDesc}
             />
-          </div>
+          </ImageActionsWrapper>
         </div>
       </div>
-      <button onClick={handleCopyImage} style={{ marginTop: "1rem", marginRight: "0.5rem" }}>
-        Copy Card as Image
-      </button>
-      <button onClick={handleDownloadImage} style={{ marginTop: "1rem" }}>
-        Download Card as Image
-      </button>
     </div>
   );
 }

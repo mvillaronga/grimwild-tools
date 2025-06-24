@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { monsterColourHex } from "./colors";
+import styles from "./ColorPicker.module.css";
 
 export default function ColorPicker({ selectedColor, setSelectedColor, selectedLabel, setSelectedLabel }) {
   const [customColor, setCustomColor] = useState("");
@@ -52,102 +53,47 @@ export default function ColorPicker({ selectedColor, setSelectedColor, selectedL
   });
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }} ref={dropdownRef}>
+    <div className={styles.container} ref={dropdownRef}>
       <div>
         <button
           onClick={() => setShowPopup(!showPopup)}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            width: "100%",
-            height: "40px",
-            backgroundColor: "#fff",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            cursor: "pointer",
-            marginTop: "0.5rem",
-            padding: "0.5rem",
-          }}
+          className={styles.pickerButton}
         >
           <div
-            style={{
-              width: "30px",
-              height: "30px",
-              backgroundColor: selectedColor,
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-            }}
+            className={styles.colorSwatch}
+            style={{ backgroundColor: selectedColor }}
           />
           <input
-            ref={labelInputRef} // Attach ref to the input
+            ref={labelInputRef}
             type="text"
             value={selectedLabel}
             onChange={(e) => setSelectedLabel(e.target.value)}
             placeholder="Enter color name"
-            style={{
-              flex: 1,
-              border: "none",
-              outline: "none",
-              fontSize: "0.9rem",
-              color: "#333",
-              background: "transparent",
-            }}
+            className={styles.labelInput}
           />
         </button>
         {showPopup && (
-          <div
-            style={{
-              position: "absolute",
-              background: "#fff",
-              border: "1px solid #ccc",
-              borderRadius: "4px",
-              padding: "0.5rem",
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))",
-              gap: "0.5rem",
-              marginTop: "0.5rem",
-              maxHeight: "200px", // Add scroll for the color selection
-              overflowY: "auto",
-              zIndex: 1000,
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <div className={styles.popup}>
+            <div className={styles.colorOption}>
               <input
                 type="color"
-                value={selectedColor} // Always return the currently selected color
+                value={selectedColor}
                 onChange={handleCustomColorChange}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  border: "1px solid #ccc",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                }}
+                className={styles.customColorInput}
               />
-              <span style={{ fontSize: "0.9rem", color: "#333" }}>Custom Color</span>
+              <span className={styles.customColorLabel}>Custom Color</span>
             </div>
             {sortedColors.map(([label, hex]) => (
               <div
                 key={label}
                 onClick={() => handlePresetSelect(label)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  cursor: "pointer",
-                }}
+                className={styles.colorOption}
               >
                 <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    backgroundColor: hex,
-                    border: "1px solid #ccc",
-                    borderRadius: "4px",
-                  }}
+                  className={styles.colorOptionSwatch}
+                  style={{ backgroundColor: hex }}
                 />
-                <span style={{ fontSize: "0.9rem", color: "#333" }}>{label}</span>
+                <span className={styles.colorOptionLabel}>{label}</span>
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { downloadComponentAsImage, copyComponentAsImageToClipboard } from "./DownloadImage";
+import styles from "./ImageActionsWrapper.module.css";
 
 export default function ImageActionsWrapper({ children, filename = "download.png" }) {
   const wrapperRef = useRef(null);
@@ -13,32 +14,18 @@ export default function ImageActionsWrapper({ children, filename = "download.png
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className={styles.wrapper}>
       <div ref={wrapperRef}>{children}</div>
-      <div style={{ marginTop: "1rem", display: "flex", gap: "0.5rem" }}>
+      <div className={styles.actionsContainer}>
         <button
           onClick={handleDownload}
-          style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#007fff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className={`${styles.actionButton} ${styles.downloadButton}`}
         >
           Download as Image
         </button>
         <button
           onClick={handleCopyToClipboard}
-          style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#28a745",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className={`${styles.actionButton} ${styles.copyButton}`}
         >
           Copy to Clipboard
         </button>

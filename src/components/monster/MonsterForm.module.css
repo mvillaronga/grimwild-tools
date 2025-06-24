@@ -1,0 +1,83 @@
+/* Monster form styles */
+.form {
+  background: #f6f3eb;
+  border: 1px solid #c9c4b4;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  max-width: 480px;
+  margin-bottom: 2rem;
+  flex: 0 0 350px;
+}
+
+.fieldGroup {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin: 0;
+}
+
+.labelSpaced {
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.labelText {
+  font-size: 0.95em;
+  color: #3d2e2a;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.textInput {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c4b4;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: #a49689;
+  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+}
+
+.textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c4b4;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #a49689;
+  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+}
+
+.sectionTitle {
+  font-weight: 700;
+  color: #3d2e2a;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.colorSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}

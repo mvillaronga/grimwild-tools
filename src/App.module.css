@@ -1,0 +1,46 @@
+/* App component styles */
+.app {
+  padding: 1rem;
+}
+
+.title {
+  font-family: "Arvo", serif;
+  color: #3d2e2a;
+  margin-bottom: 1rem;
+}
+
+/* Tab navigation styles */
+.tabContainer {
+  margin-bottom: 1.5rem;
+}
+
+.tabBar {
+  display: flex;
+  border-bottom: 2px solid #c9c4b4;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 400;
+  font-size: 1.1em;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background: rgba(237, 233, 221, 0.5);
+}
+
+.tab.active {
+  background: #ede9dd;
+  border-bottom-color: #3d2e2a;
+  font-weight: 700;
+}
+
+.tabContent {
+  margin-top: 1rem;
+}

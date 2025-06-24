@@ -1,0 +1,79 @@
+/* Form field component styles */
+.formField {
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  color: #3d2e2a;
+}
+
+.labelText {
+  font-size: 0.95em;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.required {
+  color: #d32f2f;
+  margin-left: 0.25rem;
+}
+
+/* Input field styles */
+.textInput {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c4b4;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: #a49689;
+  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+}
+
+.numberInput {
+  width: 2.5em;
+  text-align: center;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c4b4;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.numberInput:focus {
+  outline: none;
+  border-color: #a49689;
+  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+}
+
+.textareaInput {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid #c9c4b4;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+  transition: border-color 0.2s ease;
+  min-height: 3rem;
+}
+
+.textareaInput:focus {
+  outline: none;
+  border-color: #a49689;
+  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+}

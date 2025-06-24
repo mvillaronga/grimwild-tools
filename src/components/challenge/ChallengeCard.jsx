@@ -3,7 +3,7 @@ import "./ChallengeCard.css";
 import TraitBulletList from "../common/TraitBulletList";
 import MovesBulletList from "../common/MovesBulletList";
 
-export default function ObstacleCard({
+export default function ChallengeCard({
   pool = "4",
   title = "Goblin Raider",
   traits = ["Sneaky", "Cowardly"],
@@ -38,8 +38,8 @@ export default function ObstacleCard({
       ));
   }
 
-  // Only show fail state if both failPool and failDesc are provided and non-empty
-  const showFail = !!(failPool && failDesc && String(failDesc).trim());
+  // Only show fail state if failPool > 0 and failDesc is provided and non-empty
+  const showFail = !!(failPool && Number(failPool) > 0 && failDesc && String(failDesc).trim());
 
   return (
     <div className="card">

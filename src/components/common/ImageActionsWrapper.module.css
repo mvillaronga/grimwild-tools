@@ -1,0 +1,49 @@
+/* Image actions wrapper styles */
+.wrapper {
+  position: relative;
+}
+
+.actionsContainer {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.downloadButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.downloadButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.copyButton {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.copyButton:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.actionButton:active {
+  transform: translateY(0);
+}

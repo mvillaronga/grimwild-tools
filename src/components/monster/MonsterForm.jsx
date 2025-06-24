@@ -1,5 +1,6 @@
 import React from "react";
 import ColorPicker from "../common/ColorPicker";
+import styles from "./MonsterForm.module.css";
 
 export default function MonsterForm({
   name,
@@ -35,52 +36,37 @@ export default function MonsterForm({
 }) {
   return (
     <form
-      style={{
-        background: "#f6f3eb",
-        border: "1px solid #c9c4b4",
-        borderRadius: ".75rem",
-        padding: "1rem",
-        maxWidth: 480,
-        marginBottom: "2rem",
-        flex: "0 0 350px",
-      }}
+      className={styles.form}
       onSubmit={(e) => e.preventDefault()}
     >
       {/* Monster Name and Type */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          <span style={{ fontSize: "0.95em" }}>Name</span>
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Name</span>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textInput}
           />
         </label>
-        <label style={{ marginTop: "0.5rem", display: "block" }}>
-          <span style={{ fontSize: "0.95em" }}>Type</span>
+        <label className={styles.labelSpaced}>
+          <span className={styles.labelText}>Type</span>
           <input
             type="text"
             value={type}
             onChange={(e) => setType(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textInput}
           />
         </label>
       </div>
 
       {/* Colors */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          <strong>Colors</strong>
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.sectionTitle}>Colors</span>
         </label>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            marginTop: "0.5rem",
-          }}
-        >
+        <div className={styles.colorSection}>
           <ColorPicker
             selectedColor={color1}
             setSelectedColor={setColor1}
@@ -103,84 +89,84 @@ export default function MonsterForm({
       </div>
 
       {/* Description */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Description
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Description</span>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={3}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textarea}
           />
         </label>
       </div>
 
       {/* Traits */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Traits (one per line)
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Traits (one per line)</span>
           <textarea
             value={traits}
             onChange={(e) => setTraits(e.target.value)}
             rows={3}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textarea}
           />
         </label>
       </div>
 
       {/* Moves */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Moves (one per line)
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Moves (one per line)</span>
           <textarea
             value={moves}
             onChange={(e) => setMoves(e.target.value)}
             rows={3}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textarea}
           />
         </label>
       </div>
 
       {/* Wants and Dislikes */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Wants
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Wants</span>
           <input
             type="text"
             value={wants}
             onChange={(e) => setWants(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textInput}
           />
         </label>
-        <label style={{ marginTop: "0.5rem", display: "block" }}>
-          Doesn't Want
+        <label className={styles.labelSpaced}>
+          <span className={styles.labelText}>Doesn't Want</span>
           <input
             type="text"
             value={dislikes}
             onChange={(e) => setDislikes(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textInput}
           />
         </label>
       </div>
 
       {/* Flavor Table */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label>
-          Flavor Table Title
+      <div className={styles.fieldGroup}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>Flavor Table Title</span>
           <input
             type="text"
             value={flavorTitle}
             onChange={(e) => setFlavorTitle(e.target.value)}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textInput}
           />
         </label>
-        <label style={{ marginTop: "0.5rem", display: "block" }}>
-          Flavor Table Items (one per line)
+        <label className={styles.labelSpaced}>
+          <span className={styles.labelText}>Flavor Table Items (one per line)</span>
           <textarea
             value={flavorItems}
             onChange={(e) => setFlavorItems(e.target.value)}
             rows={6}
-            style={{ width: "100%", marginTop: "0.25rem" }}
+            className={styles.textarea}
           />
         </label>
       </div>
