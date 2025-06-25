@@ -38,21 +38,28 @@ export default function MonsterDisplay({
       </header>
       
       {colorHexes.length > 0 && (
-        <div className="color-bar">
-          {colorHexes.map((hex, i) => (
-            <div
-              key={i}
-              className="color-segment"
-              style={{
-                backgroundColor: hex,
-              }}
-            >
-              {colorArray[i] && (
-                <span className="color-label">{colorArray[i]}</span>
-              )}
+        <>
+          <div className="color-bar">
+            {colorHexes.map((hex, i) => (
+              <div
+                key={i}
+                className="color-segment"
+                style={{
+                  backgroundColor: hex,
+                }}
+              />
+            ))}
+          </div>
+          {colorArray.some(label => label) && (
+            <div className="color-labels">
+              {colorHexes.map((hex, i) => (
+                <span key={i} className="color-label">
+                  {colorArray[i] || ''}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          )}
+        </>
       )}
       
       {description && (

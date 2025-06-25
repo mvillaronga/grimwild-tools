@@ -43,34 +43,36 @@
 
 .color-bar {
   display: flex;
-  height: 40px;
+  height: 10px;
   border-bottom: 2px solid var(--ink);
 }
 
 .color-segment {
   flex: 1;
   border-right: 1px solid var(--ink);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
 }
 
 .color-segment:last-child {
   border-right: none;
 }
 
+.color-labels {
+  display: flex;
+  padding: 0.25rem 1.5rem 0.25rem;
+  font-size: 0.425rem;
+  color: #000;
+  line-height: 1.2;
+}
+
 .color-label {
-  font-size: 0.8rem;
-  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  font-weight: 400;
   text-transform: uppercase;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-  letter-spacing: 0.05em;
 }
 
 .description {
-  padding: 1rem 1.5rem 0.5rem;
+  padding: 0.5rem 1.5rem 0.5rem;
   margin: 0;
   line-height: 1.5;
 }
