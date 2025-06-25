@@ -1,12 +1,24 @@
 import { useState, useMemo } from 'react';
 
+// Default data for local development
+const isDevelopment = import.meta.env.DEV;
+
+const defaultChallengeData = {
+  pool: '6',
+  title: 'Goblin Ambush',
+  traits: 'Sneaky\nCowardly\nPack Tactics',
+  moves: 'Surprise Attack\nFlee when outnumbered\nCall for reinforcements',
+  failPool: '3',
+  failDesc: 'Goblins scatter and regroup'
+};
+
 export function useChallengeState() {
-  const [pool, setPool] = useState('4');
-  const [title, setTitle] = useState('');
-  const [traits, setTraits] = useState('');
-  const [moves, setMoves] = useState('');
-  const [failPool, setFailPool] = useState('0');
-  const [failDesc, setFailDesc] = useState('');
+  const [pool, setPool] = useState(isDevelopment ? defaultChallengeData.pool : '4');
+  const [title, setTitle] = useState(isDevelopment ? defaultChallengeData.title : '');
+  const [traits, setTraits] = useState(isDevelopment ? defaultChallengeData.traits : '');
+  const [moves, setMoves] = useState(isDevelopment ? defaultChallengeData.moves : '');
+  const [failPool, setFailPool] = useState(isDevelopment ? defaultChallengeData.failPool : '0');
+  const [failDesc, setFailDesc] = useState(isDevelopment ? defaultChallengeData.failDesc : '');
 
   // Convert text inputs to arrays for display
   const traitsArr = useMemo(() => {
