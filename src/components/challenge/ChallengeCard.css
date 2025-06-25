@@ -1,139 +1,89 @@
-/* Google Font similar to Tiller: Arvo Bold (free) */
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
-
-/* Card - auto width based on content */
-.card{
-  display:inline-block;
-  border:1px solid #c9c4b4;
-  box-shadow:0 2px 4px rgba(0,0,0,.25);
-  background:#f6f3eb;
-  border-radius:.75rem;
-  overflow:hidden;
-  margin: 0; /* Remove any margins for precise sizing */
-  padding: 0; /* Remove any padding for precise sizing */
-  width: fit-content; /* Ensure card is only as wide as content */
-  height: fit-content; /* Ensure card is only as tall as content */
+/* Challenge Card Styles */
+.challenge-card {
+  max-width: 420px;
+  width: fit-content;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Libre Baskerville", serif;
+  color: var(--ink);
+  line-height: 1.4;
 }
 
-/* Header block */
-.header{
-  position:relative;
-  background:#a49689;
-  color: #000;
-  margin:.5rem .5rem 0 .5rem;
-  padding:.6rem 1rem;
-  border-top-left-radius:.75rem;
-  border-top-right-radius:.75rem;
-  font-family:'Arvo',serif;
-  font-size:1.2rem;
-  font-weight:700;
-  letter-spacing:.02em;
-  text-transform:uppercase;
+.challenge-header {
+  display: flex;
+  align-items: center;
+  background: var(--ink);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: "Cinzel", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
 
-/* Slightly larger first letter of each word in header */
-.header .initcap {
-  font-size:1.5em;
-  vertical-align:-0.1em;
-  letter-spacing:normal;
-  display:inline-block;
+.pool-display {
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
-/* two hollow circles, right‑justified & vertically centred at header bottom */
-.header::after{
-  content:"○○";
-  position:absolute;
-  right:.5rem;
-  bottom:-.6rem;
-  transform:translateY(50%);
-  font-family:'Arvo',serif;
-  font-size:1.4rem;
-  color:#3d2e2a;
+.divider {
+  font-size: 2rem !important;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  opacity: 0.6;
 }
 
-/* Divider below header/circles */
-hr.divider{
-  margin:1rem 0; /* Adjusted spacing for evenness */
-  border:0;
-  border-top:1px solid #c9c4b4;
+.initcap {
+  font-size: 1.8em;
+  line-height: 0.8;
+  font-weight: 700;
+  margin-right: 0.05em;
 }
 
-/* Main section */
-.section{
-  padding:.75rem 1rem 1rem 1rem;
-  font-size:1.2rem;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
+.section {
+  padding: 1rem 1.5rem;
 }
 
-/* ✱ bullets for traits */
-ul.traits{
-  list-style:none;
-  margin:.25rem 0 0;
-  padding:0;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-}
-ul.traits li{
-  margin:.15rem 0;
-  font-size:1.3rem;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-}
-ul.traits li::before{
-  content:"✱ ";
-  font-weight:700;
-  pointer-events: none;
-  user-select: none;
-  visibility: visible !important; /* Force visibility for html2canvas */
-}
-ul.traits em{
-  font-style:italic;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  color: inherit !important; /* Ensure color inheritance */
+.section hr.divider {
+  border: none;
+  border-top: 2px solid var(--ink);
+  margin: 0.75rem 0;
+  opacity: 0.3;
 }
 
-/* ◉ bullets for moves */
-ul.moves{
-  list-style:none;
-  margin:.6rem 0 0;
-  padding:0;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-}
-ul.moves li{
-  margin:.15rem 0;
-  font-weight:900;
-  text-transform:uppercase;
-  font-size:1.0rem;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-}
-/* Make first letter of each word in moves slightly bigger */
-ul.moves li .initcap {
-  font-size:1.3em;
-  vertical-align:baseline;
-  display:inline-block;
-  visibility: visible !important; /* Force visibility for html2canvas */
-}
-ul.moves li .move-rest {
-  font-size:1.0em;
-  visibility: visible !important; /* Force visibility for html2canvas */
-}
-ul.moves li::before{
-  content:"◉ ";
-  font-weight:700;
-  pointer-events: none;
-  user-select: none;
-  visibility: visible !important; /* Force visibility for html2canvas */
+.fail {
+  font-weight: 700;
+  color: #b33c25;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* Failure line */
-.fail{
-  margin-top:.6rem;
-  font-weight:700;
-  font-style:italic;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-  color: inherit !important; /* Ensure color inheritance */
+.fail span {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Ensure consistent styling for bullet lists */
+.challenge-card .trait-list,
+.challenge-card .moves-list {
+  margin: 0;
+  padding: 0;
+}
+
+.challenge-card .trait-list li,
+.challenge-card .moves-list li {
+  margin-bottom: 0.25rem;
+}
+
+.challenge-card .trait-list li:last-child,
+.challenge-card .moves-list li:last-child {
+  margin-bottom: 0;
 }

@@ -1,39 +1,17 @@
-:root {
-  --paper: #f7f4ef;
-  --ink: #221f1a;
-  --scaly-green: #5c8a37;
-  --mossy-brown: #8a6a3a;
-  --rocky-gray: #7f807b;
-  --stormy-gray: #6b6b6b;
-  --azure-blue: #007fff;
-}
-
-html,
-body {
-  background: var(--paper);
-  margin: 0; /* Remove default browser margins */
-  padding: 0; /* Remove default browser padding */
-  display: flex; /* Center the content */
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  height: 100vh; /* Full viewport height */
-}
-
+/* Monster Display Styles */
 .monster-block {
   max-width: 420px;
-  width: fit-content; /* Ensure the block is only as wide as its content */
+  width: fit-content;
   background: var(--paper);
-  border: 2px solid var(--ink); /* Keep border */
-  border-radius: 0.75rem; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keep shadow */
-  padding: 0; /* No padding inside the block */
-  margin: 0; /* Remove all margins */
-  overflow: hidden; /* Ensure content respects border radius */
-}
-
-article.monster-block {
-  display: block;
-  box-sizing: border-box; /* Ensure consistent box sizing */
+  border: 4px solid var(--ink);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Libre Baskerville", serif;
+  color: var(--ink);
+  line-height: 1.4;
 }
 
 .monster-header {
@@ -41,140 +19,119 @@ article.monster-block {
   justify-content: space-between;
   align-items: center;
   background: var(--ink);
-  color: #fff;
-  padding: 0.25rem 0.5rem;
+  color: white;
+  padding: 0.5rem 1rem;
   font-family: "Cinzel", serif;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: 1.25rem;
+  font-weight: 700;
 }
 
-.monster-header .monster-role {
-  font-size: 0.9rem;
+.monster-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.monster-role {
+  font-size: 1rem;
+  font-weight: bold;
   opacity: 0.8;
-  white-space: nowrap;
 }
 
 .color-bar {
   display: flex;
-  height: 8px; /* Reduced height */
-  margin: 0; /* Ensure no extra margin */
-  border-top: 1px solid var(--ink);
+  height: 40px;
+  border-bottom: 2px solid var(--ink);
 }
 
-.color-bar .segment {
+.color-segment {
   flex: 1;
-  position: relative;
-  border: 1px solid var(--ink); /* Keep consistent border */
-}
-
-.color-names {
+  border-right: 1px solid var(--ink);
   display: flex;
-  margin-top: 4px; /* Slightly increased spacing for readability */
-  justify-content: space-between; /* Ensure even spacing */
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-.scaly-green {
-  background: var(--scaly-green);
+.color-segment:last-child {
+  border-right: none;
 }
 
-.mossy-brown {
-  background: var(--mossy-brown);
-}
-
-.rocky-gray {
-  background: var(--rocky-gray);
-}
-
-.stormy-gray {
-  background: var(--stormy-gray);
-}
-
-.azure-blue {
-  background: var(--azure-blue);
+.color-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.05em;
 }
 
 .description {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  text-align: justify; /* Align text for better readability */
+  padding: 1rem 1.5rem 0.5rem;
+  margin: 0;
+  font-style: italic;
+  line-height: 1.5;
 }
 
 .traits {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
-}
-
-.traits ul {
-  margin: 0;
-  padding-left: 1.4rem;
-}
-
-.traits li {
-  margin-bottom: 0.25rem;
-}
-
-em {
-  font-style: italic;
-  font-weight: normal; /* Default to normal weight for all em fields */
-}
-
-em.bold {
-  font-weight: 700; /* Apply bold styling only to elements with the "bold" class */
-}
-
-.sensory-clues {
-  list-style: "☸ ";
-  padding-left: 1.4rem;
-  margin: 0.6rem 0 1.1rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .section-title {
   font-family: "Cinzel", serif;
-  letter-spacing: 0.05em;
+  font-size: 1.1rem;
+  font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.95rem;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 0.15rem;
-  margin: 1.25rem 0 0.35rem;
-}
-
-.hiding-spots {
-  list-style: "▣ ";
-  padding-left: 1.4rem;
-  margin: 0;
-}
-
-.hiding-spots li {
-  margin: 0.4rem 0;
-}
-
-.hiding-spots li:nth-child(even) {
-  background: rgba(0, 0, 0, 0.08);
-}
-
-.hiding-spots em {
-  font-style: italic;
+  letter-spacing: 0.05em;
+  margin: 1rem 1.5rem 0.5rem;
+  color: var(--ink);
 }
 
 .flavor-table {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
+  margin: 0 1.5rem 1rem;
+  padding: 0;
 }
 
-.flavor-table li {
+.flavor-item {
   display: flex;
   align-items: center;
-  margin: 0.4rem 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
-.flavor-table .dice-face {
-  display: inline-block;
-  margin-right: 0.3rem;
-  text-align: center;
-  line-height: 1;
+.flavor-item:last-child {
+  margin-bottom: 0;
+}
+
+.dice-face {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Monster wants section */
+.monster-wants {
+  padding: 0.5rem 1.5rem 1rem;
+  font-style: italic;
+}
+
+.monster-wants .bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Ensure consistent styling for bullet lists within monster block */
+.monster-block .trait-list,
+.monster-block .moves-list {
+  margin-bottom: 0.75rem;
+}
+
+.monster-block .trait-list:last-child,
+.monster-block .moves-list:last-child {
+  margin-bottom: 0;
 }

@@ -1,9 +1,0 @@
-.dice-faces-group {
-  display: flex;
-  gap: 10px;
-}
-
-.dice-face {
-  width: 24px;
-  height: 24px;
-}

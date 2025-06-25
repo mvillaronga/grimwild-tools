@@ -8,13 +8,22 @@ import styles from "./MonsterBuilder.module.css";
 export default function MonsterBuilder() {
   const monsterState = useMonsterState();
 
+  const sanitize = (str) =>
+    str
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/gi, "_")
+      .replace(/^_+|_+$/g, "")
+      .replace(/_+/g, "_");
+  
+  const filename = `${sanitize(monsterState.name) || "grimwild-monster"}.png`;
+
   return (
     <div className={styles.container}>
       <div className={styles.builderLayout}>
         <MonsterForm {...monsterState} />
         <div className={styles.displayContainer}>
           <h2 className={styles.title}>Monster Builder</h2>
-          <ImageActionsWrapper filename={`${monsterState.name}.png`}>
+          <ImageActionsWrapper filename={filename}>
             <MonsterDisplay
               name={monsterState.name}
               type={monsterState.type}

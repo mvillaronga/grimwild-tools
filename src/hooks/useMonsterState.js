@@ -1,69 +1,70 @@
-import { useState } from "react";
+import { useState, useMemo } from 'react';
+import { monsterColourHex } from '../utils/colors';
 
 export function useMonsterState() {
-  const [name, setName] = useState("Basilisk");
-  const [type, setType] = useState("Lurker");
-  const [color1, setColor1] = useState("#6a8f3c");
-  const [label1, setLabel1] = useState("scaly green");
-  const [color2, setColor2] = useState("#756543");
-  const [label2, setLabel2] = useState("mossy brown");
-  const [color3, setColor3] = useState("#6e7678");
-  const [label3, setLabel3] = useState("rocky gray");
-  const [description, setDescription] = useState(
-    "Spiny, eight-legged reptiles that lurk in forgotten, shadowy places. They patiently lay in wait to ambush prey, then feast on the petrified remains."
-  );
-  const [traits, setTraits] = useState("Sluggish stealth\nSpiny hide\nKeen sense of smell");
-  const [moves, setMoves] = useState("Petrifying Gaze\nBite & Thrash\nSlink Away");
-  const [wants, setWants] = useState("to munch on a delicious statue, later.");
-  const [dislikes, setDislikes] = useState("light revealing its hiding places.");
-  const [flavorTitle, setFlavorTitle] = useState("Hiding Spots");
-  const [flavorItems, setFlavorItems] = useState(
-    "Beneath a crumbling, but still-used bridge.\nWithin the rotting carcass of a fallen dragon.\nOn the fifth floor of a derelict watchtower.\nIn a field full of half-eaten bear statues.\nWithin a maze of rusted, echoing pipes.\nAmong the twisted roots of a giant tree."
-  );
+  const [name, setName] = useState('');
+  const [type, setType] = useState('');
+  const [color1, setColor1] = useState('');
+  const [label1, setLabel1] = useState('');
+  const [color2, setColor2] = useState('');
+  const [label2, setLabel2] = useState('');
+  const [color3, setColor3] = useState('');
+  const [label3, setLabel3] = useState('');
+  const [description, setDescription] = useState('');
+  const [traits, setTraits] = useState('');
+  const [moves, setMoves] = useState('');
+  const [wants, setWants] = useState('');
+  const [dislikes, setDislikes] = useState('');
+  const [flavorTitle, setFlavorTitle] = useState('');
+  const [flavorItems, setFlavorItems] = useState('');
 
-  // Derived state
-  const colors = `${label1}, ${label2}, ${label3}`;
-  const colorHexes = [color1, color2, color3];
+  // Computed values for display
+  const colors = useMemo(() => {
+    const colorLabels = [label1, label2, label3].filter(Boolean);
+    return colorLabels.join(', ');
+  }, [label1, label2, label3]);
+
+  const colorHexes = useMemo(() => {
+    const hexValues = [];
+    if (color1 && monsterColourHex[color1]) hexValues.push(monsterColourHex[color1]);
+    if (color2 && monsterColourHex[color2]) hexValues.push(monsterColourHex[color2]);
+    if (color3 && monsterColourHex[color3]) hexValues.push(monsterColourHex[color3]);
+    return hexValues;
+  }, [color1, color2, color3]);
 
   return {
-    // Basic info
     name,
-    type,
-    description,
-    
-    // Colors
-    color1,
-    color2,
-    color3,
-    label1,
-    label2,
-    label3,
-    colors,
-    colorHexes,
-    
-    // Content
-    traits,
-    moves,
-    wants,
-    dislikes,
-    flavorTitle,
-    flavorItems,
-    
-    // Setters
     setName,
+    type,
     setType,
-    setDescription,
+    color1,
     setColor1,
-    setColor2,
-    setColor3,
+    label1,
     setLabel1,
+    color2,
+    setColor2,
+    label2,
     setLabel2,
+    color3,
+    setColor3,
+    label3,
     setLabel3,
+    description,
+    setDescription,
+    traits,
     setTraits,
+    moves,
     setMoves,
+    wants,
     setWants,
+    dislikes,
     setDislikes,
+    flavorTitle,
     setFlavorTitle,
+    flavorItems,
     setFlavorItems,
+    // Computed values
+    colors,
+    colorHexes
   };
 }

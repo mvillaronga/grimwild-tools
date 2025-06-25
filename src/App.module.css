@@ -1,12 +1,16 @@
 /* App component styles */
 .app {
   padding: 1rem;
+  min-height: 100vh;
 }
 
 .title {
   font-family: "Arvo", serif;
-  color: #3d2e2a;
+  color: var(--text-primary);
   margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 /* Tab navigation styles */
@@ -16,7 +20,9 @@
 
 .tabBar {
   display: flex;
-  border-bottom: 2px solid #c9c4b4;
+  justify-content: center;
+  border-bottom: 2px solid var(--border-color);
+  gap: 0;
 }
 
 .tab {
@@ -25,22 +31,40 @@
   border-bottom: 3px solid transparent;
   font-weight: 400;
   font-size: 1.1em;
-  padding: 0.5em 1.5em;
+  padding: 0.75em 2em;
   cursor: pointer;
   outline: none;
   transition: all 0.2s ease;
+  color: var(--text-primary);
+  font-family: "Libre Baskerville", serif;
 }
 
 .tab:hover {
-  background: rgba(237, 233, 221, 0.5);
+  background: var(--hover-bg);
 }
 
 .tab.active {
-  background: #ede9dd;
-  border-bottom-color: #3d2e2a;
+  background: var(--active-bg);
+  border-bottom-color: var(--accent-color);
   font-weight: 700;
 }
 
 .tabContent {
   margin-top: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .app {
+    padding: 0.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .tab {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+  }
 }

@@ -1,20 +1,31 @@
 import React from "react";
 
 export default function MonsterWants({ wants, dislikes }) {
-  const cleanedWants = wants.replace(/^\s*Wants\s*/i, "").trim();
-  const cleanedDislikes = dislikes.replace(/^\s*Doesn't want\s*/i, "").trim();
+  const cleanedWants = wants ? wants.replace(/^\s*Wants\s*/i, "").trim() : "";
+  const cleanedDislikes = dislikes ? dislikes.replace(/^\s*Doesn't want\s*/i, "").trim() : "";
+
+  if (!cleanedWants && !cleanedDislikes) {
+    return null;
+  }
 
   return (
-    <p>
-      <em className="bold">
-        <strong>Wants</strong>
-      </em>{" "}
-      <em>{cleanedWants}</em>
-      <br />
-      <em className="bold">
-        <strong>Doesn't want</strong>
-      </em>{" "}
-      <em>{cleanedDislikes}</em>
-    </p>
+    <div className="monster-wants">
+      {cleanedWants && (
+        <p>
+          <em className="bold">
+            <strong>Wants</strong>
+          </em>{" "}
+          <em>{cleanedWants}</em>
+        </p>
+      )}
+      {cleanedDislikes && (
+        <p>
+          <em className="bold">
+            <strong>Doesn't want</strong>
+          </em>{" "}
+          <em>{cleanedDislikes}</em>
+        </p>
+      )}
+    </div>
   );
 }

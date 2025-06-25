@@ -1,37 +1,42 @@
-import { useState } from "react";
+import { useState, useMemo } from 'react';
 
 export function useChallengeState() {
-  const [pool, setPool] = useState("4");
-  const [title, setTitle] = useState("Goblin Raider");
-  const [traits, setTraits] = useState("Sneaky\nCowardly");
-  const [moves, setMoves] = useState("Ambush\nPack Tactics\nFlee into Shadows");
-  const [failPool, setFailPool] = useState("3");
-  const [failDesc, setFailDesc] = useState("Goblins Scatter");
+  const [pool, setPool] = useState('4');
+  const [title, setTitle] = useState('');
+  const [traits, setTraits] = useState('');
+  const [moves, setMoves] = useState('');
+  const [failPool, setFailPool] = useState('0');
+  const [failDesc, setFailDesc] = useState('');
 
-  // Derived state - processed arrays
-  const traitsArr = traits.split("\n").filter(Boolean);
-  const movesArr = moves.split("\n").filter(Boolean);
+  // Convert text inputs to arrays for display
+  const traitsArr = useMemo(() => {
+    return traits
+      .split('\n')
+      .map(trait => trait.trim())
+      .filter(trait => trait.length > 0);
+  }, [traits]);
 
-  // Return state and setters as an object
+  const movesArr = useMemo(() => {
+    return moves
+      .split('\n')
+      .map(move => move.trim())
+      .filter(move => move.length > 0);
+  }, [moves]);
+
   return {
-    // Raw state
     pool,
-    title,
-    traits,
-    moves,
-    failPool,
-    failDesc,
-    
-    // Setters
     setPool,
+    title,
     setTitle,
+    traits,
     setTraits,
-    setMoves,
-    setFailPool,
-    setFailDesc,
-    
-    // Processed state
     traitsArr,
+    moves,
+    setMoves,
     movesArr,
+    failPool,
+    setFailPool,
+    failDesc,
+    setFailDesc
   };
 }

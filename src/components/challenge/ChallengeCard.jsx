@@ -26,40 +26,49 @@ export default function ChallengeCard({
     </span>
   )); 
 
-  // For fail: capitalize each word and first letter larger
-  function renderFail(desc) {
-    return desc
-      .split(" ")
-      .map((word, i) => (
-        <span key={i} style={{ marginLeft: i === 0 ? 0 : "0.25em" }}>
-          <span className="initcap">{word.charAt(0).toUpperCase()}</span>
-          {word.slice(1)}
-        </span>
-      ));
-  }
+  const renderFail = (desc) => {
+    if (!desc) return "";
+    
+    // Check if description starts with a capital letter
+    const firstChar = desc.charAt(0);
+    const restOfString = desc.slice(1);
+    
+    if (firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()) {
+      // First character is uppercase, render with initcap
+      return (
+        <>
+          <span className="initcap">{firstChar}</span>
+          {restOfString}
+        </>
+      );
+    } else {
+      // First character is not uppercase, render normally
+      return desc;
+    }
+  };
 
-  // Only show fail state if failPool > 0 and failDesc is provided and non-empty
-  const showFail = !!(failPool && Number(failPool) > 0 && failDesc && String(failDesc).trim());
+  const showFail = failPool && parseInt(failPool) > 0 && failDesc;
 
   return (
-    <div className="card">
-      <div
-        className="header"
-        style={{ display: "flex", alignItems: "baseline", gap: "0.25em" }}
-      >
-        <span style={{ display: "inline-flex", alignItems: "baseline" }}>
-          <span className="initcap" style={{ verticalAlign: "baseline" }}>{pool}</span>
-          <span className="initcap" style={{ verticalAlign: "baseline" }}>d</span>
-        </span>
-        <span
+    <div className="challenge-card">
+      <div className="challenge-header">
+        <span 
+          className="pool-display"
           style={{
-            fontWeight: 700,
-            fontSize: "1.5em",
-            lineHeight: 1,
-            display: "inline-flex",
-            alignItems: "baseline",
-            position: "relative",
-            top: "-0.08em"
+            fontSize: "2rem",
+            fontWeight: "bold",
+            marginRight: "0.5rem"
+          }}
+        >
+          {pool}d
+        </span>
+        <span 
+          className="divider"
+          style={{
+            fontSize: "2rem",
+            fontWeight: "bold",
+            marginRight: "0.5rem",
+            opacity: 0.6
           }}
         >
           |

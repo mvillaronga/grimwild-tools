@@ -1,28 +1,28 @@
-.trait-bullet-list {
+.trait-list {
   list-style: none;
-  padding: 0;
   margin: 0;
-  visibility: visible !important; /* Force visibility for html2canvas */
+  padding: 0;
 }
 
-.trait-bullet-list li {
+.trait-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
 }
 
-.trait-icon {
+.trait-item:last-child {
+  margin-bottom: 0;
+}
+
+.bullet {
   margin-right: 0.5rem;
   font-weight: bold;
-  color: inherit; /* Remove the explicit color to inherit from the surrounding text */
-  visibility: visible !important; /* Force visibility for html2canvas */
+  color: var(--ink);
+  flex-shrink: 0;
 }
 
-.trait-bullet-list em {
-  font-style: italic;
-  font-weight: 700; /* Ensure traits are bold */
-  color: inherit !important; /* Ensure color inheritance */
-  visibility: visible !important; /* Force visibility for html2canvas */
+.trait-text {
+  flex: 1;
+  font-weight: 400;
 }

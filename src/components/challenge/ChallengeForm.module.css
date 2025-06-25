@@ -1,91 +1,96 @@
 /* Challenge form styles */
 .form {
-  background: #f6f3eb;
-  border: 1px solid #c9c4b4;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  max-width: 480px;
-  margin-bottom: 2rem;
-  flex: 0 0 350px;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
 .sectionHeader {
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
-  color: #3d2e2a;
-  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.sectionHeader:not(:first-child) {
+  margin-top: 1.5rem;
 }
 
 .fieldRow {
-  margin-bottom: 1rem;
   display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.fieldGroup {
+  gap: 1rem;
   margin-bottom: 1rem;
-}
-
-.poolField {
-  margin: 0;
-}
-
-.nameField {
-  flex: 1;
-  margin: 0;
 }
 
 .label {
-  display: block;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .labelText {
-  font-size: 0.95em;
-  color: #3d2e2a;
-  font-weight: 600;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
 }
 
-.poolInput {
-  width: 2.5em;
-  text-align: center;
-  padding: 0.5rem;
-  border: 1px solid #c9c4b4;
-  border-radius: 4px;
-  font-family: inherit;
-  margin-top: 0.25rem;
+.poolField {
+  flex: 0 0 80px;
 }
 
-.textInput {
+.titleField {
+  flex: 1;
+}
+
+.textInput, .numberInput {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #c9c4b4;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-family: inherit;
-  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+
+.numberInput {
+  text-align: center;
+  font-weight: 700;
 }
 
 .textarea {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #c9c4b4;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   font-family: inherit;
+  font-size: 1rem;
   resize: vertical;
-  margin-top: 0.25rem;
+  min-height: 80px;
 }
 
-.poolInput:focus,
-.textInput:focus,
-.textarea:focus {
+.textInput:focus, .numberInput:focus, .textarea:focus {
   outline: none;
-  border-color: #a49689;
-  box-shadow: 0 0 0 2px rgba(164, 150, 137, 0.2);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(61, 46, 42, 0.1);
 }
 
-.optionalText {
-  font-weight: 400;
-  font-size: 0.95em;
-  color: #666;
+/* Responsive design */
+@media (max-width: 480px) {
+  .fieldRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .poolField {
+    flex: none;
+  }
 }

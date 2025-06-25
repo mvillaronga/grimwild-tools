@@ -1,35 +1,28 @@
-.moves-bullet-list {
+.moves-list {
   list-style: none;
-  padding: 0;
   margin: 0;
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
+  padding: 0;
 }
 
-.moves-bullet-list li {
+.move-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase; /* Ensure all letters are capitalized */
-  font-size: 0.9em; /* Make the font size smaller */
-  font-weight: bold; /* Make the text heavier */
-  visibility: visible !important; /* Force visibility for html2canvas */
-  opacity: 1 !important; /* Ensure full opacity */
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
 }
 
-.move-icon {
+.move-item:last-child {
+  margin-bottom: 0;
+}
+
+.bullet {
   margin-right: 0.5rem;
   font-weight: bold;
-  color: inherit; /* Match the color of the surrounding text */
-  visibility: visible !important; /* Force visibility for html2canvas */
+  color: var(--ink);
+  flex-shrink: 0;
 }
 
-.initcap {
-  font-size: 1.1em; /* Slightly smaller for the first letter */
-  visibility: visible !important; /* Force visibility for html2canvas */
-}
-
-.move-rest {
-  font-size: 0.9em; /* Match the smaller font size */
-  visibility: visible !important; /* Force visibility for html2canvas */
+.move-text {
+  flex: 1;
+  font-weight: 400;
 }

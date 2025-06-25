@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { downloadComponentAsImage, copyComponentAsImageToClipboard } from "./DownloadImage";
+import { downloadComponentAsImage, copyComponentAsImageToClipboard } from "../../utils/imageExport";
 import styles from "./ImageActionsWrapper.module.css";
 
 export default function ImageActionsWrapper({ children, filename = "download.png" }) {

@@ -20,7 +20,7 @@ export default function ChallengeBuilder() {
     <div className={styles.container}>
       <div className={styles.builderLayout}>
         <ChallengeForm {...challengeState} />
-        <div>
+        <div className={styles.previewContainer}>
           <ImageActionsWrapper filename={filename}>
             <ChallengeCard
               pool={challengeState.pool}
