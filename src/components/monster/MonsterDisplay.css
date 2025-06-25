@@ -72,12 +72,24 @@
 .description {
   padding: 1rem 1.5rem 0.5rem;
   margin: 0;
-  font-style: italic;
   line-height: 1.5;
 }
 
 .traits {
   padding: 0.5rem 1.5rem;
+}
+
+.traits-moves-columns {
+  display: flex;
+  gap: 1rem;
+}
+
+.traits-column {
+  flex: 1;
+}
+
+.moves-column {
+  flex: 1;
 }
 
 .section-title {
@@ -99,12 +111,18 @@
 .flavor-item {
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   line-height: 1.4;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
 }
 
 .flavor-item:last-child {
   margin-bottom: 0;
+}
+
+.flavor-item:nth-child(even) {
+  background: rgba(139, 106, 58, 0.25);
 }
 
 .dice-face {
@@ -127,7 +145,23 @@
 
 .monster-wants .bold {
   font-weight: 700;
-  font-style: normal;
+  font-style: italic;
+}
+
+/* Divider styling */
+.divider {
+  border: none;
+  border-top: 2px solid var(--ink);
+  margin: 0.35rem 1.5rem;
+  opacity: 0.3;
+}
+
+/* Light divider for non-flavor sections */
+.divider-light {
+  border: none;
+  border-top: 1px solid var(--ink);
+  margin: 0.35rem 1.5rem;
+  opacity: 0.2;
 }
 
 /* Ensure consistent styling for bullet lists within monster block */

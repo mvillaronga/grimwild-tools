@@ -150,7 +150,7 @@ export default function MonsterForm({
 
       {/* Sensory Information */}
       <div className={styles.sectionHeader}>
-        Sensory Information (Optional)
+        Sensory Information
       </div>
 
       <label className={styles.label}>
@@ -161,6 +161,7 @@ export default function MonsterForm({
           onChange={(e) => setSight(e.target.value)}
           className={styles.textInput}
           placeholder="What the monster looks like"
+          required
         />
       </label>
 
@@ -172,6 +173,7 @@ export default function MonsterForm({
           onChange={(e) => setSound(e.target.value)}
           className={styles.textInput}
           placeholder="What the monster sounds like"
+          required
         />
       </label>
 
@@ -183,6 +185,7 @@ export default function MonsterForm({
           onChange={(e) => setSmell(e.target.value)}
           className={styles.textInput}
           placeholder="What the monster smells like"
+          required
         />
       </label>
 

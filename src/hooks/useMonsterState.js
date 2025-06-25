@@ -15,7 +15,7 @@ const defaultMonsterData = {
   label3: 'claws',
   description: 'A serpentine creature with a deadly gaze, dwelling in ancient forests where stone statues mark its territory.',
   traits: 'Petrifying Gaze\nVenomous Bite\nArmored Scales',
-  moves: 'Stone Stare - paralyze with gaze\nVenom Strike - poisonous bite\nTail Sweep - knock prone',
+  moves: 'Stone Stare\nVenom Strike\nTail Sweep',
   wants: 'Solitude and territory',
   dislikes: 'Bright lights and mirrors',
   sight: 'Glowing yellow eyes that pierce through darkness',

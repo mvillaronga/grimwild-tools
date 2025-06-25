@@ -56,16 +56,29 @@ export default function MonsterDisplay({
       )}
       
       {description && (
-        <p className="description">{description}</p>
+        <>
+          <p className="description">{description}</p>
+          <hr className="divider-light" />
+        </>
       )}
-      
+
       <section className="traits">
-        {traitArray.length > 0 && <TraitBulletList traits={traitArray} />}
-        {moveArray.length > 0 && <MovesBulletList moves={moveArray} />}
+        <div className="traits-moves-columns">
+          <div className="traits-column">
+            {traitArray.length > 0 && <TraitBulletList traits={traitArray} />}
+          </div>
+          <div className="moves-column">
+            {moveArray.length > 0 && <MovesBulletList moves={moveArray} />}
+          </div>
+        </div>
       </section>
-      
+
       {(wants || dislikes) && (
-        <MonsterWants wants={wants} dislikes={dislikes} />
+        <>
+          <hr className="divider-light" />
+          <MonsterWants wants={wants} dislikes={dislikes} />
+          <hr className="divider-light" />
+        </>
       )}
 
       <MonsterSenses sight={sight} sound={sound} smell={smell} />
@@ -73,6 +86,7 @@ export default function MonsterDisplay({
       {flavorTitle && flavorItemArray.length > 0 && (
         <>
           <h3 className="section-title">{flavorTitle}</h3>
+          <hr className="divider" />
           <ul className="flavor-table">
             {flavorItemArray.slice(0, 6).map((item, i) => (
               <li key={i} className="flavor-item">
