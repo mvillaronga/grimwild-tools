@@ -20,7 +20,32 @@ const defaultMonsterData = {
   sound: 'Low hissing and scraping of scales on stone',
   smell: 'Musty earth and ancient decay',
   flavorTitle: 'What they guard',
-  flavorItems: 'Ancient *treasure* hoard\nPetrified *adventurers*\nRare magical *herbs*\n*Crystal* formations\nForgotten *ruins*\nSacred *grove*'
+  flavorItems: 'Ancient *treasure* hoard\nPetrified *adventurers*\nRare magical *herbs*\n*Crystal* formations\nForgotten *ruins*\nSacred *grove*',
+  flavorColumns: 1
+};
+
+// Sample data for different column layouts
+export const flavorExamples = {
+  singleColumn: {
+    title: 'What they guard',
+    items: 'Ancient *treasure* hoard\nPetrified *adventurers*\nRare magical *herbs*\n*Crystal* formations\nForgotten *ruins*\nSacred *grove*',
+    columns: 1
+  },
+  twoColumn: {
+    title: 'ELDRITCH MUTATIONS CRUCIBLE',
+    items: 'acidic\nspiked\nreflective\nextendable\nglowing\nmagic-sensing\nshell\neyestalks\nwings\nantennae\ntail\nclaws',
+    columns: 2
+  },
+  threeColumn: {
+    title: 'MIGRATIONS',
+    items: 'island\nhamlet\nvalley\ncity\nmines\nship\nmonastery\nindoors\ncrossroad\nchaos\ninside\nbay\nbattle\ncult\ngraveyard\nplague\nfleet\nsacrifices',
+    columns: 3
+  },
+  feedingGrounds: {
+    title: 'FEEDING GROUNDS',
+    items: 'battle\ncult\ngraveyard\nplague\nfleet\nsacrifices\nhorror\ndeath\nthawed\nkilled\ndashed\nmass\nremnants\nresult\nrecently\nherds\ninvasion\nworshipped',
+    columns: 3
+  }
 };
 
 export function useMonsterState(customColors = {}) {
@@ -42,6 +67,10 @@ export function useMonsterState(customColors = {}) {
   const [smell, setSmell] = useState(defaultMonsterData.smell);
   const [flavorTitle, setFlavorTitle] = useState(defaultMonsterData.flavorTitle);
   const [flavorItems, setFlavorItems] = useState(defaultMonsterData.flavorItems);
+  const [flavorColumns, setFlavorColumns] = useState(defaultMonsterData.flavorColumns);
+  const [flavorColumn1, setFlavorColumn1] = useState(defaultMonsterData.flavorItems);
+  const [flavorColumn2, setFlavorColumn2] = useState('');
+  const [flavorColumn3, setFlavorColumn3] = useState('');
 
   // Computed values for display
   const colors = useMemo(() => {
@@ -96,6 +125,10 @@ export function useMonsterState(customColors = {}) {
     setSmell(defaultMonsterData.smell);
     setFlavorTitle(defaultMonsterData.flavorTitle);
     setFlavorItems(defaultMonsterData.flavorItems);
+    setFlavorColumns(defaultMonsterData.flavorColumns);
+    setFlavorColumn1(defaultMonsterData.flavorItems);
+    setFlavorColumn2('');
+    setFlavorColumn3('');
   }, []);
 
   // Function to clear all fields
@@ -118,6 +151,10 @@ export function useMonsterState(customColors = {}) {
     setSmell('');
     setFlavorTitle('');
     setFlavorItems('');
+    setFlavorColumns(1);
+    setFlavorColumn1('');
+    setFlavorColumn2('');
+    setFlavorColumn3('');
   }, []);
 
   return {
@@ -157,6 +194,14 @@ export function useMonsterState(customColors = {}) {
     setFlavorTitle,
     flavorItems,
     setFlavorItems,
+    flavorColumns,
+    setFlavorColumns,
+    flavorColumn1,
+    setFlavorColumn1,
+    flavorColumn2,
+    setFlavorColumn2,
+    flavorColumn3,
+    setFlavorColumn3,
     // Computed values
     colors,
     colorHexes,

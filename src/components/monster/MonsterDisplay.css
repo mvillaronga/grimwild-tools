@@ -105,8 +105,39 @@
 }
 
 .flavor-table {
-  list-style: none;
   margin: 0 1.5rem 1rem;
+  padding: 0;
+}
+
+/* Single column layout (default) */
+.flavor-columns-1 {
+  display: block;
+}
+
+.flavor-columns-1 .flavor-column {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Two column layout */
+.flavor-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Three column layout */
+.flavor-columns-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Column styling for multi-column layouts */
+.flavor-column {
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -123,6 +154,7 @@
   margin-bottom: 0;
 }
 
+/* Alternating backgrounds for all layouts */
 .flavor-item:nth-child(even) {
   background: rgba(139, 106, 58, 0.25);
 }

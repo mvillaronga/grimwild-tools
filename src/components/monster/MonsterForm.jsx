@@ -1,6 +1,9 @@
 import React from "react";
 import ColorPicker from "../common/ColorPicker";
+import { flavorExamples } from "../../hooks/useMonsterState";
 import styles from "./MonsterForm.module.css";
+
+
 
 export default function MonsterForm({
   name, setName,
@@ -21,10 +24,47 @@ export default function MonsterForm({
   smell, setSmell,
   flavorTitle, setFlavorTitle,
   flavorItems, setFlavorItems,
+  flavorColumns, setFlavorColumns,
+  flavorColumn1, setFlavorColumn1,
+  flavorColumn2, setFlavorColumn2,
+  flavorColumn3, setFlavorColumn3,
   customColorsState,
   resetToDefaults,
   clearForm,
 }) {
+  // Helper function to load flavor example based on current column selection
+  const loadFlavorExample = () => {
+    let exampleKey;
+    switch (flavorColumns) {
+      case 1:
+        exampleKey = 'singleColumn';
+        break;
+      case 2:
+        exampleKey = 'twoColumn';
+        break;
+      case 3:
+        exampleKey = 'threeColumn';
+        break;
+      default:
+        return; // No example for 0 columns
+    }
+
+    const example = flavorExamples[exampleKey];
+    // Parse the example items and distribute to appropriate columns
+    const allItems = example.items.split('\n');
+
+    if (flavorColumns === 1) {
+      setFlavorColumn1(allItems.slice(0, 6).join('\n'));
+    } else if (flavorColumns === 2) {
+      setFlavorColumn1(allItems.slice(0, 6).join('\n'));
+      setFlavorColumn2(allItems.slice(6, 12).join('\n'));
+    } else if (flavorColumns === 3) {
+      setFlavorColumn1(allItems.slice(0, 6).join('\n'));
+      setFlavorColumn2(allItems.slice(6, 12).join('\n'));
+      setFlavorColumn3(allItems.slice(12, 18).join('\n'));
+    }
+  };
+
   return (
     <form
       className={styles.form}
@@ -231,19 +271,103 @@ export default function MonsterForm({
         />
       </label>
 
-      <label className={styles.label}>
-        <span className={styles.labelText}>Flavor Items</span>
-        <textarea
-          value={flavorItems}
-          onChange={(e) => setFlavorItems(e.target.value)}
-          className={styles.textarea}
-          placeholder="Enter items, one per line (up to 6)"
-          rows={6}
-        />
-        <small className={styles.helpText}>
-          Each line will be paired with a dice icon (1-6). Use *asterisks* for bold text.
-        </small>
-      </label>
+      <div className={styles.compactRow}>
+        <label className={styles.compactLabel}>
+          <span className={styles.labelText}>Columns:</span>
+          <select
+            value={flavorColumns}
+            onChange={(e) => setFlavorColumns(parseInt(e.target.value))}
+            className={styles.compactSelect}
+          >
+            <option value={0}>None</option>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+          </select>
+        </label>
+        {flavorColumns > 0 && (
+          <button
+            type="button"
+            onClick={loadFlavorExample}
+            className={styles.exampleButton}
+          >
+            Example Text
+          </button>
+        )}
+      </div>
+
+      {flavorColumns === 1 && (
+        <div className={styles.flavorItemsContainer}>
+          <span className={styles.labelText}>Flavor Items</span>
+          <textarea
+            value={flavorColumn1}
+            onChange={(e) => setFlavorColumn1(e.target.value)}
+            className={styles.textarea}
+            placeholder="Enter items, one per line"
+            rows={6}
+          />
+        </div>
+      )}
+
+      {flavorColumns === 2 && (
+        <>
+          <div className={styles.flavorItemsContainer}>
+            <span className={styles.labelText}>Column 1 Items</span>
+            <textarea
+              value={flavorColumn1}
+              onChange={(e) => setFlavorColumn1(e.target.value)}
+              className={styles.textarea}
+              placeholder="Enter items, one per line"
+              rows={6}
+            />
+          </div>
+          <div className={styles.flavorItemsContainer}>
+            <span className={styles.labelText}>Column 2 Items</span>
+            <textarea
+              value={flavorColumn2}
+              onChange={(e) => setFlavorColumn2(e.target.value)}
+              className={styles.textarea}
+              placeholder="Enter items, one per line"
+              rows={6}
+            />
+          </div>
+        </>
+      )}
+
+      {flavorColumns === 3 && (
+        <>
+          <div className={styles.flavorItemsContainer}>
+            <span className={styles.labelText}>Column 1 Items</span>
+            <textarea
+              value={flavorColumn1}
+              onChange={(e) => setFlavorColumn1(e.target.value)}
+              className={styles.textarea}
+              placeholder="Enter items, one per line"
+              rows={6}
+            />
+          </div>
+          <div className={styles.flavorItemsContainer}>
+            <span className={styles.labelText}>Column 2 Items</span>
+            <textarea
+              value={flavorColumn2}
+              onChange={(e) => setFlavorColumn2(e.target.value)}
+              className={styles.textarea}
+              placeholder="Enter items, one per line"
+              rows={6}
+            />
+          </div>
+          <div className={styles.flavorItemsContainer}>
+            <span className={styles.labelText}>Column 3 Items</span>
+            <textarea
+              value={flavorColumn3}
+              onChange={(e) => setFlavorColumn3(e.target.value)}
+              className={styles.textarea}
+              placeholder="Enter items, one per line"
+              rows={6}
+            />
+          </div>
+        </>
+      )}
     </form>
   );
 }

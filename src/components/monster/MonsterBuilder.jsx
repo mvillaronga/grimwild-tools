@@ -41,6 +41,10 @@ export default function MonsterBuilder() {
               smell={monsterState.smell}
               flavorTitle={monsterState.flavorTitle}
               flavorItems={monsterState.flavorItems}
+              flavorColumns={monsterState.flavorColumns}
+              flavorColumn1={monsterState.flavorColumn1}
+              flavorColumn2={monsterState.flavorColumn2}
+              flavorColumn3={monsterState.flavorColumn3}
             />
           </ImageActionsWrapper>
         </div>

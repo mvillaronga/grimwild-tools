@@ -21,11 +21,59 @@ export default function MonsterDisplay({
   smell,
   flavorTitle,
   flavorItems,
+  flavorColumns,
+  flavorColumn1,
+  flavorColumn2,
+  flavorColumn3,
 }) {
   const colorArray = colors.split(",").map((color) => color.trim()).filter(Boolean);
   const traitArray = traits.split("\n").map(trait => trait.trim()).filter(Boolean);
   const moveArray = moves.split("\n").map(move => move.trim()).filter(Boolean);
-  const flavorItemArray = flavorItems.split("\n").map(item => item.trim()).filter(Boolean);
+
+  // Handle flavor data based on column count
+  let flavorData = [];
+
+  if (flavorColumns > 0) {
+    if (flavorColumns === 1) {
+      // Single column: use flavorColumn1
+      const items = flavorColumn1.split("\n").map(item => item.trim());
+      // Ensure exactly 6 items (pad with empty strings if needed)
+      const paddedItems = [];
+      for (let i = 0; i < 6; i++) {
+        paddedItems.push(items[i] || '');
+      }
+      flavorData = [paddedItems];
+    } else if (flavorColumns === 2) {
+      // Two columns: use flavorColumn1 and flavorColumn2
+      const col1Items = flavorColumn1.split("\n").map(item => item.trim());
+      const col2Items = flavorColumn2.split("\n").map(item => item.trim());
+
+      // Ensure exactly 6 items per column
+      const paddedCol1 = [];
+      const paddedCol2 = [];
+      for (let i = 0; i < 6; i++) {
+        paddedCol1.push(col1Items[i] || '');
+        paddedCol2.push(col2Items[i] || '');
+      }
+      flavorData = [paddedCol1, paddedCol2];
+    } else if (flavorColumns === 3) {
+      // Three columns: use flavorColumn1, flavorColumn2, and flavorColumn3
+      const col1Items = flavorColumn1.split("\n").map(item => item.trim());
+      const col2Items = flavorColumn2.split("\n").map(item => item.trim());
+      const col3Items = flavorColumn3.split("\n").map(item => item.trim());
+
+      // Ensure exactly 6 items per column
+      const paddedCol1 = [];
+      const paddedCol2 = [];
+      const paddedCol3 = [];
+      for (let i = 0; i < 6; i++) {
+        paddedCol1.push(col1Items[i] || '');
+        paddedCol2.push(col2Items[i] || '');
+        paddedCol3.push(col3Items[i] || '');
+      }
+      flavorData = [paddedCol1, paddedCol2, paddedCol3];
+    }
+  }
 
   return (
     <article className="monster-block">
@@ -91,24 +139,28 @@ export default function MonsterDisplay({
 
       <MonsterSenses sight={sight} sound={sound} smell={smell} />
 
-      {flavorTitle && flavorItemArray.length > 0 && (
+      {flavorColumns > 0 && flavorTitle && (
         <>
           <h3 className="section-title">{flavorTitle}</h3>
           <hr className="divider" />
-          <ul className="flavor-table">
-            {flavorItemArray.slice(0, 6).map((item, i) => (
-              <li key={i} className="flavor-item">
-                <img
-                  className="dice-face"
-                  src={`./images/dice_faces/dice_face_${(i % 6) + 1}.png`}
-                  alt={`Dice ${i + 1}`}
-                />
-                <span>
-                  {parseTextWithBold(item, `flavor-${i}`)}
-                </span>
-              </li>
+          <div className={`flavor-table flavor-columns-${flavorColumns}`}>
+            {flavorData.map((columnItems, columnIndex) => (
+              <ul key={columnIndex} className="flavor-column">
+                {columnItems.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flavor-item">
+                    <img
+                      className="dice-face"
+                      src={`./images/dice_faces/dice_face_${(itemIndex % 6) + 1}.png`}
+                      alt={`Dice ${itemIndex + 1}`}
+                    />
+                    <span>
+                      {item ? (flavorColumns === 1 ? parseTextWithBold(item, `flavor-${columnIndex}-${itemIndex}`) : item) : ''}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             ))}
-          </ul>
+          </div>
         </>
       )}
     </article>
