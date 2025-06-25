@@ -8,11 +8,11 @@ const defaultMonsterData = {
   name: 'Forest Basilisk',
   type: 'Beast',
   color1: 'scaly green',
-  label1: 'scales',
+  label1: 'scaly green',
   color2: 'mossy brown',
-  label2: 'hide',
+  label2: 'mossy brown',
   color3: 'rocky gray',
-  label3: 'claws',
+  label3: 'rocky gray',
   description: 'A serpentine creature with a deadly gaze, dwelling in ancient forests where stone statues mark its territory.',
   traits: 'Petrifying Gaze\nVenomous Bite\nArmored Scales',
   moves: 'Stone Stare\nVenom Strike\nTail Sweep',
@@ -53,9 +53,35 @@ export function useMonsterState() {
 
   const colorHexes = useMemo(() => {
     const hexValues = [];
-    if (color1 && monsterColourHex[color1]) hexValues.push(monsterColourHex[color1]);
-    if (color2 && monsterColourHex[color2]) hexValues.push(monsterColourHex[color2]);
-    if (color3 && monsterColourHex[color3]) hexValues.push(monsterColourHex[color3]);
+
+    // Helper function to get hex value from color (predefined or custom)
+    const getHexValue = (color) => {
+      if (!color) return null;
+
+      // Check if it's a predefined color
+      if (monsterColourHex[color]) {
+        return monsterColourHex[color];
+      }
+
+      // Check if it's a custom color (format: "name|#hex")
+      if (color.includes('|')) {
+        const parts = color.split('|');
+        if (parts.length === 2 && parts[1].startsWith('#')) {
+          return parts[1];
+        }
+      }
+
+      return null;
+    };
+
+    const hex1 = getHexValue(color1);
+    const hex2 = getHexValue(color2);
+    const hex3 = getHexValue(color3);
+
+    if (hex1) hexValues.push(hex1);
+    if (hex2) hexValues.push(hex2);
+    if (hex3) hexValues.push(hex3);
+
     return hexValues;
   }, [color1, color2, color3]);
 

@@ -1,0 +1,120 @@
+.colorDropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.dropdownTrigger:hover {
+  border-color: var(--accent-color);
+}
+
+.dropdownTrigger:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(61, 46, 42, 0.1);
+}
+
+.colorPreview {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+.colorName {
+  flex: 1;
+  text-align: left;
+}
+
+.arrow {
+  font-size: 0.8rem;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 2px;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background-color: var(--hover-bg);
+}
+
+.dropdownItem.selected {
+  background-color: var(--active-bg);
+  font-weight: 600;
+}
+
+.colorSwatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+.colorText {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .dropdownItem {
+    padding: 0.4rem 0.6rem;
+    gap: 0.5rem;
+  }
+  
+  .colorSwatch, .colorPreview {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .colorText {
+    font-size: 0.8rem;
+  }
+}
