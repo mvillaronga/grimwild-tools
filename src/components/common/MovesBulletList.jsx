@@ -10,7 +10,7 @@ export default function MovesBulletList({ moves }) {
     <ul className="moves-list">
       {moves.map((move, index) => (
         <li key={index} className="move-item">
-          <span className="bullet">•</span>
+          <span className="bullet">◉</span>
           <span className="move-text">{move}</span>
         </li>
       ))}

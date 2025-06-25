@@ -10,7 +10,7 @@ export default function TraitBulletList({ traits }) {
     <ul className="trait-list">
       {traits.map((trait, index) => (
         <li key={index} className="trait-item">
-          <span className="bullet">•</span>
+          <span className="bullet">✱</span>
           <span className="trait-text">{trait}</span>
         </li>
       ))}
