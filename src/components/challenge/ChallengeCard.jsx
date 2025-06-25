@@ -36,7 +36,7 @@ export default function ChallengeCard({
   return (
     <div className="challenge-card">
       <div className="challenge-header">
-        <span 
+        <span
           className="pool-display"
           style={{
             fontSize: "2rem",
@@ -46,7 +46,7 @@ export default function ChallengeCard({
         >
           {pool}d
         </span>
-        <span 
+        <span
           className="divider"
           style={{
             fontSize: "2rem",
@@ -60,6 +60,10 @@ export default function ChallengeCard({
         {challengeName}
       </div>
       <div className="section">
+        <div className="challenge-circles">
+          <div className="challenge-circle"></div>
+          <div className="challenge-circle"></div>
+        </div>
         <TraitBulletList traits={traits} />
         <hr className="divider" />
         <MovesBulletList moves={moves} />

@@ -12,6 +12,7 @@
   font-family: "Libre Baskerville", serif;
   color: var(--ink);
   line-height: 1.4;
+  position: relative;
 }
 
 .challenge-header {
@@ -25,6 +26,22 @@
   letter-spacing: 0.04em;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.challenge-circles {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  margin-top: -0.8rem;
+  margin-bottom: 0.1rem;
+}
+
+.challenge-circle {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
 }
 
 .pool-display {
