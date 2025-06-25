@@ -116,8 +116,13 @@
 
 /* Monster wants section */
 .monster-wants {
-  padding: 0.5rem 1.5rem 1rem;
+  padding: 0.5rem 1.5rem 0.25rem;
   font-style: italic;
+}
+
+.monster-wants p {
+  margin: 0;
+  line-height: 1.4;
 }
 
 .monster-wants .bold {
