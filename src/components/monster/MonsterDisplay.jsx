@@ -3,6 +3,7 @@ import "./MonsterDisplay.css";
 import TraitBulletList from "../common/TraitBulletList";
 import MovesBulletList from "../common/MovesBulletList";
 import MonsterWants from "./MonsterWants";
+import MonsterSenses from "./MonsterSenses";
 
 export default function MonsterDisplay({
   name,
@@ -14,6 +15,9 @@ export default function MonsterDisplay({
   moves,
   wants,
   dislikes,
+  sight,
+  sound,
+  smell,
   flavorTitle,
   flavorItems,
 }) {
@@ -63,7 +67,9 @@ export default function MonsterDisplay({
       {(wants || dislikes) && (
         <MonsterWants wants={wants} dislikes={dislikes} />
       )}
-      
+
+      <MonsterSenses sight={sight} sound={sound} smell={smell} />
+
       {flavorTitle && flavorItemArray.length > 0 && (
         <>
           <h3 className="section-title">{flavorTitle}</h3>

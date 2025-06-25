@@ -18,6 +18,9 @@ const defaultMonsterData = {
   moves: 'Stone Stare - paralyze with gaze\nVenom Strike - poisonous bite\nTail Sweep - knock prone',
   wants: 'Solitude and territory',
   dislikes: 'Bright lights and mirrors',
+  sight: 'Glowing yellow eyes that pierce through darkness',
+  sound: 'Low hissing and scraping of scales on stone',
+  smell: 'Musty earth and ancient decay',
   flavorTitle: 'What they guard',
   flavorItems: 'Ancient treasure hoard\nPetrified adventurers\nRare magical herbs\nCrystal formations\nForgotten ruins\nSacred grove'
 };
@@ -36,6 +39,9 @@ export function useMonsterState() {
   const [moves, setMoves] = useState(isDevelopment ? defaultMonsterData.moves : '');
   const [wants, setWants] = useState(isDevelopment ? defaultMonsterData.wants : '');
   const [dislikes, setDislikes] = useState(isDevelopment ? defaultMonsterData.dislikes : '');
+  const [sight, setSight] = useState(isDevelopment ? defaultMonsterData.sight : '');
+  const [sound, setSound] = useState(isDevelopment ? defaultMonsterData.sound : '');
+  const [smell, setSmell] = useState(isDevelopment ? defaultMonsterData.smell : '');
   const [flavorTitle, setFlavorTitle] = useState(isDevelopment ? defaultMonsterData.flavorTitle : '');
   const [flavorItems, setFlavorItems] = useState(isDevelopment ? defaultMonsterData.flavorItems : '');
 
@@ -80,6 +86,12 @@ export function useMonsterState() {
     setWants,
     dislikes,
     setDislikes,
+    sight,
+    setSight,
+    sound,
+    setSound,
+    smell,
+    setSmell,
     flavorTitle,
     setFlavorTitle,
     flavorItems,

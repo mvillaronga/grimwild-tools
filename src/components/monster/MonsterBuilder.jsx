@@ -34,6 +34,9 @@ export default function MonsterBuilder() {
               moves={monsterState.moves}
               wants={monsterState.wants}
               dislikes={monsterState.dislikes}
+              sight={monsterState.sight}
+              sound={monsterState.sound}
+              smell={monsterState.smell}
               flavorTitle={monsterState.flavorTitle}
               flavorItems={monsterState.flavorItems}
             />

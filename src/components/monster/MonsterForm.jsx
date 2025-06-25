@@ -16,6 +16,9 @@ export default function MonsterForm({
   moves, setMoves,
   wants, setWants,
   dislikes, setDislikes,
+  sight, setSight,
+  sound, setSound,
+  smell, setSmell,
   flavorTitle, setFlavorTitle,
   flavorItems, setFlavorItems,
 }) {
@@ -142,6 +145,44 @@ export default function MonsterForm({
           onChange={(e) => setDislikes(e.target.value)}
           className={styles.textInput}
           placeholder="What the monster dislikes"
+        />
+      </label>
+
+      {/* Sensory Information */}
+      <div className={styles.sectionHeader}>
+        Sensory Information (Optional)
+      </div>
+
+      <label className={styles.label}>
+        <span className={styles.labelText}>Sight</span>
+        <input
+          type="text"
+          value={sight}
+          onChange={(e) => setSight(e.target.value)}
+          className={styles.textInput}
+          placeholder="What the monster looks like"
+        />
+      </label>
+
+      <label className={styles.label}>
+        <span className={styles.labelText}>Sound</span>
+        <input
+          type="text"
+          value={sound}
+          onChange={(e) => setSound(e.target.value)}
+          className={styles.textInput}
+          placeholder="What the monster sounds like"
+        />
+      </label>
+
+      <label className={styles.label}>
+        <span className={styles.labelText}>Smell</span>
+        <input
+          type="text"
+          value={smell}
+          onChange={(e) => setSmell(e.target.value)}
+          className={styles.textInput}
+          placeholder="What the monster smells like"
         />
       </label>
 
