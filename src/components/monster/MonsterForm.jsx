@@ -21,6 +21,7 @@ export default function MonsterForm({
   smell, setSmell,
   flavorTitle, setFlavorTitle,
   flavorItems, setFlavorItems,
+  customColorsState,
 }) {
   return (
     <form
@@ -68,6 +69,7 @@ export default function MonsterForm({
           onColorChange={setColor1}
           labelValue={label1}
           onLabelChange={setLabel1}
+          customColorsState={customColorsState}
         />
         <ColorPicker
           label="Color 2"
@@ -75,6 +77,7 @@ export default function MonsterForm({
           onColorChange={setColor2}
           labelValue={label2}
           onLabelChange={setLabel2}
+          customColorsState={customColorsState}
         />
         <ColorPicker
           label="Color 3"
@@ -82,6 +85,7 @@ export default function MonsterForm({
           onColorChange={setColor3}
           labelValue={label3}
           onLabelChange={setLabel3}
+          customColorsState={customColorsState}
         />
       </div>
 

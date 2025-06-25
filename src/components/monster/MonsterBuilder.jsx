@@ -3,10 +3,12 @@ import MonsterDisplay from "./MonsterDisplay";
 import MonsterForm from "./MonsterForm";
 import ImageActionsWrapper from "../common/ImageActionsWrapper";
 import { useMonsterState } from "../../hooks/useMonsterState";
+import { useCustomColors } from "../../hooks/useCustomColors";
 import styles from "./MonsterBuilder.module.css";
 
 export default function MonsterBuilder() {
-  const monsterState = useMonsterState();
+  const customColorsState = useCustomColors();
+  const monsterState = useMonsterState(customColorsState.customColors);
 
   const sanitize = (str) =>
     str
@@ -20,7 +22,7 @@ export default function MonsterBuilder() {
   return (
     <div className={styles.container}>
       <div className={styles.builderLayout}>
-        <MonsterForm {...monsterState} />
+        <MonsterForm {...monsterState} customColorsState={customColorsState} />
         <div className={styles.displayContainer}>
           <h2 className={styles.title}>Monster Builder</h2>
           <ImageActionsWrapper filename={filename}>

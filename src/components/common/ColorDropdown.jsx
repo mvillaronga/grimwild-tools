@@ -1,9 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import { monsterColourHex } from "../../utils/colors";
+import CustomColorCreator from "./CustomColorCreator";
 import styles from "./ColorDropdown.module.css";
 
 // Helper function to convert hex to HSL
 function hexToHsl(hex) {
+  if (!hex || typeof hex !== 'string' || !hex.startsWith('#')) {
+    return [0, 0, 0]; // Return default values for invalid hex
+  }
+
   const r = parseInt(hex.slice(1, 3), 16) / 255;
   const g = parseInt(hex.slice(3, 5), 16) / 255;
   const b = parseInt(hex.slice(5, 7), 16) / 255;
@@ -29,10 +34,13 @@ function hexToHsl(hex) {
 }
 
 // Helper function to sort colors by hue, then by saturation, then by lightness
-function sortColorsByHue(colorNames) {
+function sortColorsByHue(colorNames, allColors) {
   return colorNames.sort((a, b) => {
-    const [hueA, satA, lightA] = hexToHsl(monsterColourHex[a]);
-    const [hueB, satB, lightB] = hexToHsl(monsterColourHex[b]);
+    const hexA = allColors[a];
+    const hexB = allColors[b];
+
+    const [hueA, satA, lightA] = hexToHsl(hexA);
+    const [hueB, satB, lightB] = hexToHsl(hexB);
 
     // First sort by hue
     if (Math.abs(hueA - hueB) > 5) { // 5 degree tolerance for similar hues
@@ -53,18 +61,24 @@ export default function ColorDropdown({
   colorValue,
   onColorChange,
   labelValue,
-  onLabelChange
+  onLabelChange,
+  customColorsState
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showCustomCreator, setShowCustomCreator] = useState(false);
   const dropdownRef = useRef(null);
-  const colorOptions = sortColorsByHue(Object.keys(monsterColourHex));
+  const { customColors, addCustomColor } = customColorsState;
+
+  // Combine predefined and custom colors, then sort
+  const allColors = { ...monsterColourHex, ...customColors };
+  const colorOptions = sortColorsByHue(Object.keys(allColors), allColors);
 
   // Sync label with color value when color changes
   useEffect(() => {
-    if (colorValue && monsterColourHex[colorValue] && labelValue !== colorValue) {
+    if (colorValue && allColors[colorValue] && labelValue !== colorValue) {
       onLabelChange(colorValue);
     }
-  }, [colorValue, labelValue, onLabelChange]);
+  }, [colorValue, labelValue, onLabelChange, allColors]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -81,19 +95,39 @@ export default function ColorDropdown({
   }, []);
 
   const handleColorSelection = (selectedValue) => {
-    if (selectedValue) {
+    if (selectedValue === "create-custom") {
+      setShowCustomCreator(true);
+      setIsOpen(false);
+    } else if (selectedValue) {
       onColorChange(selectedValue);
       onLabelChange(selectedValue); // Always set label to match color name
+      setIsOpen(false);
     } else {
       onColorChange("");
       onLabelChange("");
+      setIsOpen(false);
     }
-    setIsOpen(false);
+  };
+
+  const handleCustomColorAdd = (name, hexValue) => {
+    try {
+      const formattedName = addCustomColor(name, hexValue);
+      onColorChange(formattedName);
+      onLabelChange(formattedName);
+      setShowCustomCreator(false);
+    } catch (error) {
+      console.error('Failed to add custom color:', error);
+      alert(`Error adding custom color: ${error.message}`);
+    }
+  };
+
+  const handleCustomColorCancel = () => {
+    setShowCustomCreator(false);
   };
 
   // Get the display color for preview
   const getDisplayColor = () => {
-    return monsterColourHex[colorValue] || '#ccc';
+    return allColors[colorValue] || '#ccc';
   };
 
   const getCurrentColorName = () => {
@@ -116,27 +150,51 @@ export default function ColorDropdown({
       
       {isOpen && (
         <div className={styles.dropdownMenu}>
-          <div 
+          <div
             className={styles.dropdownItem}
             onClick={() => handleColorSelection("")}
           >
             <div className={styles.colorSwatch} style={{ backgroundColor: '#ccc' }} />
             <span className={styles.colorText}>Select a color</span>
           </div>
-          {colorOptions.map((colorName) => (
-            <div
-              key={colorName}
-              className={`${styles.dropdownItem} ${colorValue === colorName ? styles.selected : ''}`}
-              onClick={() => handleColorSelection(colorName)}
-            >
-              <div 
-                className={styles.colorSwatch}
-                style={{ backgroundColor: monsterColourHex[colorName] }}
-              />
-              <span className={styles.colorText}>{colorName}</span>
-            </div>
-          ))}
+
+          <div
+            className={`${styles.dropdownItem} ${styles.createCustomItem}`}
+            onClick={() => handleColorSelection("create-custom")}
+          >
+            <div className={styles.createCustomIcon}>+</div>
+            <span className={styles.colorText}>Create Custom Color</span>
+          </div>
+
+          <div className={styles.divider} />
+
+          {colorOptions.map((colorName) => {
+            const isCustom = customColors[colorName];
+            return (
+              <div
+                key={colorName}
+                className={`${styles.dropdownItem} ${colorValue === colorName ? styles.selected : ''} ${isCustom ? styles.customColor : ''}`}
+                onClick={() => handleColorSelection(colorName)}
+              >
+                <div
+                  className={styles.colorSwatch}
+                  style={{ backgroundColor: allColors[colorName] }}
+                />
+                <span className={styles.colorText}>
+                  {colorName}
+                  {isCustom && <span className={styles.customBadge}>custom</span>}
+                </span>
+              </div>
+            );
+          })}
         </div>
+      )}
+
+      {showCustomCreator && (
+        <CustomColorCreator
+          onAddColor={handleCustomColorAdd}
+          onCancel={handleCustomColorCancel}
+        />
       )}
     </div>
   );

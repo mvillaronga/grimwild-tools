@@ -7,7 +7,8 @@ export default function ColorPicker({
   colorValue,
   onColorChange,
   labelValue,
-  onLabelChange
+  onLabelChange,
+  customColorsState
 }) {
 
   return (
@@ -17,6 +18,7 @@ export default function ColorPicker({
         onColorChange={onColorChange}
         labelValue={labelValue}
         onLabelChange={onLabelChange}
+        customColorsState={customColorsState}
       />
     </div>
   );

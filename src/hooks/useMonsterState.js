@@ -25,7 +25,7 @@ const defaultMonsterData = {
   flavorItems: 'Ancient treasure hoard\nPetrified adventurers\nRare magical herbs\nCrystal formations\nForgotten ruins\nSacred grove'
 };
 
-export function useMonsterState() {
+export function useMonsterState(customColors = {}) {
   const [name, setName] = useState(isDevelopment ? defaultMonsterData.name : '');
   const [type, setType] = useState(isDevelopment ? defaultMonsterData.type : '');
   const [color1, setColor1] = useState(isDevelopment ? defaultMonsterData.color1 : '');
@@ -53,22 +53,15 @@ export function useMonsterState() {
 
   const colorHexes = useMemo(() => {
     const hexValues = [];
+    const allColors = { ...monsterColourHex, ...customColors };
 
     // Helper function to get hex value from color (predefined or custom)
     const getHexValue = (color) => {
       if (!color) return null;
 
-      // Check if it's a predefined color
-      if (monsterColourHex[color]) {
-        return monsterColourHex[color];
-      }
-
-      // Check if it's a custom color (format: "name|#hex")
-      if (color.includes('|')) {
-        const parts = color.split('|');
-        if (parts.length === 2 && parts[1].startsWith('#')) {
-          return parts[1];
-        }
+      // Check if it's in our combined color palette
+      if (allColors[color]) {
+        return allColors[color];
       }
 
       return null;
@@ -83,7 +76,7 @@ export function useMonsterState() {
     if (hex3) hexValues.push(hex3);
 
     return hexValues;
-  }, [color1, color2, color3]);
+  }, [color1, color2, color3, customColors]);
 
   return {
     name,
