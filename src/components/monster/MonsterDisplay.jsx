@@ -4,6 +4,7 @@ import TraitBulletList from "../common/TraitBulletList";
 import MovesBulletList from "../common/MovesBulletList";
 import MonsterWants from "./MonsterWants";
 import MonsterSenses from "./MonsterSenses";
+import { parseTextWithBold } from "../../utils/textFormatting.jsx";
 
 export default function MonsterDisplay({
   name,
@@ -102,7 +103,9 @@ export default function MonsterDisplay({
                   src={`./images/dice_faces/dice_face_${(i % 6) + 1}.png`}
                   alt={`Dice ${i + 1}`}
                 />
-                {item}
+                <span>
+                  {parseTextWithBold(item, `flavor-${i}`)}
+                </span>
               </li>
             ))}
           </ul>

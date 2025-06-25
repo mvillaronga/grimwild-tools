@@ -20,7 +20,7 @@ const defaultMonsterData = {
   sound: 'Low hissing and scraping of scales on stone',
   smell: 'Musty earth and ancient decay',
   flavorTitle: 'What they guard',
-  flavorItems: 'Ancient treasure hoard\nPetrified adventurers\nRare magical herbs\nCrystal formations\nForgotten ruins\nSacred grove'
+  flavorItems: 'Ancient *treasure* hoard\nPetrified *adventurers*\nRare magical *herbs*\n*Crystal* formations\nForgotten *ruins*\nSacred *grove*'
 };
 
 export function useMonsterState(customColors = {}) {

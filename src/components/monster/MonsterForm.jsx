@@ -241,7 +241,7 @@ export default function MonsterForm({
           rows={6}
         />
         <small className={styles.helpText}>
-          Each line will be paired with a dice icon (1-6)
+          Each line will be paired with a dice icon (1-6). Use *asterisks* for bold text.
         </small>
       </label>
     </form>
