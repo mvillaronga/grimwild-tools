@@ -59,16 +59,16 @@
 }
 
 .fail {
-  font-weight: 700;
-  color: #b33c25;
+  font-weight: bold;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1rem;
 }
 
 .fail span {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1rem;
 }
 
 /* Ensure consistent styling for bullet lists */

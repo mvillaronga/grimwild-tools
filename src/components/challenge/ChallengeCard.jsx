@@ -28,23 +28,7 @@ export default function ChallengeCard({
 
   const renderFail = (desc) => {
     if (!desc) return "";
-    
-    // Check if description starts with a capital letter
-    const firstChar = desc.charAt(0);
-    const restOfString = desc.slice(1);
-    
-    if (firstChar === firstChar.toUpperCase() && firstChar !== firstChar.toLowerCase()) {
-      // First character is uppercase, render with initcap
-      return (
-        <>
-          <span className="initcap">{firstChar}</span>
-          {restOfString}
-        </>
-      );
-    } else {
-      // First character is not uppercase, render normally
-      return desc;
-    }
+    return desc;
   };
 
   const showFail = failPool && parseInt(failPool) > 0 && failDesc;
