@@ -1,9 +1,7 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { monsterColourHex } from '../utils/colors';
 
-// Default data for local development
-const isDevelopment = import.meta.env.DEV;
-
+// Default data for all environments
 const defaultMonsterData = {
   name: 'Forest Basilisk',
   type: 'Beast',
@@ -26,24 +24,24 @@ const defaultMonsterData = {
 };
 
 export function useMonsterState(customColors = {}) {
-  const [name, setName] = useState(isDevelopment ? defaultMonsterData.name : '');
-  const [type, setType] = useState(isDevelopment ? defaultMonsterData.type : '');
-  const [color1, setColor1] = useState(isDevelopment ? defaultMonsterData.color1 : '');
-  const [label1, setLabel1] = useState(isDevelopment ? defaultMonsterData.label1 : '');
-  const [color2, setColor2] = useState(isDevelopment ? defaultMonsterData.color2 : '');
-  const [label2, setLabel2] = useState(isDevelopment ? defaultMonsterData.label2 : '');
-  const [color3, setColor3] = useState(isDevelopment ? defaultMonsterData.color3 : '');
-  const [label3, setLabel3] = useState(isDevelopment ? defaultMonsterData.label3 : '');
-  const [description, setDescription] = useState(isDevelopment ? defaultMonsterData.description : '');
-  const [traits, setTraits] = useState(isDevelopment ? defaultMonsterData.traits : '');
-  const [moves, setMoves] = useState(isDevelopment ? defaultMonsterData.moves : '');
-  const [wants, setWants] = useState(isDevelopment ? defaultMonsterData.wants : '');
-  const [dislikes, setDislikes] = useState(isDevelopment ? defaultMonsterData.dislikes : '');
-  const [sight, setSight] = useState(isDevelopment ? defaultMonsterData.sight : '');
-  const [sound, setSound] = useState(isDevelopment ? defaultMonsterData.sound : '');
-  const [smell, setSmell] = useState(isDevelopment ? defaultMonsterData.smell : '');
-  const [flavorTitle, setFlavorTitle] = useState(isDevelopment ? defaultMonsterData.flavorTitle : '');
-  const [flavorItems, setFlavorItems] = useState(isDevelopment ? defaultMonsterData.flavorItems : '');
+  const [name, setName] = useState(defaultMonsterData.name);
+  const [type, setType] = useState(defaultMonsterData.type);
+  const [color1, setColor1] = useState(defaultMonsterData.color1);
+  const [label1, setLabel1] = useState(defaultMonsterData.label1);
+  const [color2, setColor2] = useState(defaultMonsterData.color2);
+  const [label2, setLabel2] = useState(defaultMonsterData.label2);
+  const [color3, setColor3] = useState(defaultMonsterData.color3);
+  const [label3, setLabel3] = useState(defaultMonsterData.label3);
+  const [description, setDescription] = useState(defaultMonsterData.description);
+  const [traits, setTraits] = useState(defaultMonsterData.traits);
+  const [moves, setMoves] = useState(defaultMonsterData.moves);
+  const [wants, setWants] = useState(defaultMonsterData.wants);
+  const [dislikes, setDislikes] = useState(defaultMonsterData.dislikes);
+  const [sight, setSight] = useState(defaultMonsterData.sight);
+  const [sound, setSound] = useState(defaultMonsterData.sound);
+  const [smell, setSmell] = useState(defaultMonsterData.smell);
+  const [flavorTitle, setFlavorTitle] = useState(defaultMonsterData.flavorTitle);
+  const [flavorItems, setFlavorItems] = useState(defaultMonsterData.flavorItems);
 
   // Computed values for display
   const colors = useMemo(() => {
@@ -77,6 +75,50 @@ export function useMonsterState(customColors = {}) {
 
     return hexValues;
   }, [color1, color2, color3, customColors]);
+
+  // Function to reset all fields to default values
+  const resetToDefaults = useCallback(() => {
+    setName(defaultMonsterData.name);
+    setType(defaultMonsterData.type);
+    setColor1(defaultMonsterData.color1);
+    setLabel1(defaultMonsterData.label1);
+    setColor2(defaultMonsterData.color2);
+    setLabel2(defaultMonsterData.label2);
+    setColor3(defaultMonsterData.color3);
+    setLabel3(defaultMonsterData.label3);
+    setDescription(defaultMonsterData.description);
+    setTraits(defaultMonsterData.traits);
+    setMoves(defaultMonsterData.moves);
+    setWants(defaultMonsterData.wants);
+    setDislikes(defaultMonsterData.dislikes);
+    setSight(defaultMonsterData.sight);
+    setSound(defaultMonsterData.sound);
+    setSmell(defaultMonsterData.smell);
+    setFlavorTitle(defaultMonsterData.flavorTitle);
+    setFlavorItems(defaultMonsterData.flavorItems);
+  }, []);
+
+  // Function to clear all fields
+  const clearForm = useCallback(() => {
+    setName('');
+    setType('');
+    setColor1('');
+    setLabel1('');
+    setColor2('');
+    setLabel2('');
+    setColor3('');
+    setLabel3('');
+    setDescription('');
+    setTraits('');
+    setMoves('');
+    setWants('');
+    setDislikes('');
+    setSight('');
+    setSound('');
+    setSmell('');
+    setFlavorTitle('');
+    setFlavorItems('');
+  }, []);
 
   return {
     name,
@@ -117,6 +159,8 @@ export function useMonsterState(customColors = {}) {
     setFlavorItems,
     // Computed values
     colors,
-    colorHexes
+    colorHexes,
+    resetToDefaults,
+    clearForm
   };
 }

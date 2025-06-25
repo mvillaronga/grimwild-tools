@@ -7,7 +7,9 @@ export default function ChallengeForm({
   traits, setTraits,
   moves, setMoves,
   failPool, setFailPool,
-  failDesc, setFailDesc
+  failDesc, setFailDesc,
+  resetToDefaults,
+  clearForm
 }) {
   return (
     <form
@@ -15,8 +17,28 @@ export default function ChallengeForm({
       onSubmit={e => e.preventDefault()}
     >
       {/* Challenge Header */}
-      <div className={styles.sectionHeader}>
-        Challenge
+      <div className={styles.headerRow}>
+        <div className={styles.sectionHeader}>
+          Challenge
+        </div>
+        <div className={styles.buttonGroup}>
+          <button
+            type="button"
+            onClick={resetToDefaults}
+            className={styles.actionButton}
+            title="Reset all fields to default values"
+          >
+            Defaults
+          </button>
+          <button
+            type="button"
+            onClick={clearForm}
+            className={`${styles.actionButton} ${styles.clearButton}`}
+            title="Clear all fields"
+          >
+            Clear
+          </button>
+        </div>
       </div>
       
       {/* Pool and Title Row */}

@@ -22,6 +22,8 @@ export default function MonsterForm({
   flavorTitle, setFlavorTitle,
   flavorItems, setFlavorItems,
   customColorsState,
+  resetToDefaults,
+  clearForm,
 }) {
   return (
     <form
@@ -29,8 +31,28 @@ export default function MonsterForm({
       onSubmit={(e) => e.preventDefault()}
     >
       {/* Monster Name and Type */}
-      <div className={styles.sectionHeader}>
-        Basic Information
+      <div className={styles.headerRow}>
+        <div className={styles.sectionHeader}>
+          Basic Information
+        </div>
+        <div className={styles.buttonGroup}>
+          <button
+            type="button"
+            onClick={resetToDefaults}
+            className={styles.actionButton}
+            title="Reset all fields to default values"
+          >
+            Defaults
+          </button>
+          <button
+            type="button"
+            onClick={clearForm}
+            className={`${styles.actionButton} ${styles.clearButton}`}
+            title="Clear all fields"
+          >
+            Clear
+          </button>
+        </div>
       </div>
       
       <div className={styles.fieldGroup}>

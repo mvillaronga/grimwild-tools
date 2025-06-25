@@ -1,8 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
-// Default data for local development
-const isDevelopment = import.meta.env.DEV;
-
+// Default data for all environments
 const defaultChallengeData = {
   pool: '6',
   title: 'Goblin Ambush',
@@ -13,12 +11,12 @@ const defaultChallengeData = {
 };
 
 export function useChallengeState() {
-  const [pool, setPool] = useState(isDevelopment ? defaultChallengeData.pool : '4');
-  const [title, setTitle] = useState(isDevelopment ? defaultChallengeData.title : '');
-  const [traits, setTraits] = useState(isDevelopment ? defaultChallengeData.traits : '');
-  const [moves, setMoves] = useState(isDevelopment ? defaultChallengeData.moves : '');
-  const [failPool, setFailPool] = useState(isDevelopment ? defaultChallengeData.failPool : '0');
-  const [failDesc, setFailDesc] = useState(isDevelopment ? defaultChallengeData.failDesc : '');
+  const [pool, setPool] = useState(defaultChallengeData.pool);
+  const [title, setTitle] = useState(defaultChallengeData.title);
+  const [traits, setTraits] = useState(defaultChallengeData.traits);
+  const [moves, setMoves] = useState(defaultChallengeData.moves);
+  const [failPool, setFailPool] = useState(defaultChallengeData.failPool);
+  const [failDesc, setFailDesc] = useState(defaultChallengeData.failDesc);
 
   // Convert text inputs to arrays for display
   const traitsArr = useMemo(() => {
@@ -35,6 +33,26 @@ export function useChallengeState() {
       .filter(move => move.length > 0);
   }, [moves]);
 
+  // Function to reset all fields to default values
+  const resetToDefaults = useCallback(() => {
+    setPool(defaultChallengeData.pool);
+    setTitle(defaultChallengeData.title);
+    setTraits(defaultChallengeData.traits);
+    setMoves(defaultChallengeData.moves);
+    setFailPool(defaultChallengeData.failPool);
+    setFailDesc(defaultChallengeData.failDesc);
+  }, []);
+
+  // Function to clear all fields
+  const clearForm = useCallback(() => {
+    setPool('4');
+    setTitle('');
+    setTraits('');
+    setMoves('');
+    setFailPool('0');
+    setFailDesc('');
+  }, []);
+
   return {
     pool,
     setPool,
@@ -49,6 +67,8 @@ export function useChallengeState() {
     failPool,
     setFailPool,
     failDesc,
-    setFailDesc
+    setFailDesc,
+    resetToDefaults,
+    clearForm
   };
 }
