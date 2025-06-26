@@ -73,62 +73,7 @@
   min-height: 80px;
 }
 
-.tierSelection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.tierCard {
-  border: 2px solid #8b7355;
-  border-radius: 6px;
-  padding: 1rem;
-  background: #ede9dd;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tierCard:hover {
-  background: #e0dcc8;
-  transform: translateY(-2px);
-}
-
-.tierCard.selected {
-  background: #d4c5a9;
-  border-color: #6b5b47;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.tierCard h4 {
-  margin: 0 0 0.5rem 0;
-  color: #3d2e2a;
-  font-family: 'Cinzel', serif;
-  font-size: 1.1rem;
-}
-
-.tierDescription {
-  margin: 0 0 0.5rem 0;
-  font-style: italic;
-  color: #5a4a3a;
-}
-
-.tierDetails {
-  margin: 0;
-  padding-left: 1.2rem;
-  font-size: 0.9rem;
-  color: #3d2e2a;
-}
-
-.tierDetails li {
-  margin-bottom: 0.25rem;
-}
-
 @media (max-width: 768px) {
-  .tierSelection {
-    grid-template-columns: 1fr;
-  }
-  
   .formHeader {
     flex-direction: column;
     gap: 1rem;

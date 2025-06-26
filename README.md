@@ -73,12 +73,21 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 **Purpose:** Create dynamic antagonists and combat scenarios quickly using tier-based opponents and environmental battlegrounds
 
 **Key Functionality:**
-- **Tier System:** Four opponent threat levels (Mook, Tough, Elite, Boss) with distinct characteristics
-- **Role Assignment:** Twelve behavioral archetypes to guide combat tactics
-- **Battleground Generator:** Environmental elements with features and threats
-- **Dynamic Scaling:** Opponents scale based on tier selection
-- **Tactical Guidance:** Built-in behavioral keywords for each role
-- **Scenario Templates:** Pre-configured combat encounters with environmental hazards
+- **Scenario Title:** Combat encounter name with crossed swords icon
+- **Features System:** Comma-delimited environmental elements that impact combat
+- **Threats System:** Individual threat lines with dice pools (Xd) or suspense circles (○○)
+- **Monster Listings:** Tiered opponents with specific formatting rules
+- **Visual Layout:** Compact card format with clear section divisions
+
+**Display Format:**
+- **Title Bar:** Scenario name with crossed swords (⚔) icon on the right
+- **Features:** Single line, comma-separated environmental elements
+- **Threats:** Individual lines showing either dice pools (4d Waves Crashing) or suspense markers (○○ Kraken Tentacles)
+- **Divider:** Visual separation before monster listings
+- **Monster Format:**
+  - **Mook/Tough Pools:** "Xd Name (Tier Role)" - e.g., "4d Deckhands (Mook Brutes)"
+  - **Individual Toughs:** "X Name (Tier Role)" - e.g., "3 Swashbucklers (Tough Marauders)"
+  - **Elite/Boss:** "Xd | Name (Tier Role)" - e.g., "4d | Pirate Captain (Elite Overseer)"
 
 **Tier Definitions:**
 - **Mook:** Mostly just set dressing, one action can take out several, large groups can be a task pool
@@ -90,17 +99,12 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 - **Blaster, Brute, Lurker, Marauder, Marksman, Overseer**
 - **Predator, Protector, Skirmisher, Swarmer, Tactician, Trickster**
 
-**Battleground Elements:**
-- **Features:** Environmental elements that impact combat (lava pools, unstable ground, etc.)
-- **Threats:** Hazards that present extra dangers with suspense mechanics
-- **Integration:** Mix features and threats for dynamic combat environments
-
 **User Workflow:**
-1. Select opponent tier (Mook/Tough/Elite/Boss)
-2. Choose behavioral role from available archetypes
-3. Configure battleground features and environmental threats
-4. Generate combat scenario with scaling recommendations
-5. Export complete combat kit as reference card
+1. Enter scenario title
+2. Define environmental features (comma-separated)
+3. Add threats with dice pools or suspense markers
+4. List monsters with appropriate tier formatting
+5. Export as compact combat reference card
 
 ### 4. Image Export System
 **Purpose:** Generate high-quality images for digital and print use
@@ -172,15 +176,18 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 - **FR-M8:** Dynamic flavor table sizing based on content
 
 ### Combat Kit Builder Requirements
-- **FR-CK1:** Four-tier opponent system (Mook, Tough, Elite, Boss) with distinct characteristics
-- **FR-CK2:** Twelve role archetypes with behavioral guidance keywords
-- **FR-CK3:** Tier-based scaling recommendations and challenge ratings
-- **FR-CK4:** Battleground feature system with environmental elements
-- **FR-CK5:** Threat system with suspense mechanics and hazard descriptions
-- **FR-CK6:** Dynamic scenario generation combining tiers, roles, and environments
-- **FR-CK7:** Template system for common combat encounter types
-- **FR-CK8:** Integration with existing challenge and monster systems
-- **FR-CK9:** Export combat scenarios as structured reference cards
+- **FR-CK1:** Scenario title with crossed swords icon (⚔) positioning
+- **FR-CK2:** Features as comma-delimited single line display
+- **FR-CK3:** Threats with dice pool notation (Xd) or suspense circles (○○)
+- **FR-CK4:** Monster formatting based on tier rules:
+  - Mook/Tough pools: "Xd Name (Tier Role)"
+  - Individual Toughs: "X Name (Tier Role)"
+  - Elite/Boss: "Xd | Name (Tier Role)"
+- **FR-CK5:** Visual divider between threats and monsters sections
+- **FR-CK6:** Compact card layout matching reference format
+- **FR-CK7:** Support for mixed threat types (dice pools and suspense)
+- **FR-CK8:** Proper tier and role parenthetical formatting
+- **FR-CK9:** Export as standardized combat reference card
 
 ### Export Requirements
 - **FR-E1:** PNG image generation at print-quality resolution
