@@ -1,0 +1,198 @@
+/* Faction Pool Card Styles */
+.factionPoolCard {
+  max-width: 420px;
+  width: fit-content;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Libre Baskerville", serif;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--ink);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: "Cinzel", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  flex: 1;
+  color: white;
+}
+
+.initcap {
+  font-size: 1.8em;
+  line-height: 0.8;
+  font-weight: 700;
+  margin-right: 0.05em;
+  color: white;
+}
+
+.section {
+  padding: 1rem 1.5rem;
+}
+
+.sectionTop {
+  padding: 1rem 1.5rem 0.25rem 1.5rem;
+}
+
+.sectionBottom {
+  padding: 0.25rem 1.5rem 1rem 1.5rem;
+}
+
+.goals {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.goalsLabel {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--ink);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.goalsLabelFirstLetter {
+  font-size: 1.2em;
+}
+
+.goalsContent {
+  flex: 1;
+}
+
+.goalLine {
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+  line-height: 1.3;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.goalLine:last-child {
+  margin-bottom: 0;
+}
+
+.dicePool {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.goalDescription {
+  font-style: italic;
+  font-weight: bold;
+  color: var(--ink);
+  flex: 1;
+}
+
+.emptyGoals {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid var(--ink);
+  margin: 0 1.5rem;
+  opacity: 0.3;
+}
+
+.resources {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.resourcesLabel {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--ink);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.resourcesLabelFirstLetter {
+  font-size: 1.2em;
+}
+
+.resourcesContent {
+  flex: 1;
+}
+
+.resourceLine {
+  margin-bottom: 0.3rem;
+  color: var(--ink);
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.resourceLine:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .factionPoolCard {
+    max-width: none;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .initcap {
+    font-size: 1.5em;
+  }
+
+  .goals,
+  .resources {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .goalsLabel,
+  .resourcesLabel {
+    min-width: auto;
+    margin-bottom: 0.25rem;
+  }
+
+  .goalsLabelFirstLetter,
+  .resourcesLabelFirstLetter {
+    font-size: 1.1em;
+  }
+
+  .goalLine {
+    gap: 0.3rem;
+  }
+
+  .dicePool {
+    font-size: 1em;
+  }
+}
