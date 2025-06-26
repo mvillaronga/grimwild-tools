@@ -1,6 +1,8 @@
 import React from "react";
 import ColorPicker from "../common/ColorPicker";
 import { flavorExamples } from "../../hooks/useMonsterState";
+import WantsDislikesForm from "../common/WantsDislikesForm";
+import SensoryForm from "../common/SensoryForm";
 import styles from "./MonsterForm.module.css";
 
 
@@ -188,72 +190,27 @@ export default function MonsterForm({
       </label>
 
       {/* Wants and Dislikes */}
-      <div className={styles.sectionHeader}>
-        Motivations
-      </div>
-      
-      <label className={styles.label}>
-        <span className={styles.labelText}>Wants</span>
-        <input
-          type="text"
-          value={wants}
-          onChange={(e) => setWants(e.target.value)}
-          className={styles.textInput}
-          placeholder="What the monster wants"
-        />
-      </label>
-      
-      <label className={styles.label}>
-        <span className={styles.labelText}>Doesn't Want</span>
-        <input
-          type="text"
-          value={dislikes}
-          onChange={(e) => setDislikes(e.target.value)}
-          className={styles.textInput}
-          placeholder="What the monster dislikes"
-        />
-      </label>
+      <WantsDislikesForm
+        wants={wants}
+        setWants={setWants}
+        doesntWant={dislikes}
+        setDoesntWant={setDislikes}
+        wantsPlaceholder="What the monster wants"
+        doesntWantPlaceholder="What the monster dislikes"
+        sectionTitle="Motivations"
+      />
 
       {/* Sensory Information */}
-      <div className={styles.sectionHeader}>
-        Sensory Information
-      </div>
-
-      <label className={styles.label}>
-        <span className={styles.labelText}>Sight</span>
-        <input
-          type="text"
-          value={sight}
-          onChange={(e) => setSight(e.target.value)}
-          className={styles.textInput}
-          placeholder="What the monster looks like"
-          required
-        />
-      </label>
-
-      <label className={styles.label}>
-        <span className={styles.labelText}>Sound</span>
-        <input
-          type="text"
-          value={sound}
-          onChange={(e) => setSound(e.target.value)}
-          className={styles.textInput}
-          placeholder="What the monster sounds like"
-          required
-        />
-      </label>
-
-      <label className={styles.label}>
-        <span className={styles.labelText}>Smell</span>
-        <input
-          type="text"
-          value={smell}
-          onChange={(e) => setSmell(e.target.value)}
-          className={styles.textInput}
-          placeholder="What the monster smells like"
-          required
-        />
-      </label>
+      <SensoryForm
+        sight={sight}
+        setSight={setSight}
+        sound={sound}
+        setSound={setSound}
+        smell={smell}
+        setSmell={setSmell}
+        required={true}
+        sectionTitle="Sensory Information"
+      />
 
       {/* Flavor Content */}
       <div className={styles.sectionHeader}>

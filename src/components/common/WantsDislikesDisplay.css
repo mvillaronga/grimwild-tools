@@ -1,0 +1,15 @@
+/* Wants/Dislikes display styles */
+.wants-dislikes-display {
+  margin: 0.25rem 0 1rem 0;
+  padding: 0 1.5rem;
+}
+
+.wants-dislikes-display p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.wants-dislikes-display .bold {
+  font-weight: 700;
+  font-style: italic;
+}

@@ -1,0 +1,59 @@
+/* Sensory form styles */
+.sensoryForm {
+  margin-bottom: 1rem;
+}
+
+.sectionHeader {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.25rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.labelText {
+  display: block;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.textInput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(61, 46, 42, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sectionHeader {
+    font-size: 0.9rem;
+  }
+
+  .labelText {
+    font-size: 0.85rem;
+  }
+
+  .textInput {
+    font-size: 0.9rem;
+  }
+}

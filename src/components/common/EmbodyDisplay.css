@@ -1,0 +1,29 @@
+/* Embody display styles */
+.embody-display {
+  margin: 0.25rem 0 1rem 0;
+  padding: 0 1.5rem;
+}
+
+.embody-item {
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+}
+
+.embody-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 0.35rem;
+  margin-left: -0.15rem;
+  flex-shrink: 0;
+  /* Ensure proper alignment with larger icon */
+  margin-top: -0.2rem;
+  margin-bottom: -0.2rem;
+}
+
+.embody-text {
+  flex: 1;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+}

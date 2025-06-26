@@ -2,8 +2,8 @@ import React from "react";
 import "./MonsterDisplay.css";
 import TraitBulletList from "../common/TraitBulletList";
 import MovesBulletList from "../common/MovesBulletList";
-import MonsterWants from "./MonsterWants";
-import MonsterSenses from "./MonsterSenses";
+import WantsDislikesDisplay from "../common/WantsDislikesDisplay";
+import SensoryDisplay from "../common/SensoryDisplay";
 import { parseTextWithBold } from "../../utils/textFormatting.jsx";
 
 export default function MonsterDisplay({
@@ -132,12 +132,12 @@ export default function MonsterDisplay({
       {(wants || dislikes) && (
         <>
           <hr className="divider-light" />
-          <MonsterWants wants={wants} dislikes={dislikes} />
+          <WantsDislikesDisplay wants={wants} doesntWant={dislikes} />
           <hr className="divider-light" />
         </>
       )}
 
-      <MonsterSenses sight={sight} sound={sound} smell={smell} />
+      <SensoryDisplay sight={sight} sound={sound} smell={smell} />
 
       {flavorColumns > 0 && flavorTitle && (
         <>

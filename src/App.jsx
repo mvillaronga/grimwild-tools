@@ -3,6 +3,7 @@ import ChallengeBuilder from "./components/challenge/ChallengeBuilder";
 import MonsterBuilder from "./components/monster/MonsterBuilder";
 import CombatKitBuilder from "./components/combatkit/CombatKitBuilder";
 import FactionPoolBuilder from "./components/factionpool/FactionPoolBuilder";
+import FictionPillarBuilder from "./components/fictionpillar/FictionPillarBuilder";
 import styles from "./App.module.css";
 
 function Tabs({ tabs, activeTab, setActiveTab }) {
@@ -30,7 +31,7 @@ function App() {
     <div className={styles.app}>
       <h1 className={styles.title}>Grimwild Tools</h1>
       <Tabs
-        tabs={["Challenge", "Monsters", "Combat Kit", "Faction Pools"]}
+        tabs={["Challenge", "Monsters", "Combat Kit", "Faction Pools", "Fiction Pillars"]}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
@@ -39,6 +40,7 @@ function App() {
         {activeTab === "Monsters" && <MonsterBuilder />}
         {activeTab === "Combat Kit" && <CombatKitBuilder />}
         {activeTab === "Faction Pools" && <FactionPoolBuilder />}
+        {activeTab === "Fiction Pillars" && <FictionPillarBuilder />}
       </div>
     </div>
   );

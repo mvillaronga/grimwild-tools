@@ -1,7 +1,7 @@
-import React from "react";
-import "./MonsterSenses.css";
+import React from 'react';
+import './SensoryDisplay.css';
 
-export default function MonsterSenses({ sight, sound, smell }) {
+function SensoryDisplay({ sight, sound, smell }) {
   const senses = [
     { type: 'sight', value: sight, icon: './images/sensories/sight.png', alt: 'Sight' },
     { type: 'sound', value: sound, icon: './images/sensories/sound.png', alt: 'Sound' },
@@ -9,7 +9,7 @@ export default function MonsterSenses({ sight, sound, smell }) {
   ];
 
   return (
-    <div className="monster-senses">
+    <div className="sensory-display">
       {senses.map((sense) => (
         <div key={sense.type} className="sense-item">
           <img
@@ -23,3 +23,5 @@ export default function MonsterSenses({ sight, sound, smell }) {
     </div>
   );
 }
+
+export default SensoryDisplay;

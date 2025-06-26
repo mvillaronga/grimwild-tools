@@ -1,6 +1,7 @@
-.monster-senses {
+/* Sensory display styles */
+.sensory-display {
   margin: 0.25rem 0 1rem 0;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 .sense-item {
