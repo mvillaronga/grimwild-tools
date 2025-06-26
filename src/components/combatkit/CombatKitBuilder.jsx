@@ -14,22 +14,22 @@ function CombatKitBuilder() {
   } = useCombatKitState();
 
   return (
-    <div className={styles.combatKitBuilder}>
-      <div className={styles.formSection}>
+    <div className={styles.container}>
+      <div className={styles.builderLayout}>
         <CombatKitForm
           combatKit={combatKit}
           onChange={updateCombatKit}
           onReset={resetToDefaults}
           onClear={clearForm}
         />
-      </div>
-      <div className={styles.previewSection}>
-        <ImageActionsWrapper
-          targetId="combat-kit-card"
-          filename={`combat-kit-${combatKit.title || 'scenario'}`}
-        >
-          <CombatKitCard combatKit={combatKit} />
-        </ImageActionsWrapper>
+        <div className={styles.previewContainer}>
+          <ImageActionsWrapper
+            targetId="combat-kit-card"
+            filename={`combat-kit-${combatKit.title || 'scenario'}`}
+          >
+            <CombatKitCard combatKit={combatKit} />
+          </ImageActionsWrapper>
+        </div>
       </div>
     </div>
   );

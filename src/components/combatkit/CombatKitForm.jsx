@@ -7,65 +7,79 @@ function CombatKitForm({ combatKit, onChange, onReset, onClear }) {
   };
 
   return (
-    <div className={styles.combatKitForm}>
-      <div className={styles.formHeader}>
-        <h2>Combat Kit Builder</h2>
+    <form
+      className={styles.form}
+      onSubmit={(e) => e.preventDefault()}
+    >
+      {/* Combat Kit Header */}
+      <div className={styles.headerRow}>
+        <div className={styles.sectionHeader}>
+          Combat Kit Builder
+        </div>
         <div className={styles.buttonGroup}>
-          <button onClick={onReset} className={styles.defaultsButton}>
+          <button
+            type="button"
+            onClick={onReset}
+            className={styles.actionButton}
+            title="Reset all fields to default values"
+          >
             Defaults
           </button>
-          <button onClick={onClear} className={styles.clearButton}>
+          <button
+            type="button"
+            onClick={onClear}
+            className={`${styles.actionButton} ${styles.clearButton}`}
+            title="Clear all fields"
+          >
             Clear
           </button>
         </div>
       </div>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="title">Scenario Title</label>
+      <label className={styles.label}>
+        <span className={styles.labelText}>Scenario Title</span>
         <input
-          id="title"
           type="text"
           value={combatKit.title || ''}
           onChange={(e) => handleInputChange('title', e.target.value)}
+          className={styles.textInput}
           placeholder="Enter combat scenario title"
         />
-      </div>
+      </label>
 
-
-
-      <div className={styles.formGroup}>
-        <label htmlFor="features">Features</label>
+      <label className={styles.label}>
+        <span className={styles.labelText}>Features</span>
         <input
-          id="features"
           type="text"
           value={combatKit.features || ''}
           onChange={(e) => handleInputChange('features', e.target.value)}
+          className={styles.textInput}
           placeholder="Comma-separated environmental elements (e.g., Stormy waters, cramped decks)"
         />
-      </div>
+      </label>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="threats">Threats</label>
+      <label className={styles.label}>
+        <span className={styles.labelText}>Threats</span>
         <textarea
-          id="threats"
           value={combatKit.threats || ''}
           onChange={(e) => handleInputChange('threats', e.target.value)}
+          className={styles.textarea}
           placeholder="One threat per line. Use 'Xd' for dice pools or '○○' for suspense&#10;e.g., 4d Waves Crashing&#10;○○ Kraken Tentacles"
           rows={3}
         />
-      </div>
+      </label>
 
-      <div className={styles.formGroup}>
-        <label htmlFor="monsters">Monsters</label>
+      <label className={styles.label}>
+        <span className={styles.labelText}>Monsters</span>
         <textarea
-          id="monsters"
           value={combatKit.monsters || ''}
           onChange={(e) => handleInputChange('monsters', e.target.value)}
+          className={styles.textarea}
           placeholder="One monster per line. Format examples:&#10;4d Deckhands (Mook Brutes)&#10;3 Swashbucklers (Tough Marauders)&#10;4d | Pirate Captain (Elite Overseer)"
           rows={4}
         />
-      </div>
-    </div>
+      </label>
+    </form>
   );
 }
 
