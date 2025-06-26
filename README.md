@@ -147,6 +147,7 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 ### Key Dependencies
 - **React & React DOM:** Core framework
 - **html2canvas:** Client-side image generation
+- **react-colorful:** Advanced color picker component
 - **gh-pages:** Automated deployment to GitHub Pages
 
 ### Browser Compatibility
@@ -163,10 +164,11 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 - **Accessibility:** Clear typography, good contrast, keyboard navigation
 
 ### Interface Design
-- **Tab-based Navigation:** Clean separation between Challenge and Monster builders
-- **Form-based Input:** Structured forms with appropriate input types
-- **Live Preview:** Real-time preview of generated content
+- **Tab-based Navigation:** Clean separation between Challenge, Monster, and Combat Kit builders
+- **Form-based Input:** Structured forms with appropriate input types and validation
+- **Live Preview:** Real-time preview of generated content with immediate updates
 - **Responsive Layout:** Adapts to different screen sizes and orientations
+- **Common Components:** Shared UI elements for consistency across features
 
 ### Typography & Styling
 - **Primary Font:** Libre Baskerville (serif) for body text
@@ -212,6 +214,20 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 - **FR-CK7:** Backward compatibility with legacy text-based threat format
 - **FR-CK8:** Proper tier and role parenthetical formatting
 - **FR-CK9:** Export as standardized combat reference card
+
+### Common Components Requirements
+- **FR-CC1:** Color management system with predefined color palette (30+ colors)
+- **FR-CC2:** Custom color creation with two-word naming convention
+- **FR-CC3:** Color organization by hue, saturation, and lightness
+- **FR-CC4:** Visual color swatches with hex value display
+- **FR-CC5:** Consistent color selection across all features
+- **FR-CC6:** Image export wrapper for all card components
+- **FR-CC7:** High-resolution PNG export (2x scale for print quality)
+- **FR-CC8:** Clipboard integration with browser compatibility detection
+- **FR-CC9:** Standardized trait display with ✱ symbols and italic formatting
+- **FR-CC10:** Standardized moves display with ◉ symbols and bold caps formatting
+- **FR-CC11:** Responsive design components for mobile and desktop
+- **FR-CC12:** Accessibility compliance with keyboard navigation and screen reader support
 
 ### Export Requirements
 - **FR-E1:** PNG image generation at print-quality resolution

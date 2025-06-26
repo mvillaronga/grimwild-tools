@@ -9,12 +9,18 @@ This directory contains comprehensive documentation for the Grimwild Tools proje
 Contains detailed technical documentation for major features and components.
 
 #### Available Documents:
+- **[Challenge Builder Feature](features/CHALLENGE_FEATURE_DOCUMENTATION.md)** - Complete technical documentation for the Challenge Builder including architecture, components, data structures, and card generation functionality.
+- **[Combat Kit Builder Feature](features/COMBAT_KIT_FEATURE_DOCUMENTATION.md)** - Comprehensive documentation for the Combat Kit Builder including threats management, monster integration, and complex scenario creation.
+- **[Common Components Feature](features/COMMON_COMPONENTS_FEATURE_DOCUMENTATION.md)** - Documentation for shared components including color management, image export, and reusable UI components.
 - **[Enhanced Monsters Feature](features/MONSTERS_FEATURE_DOCUMENTATION.md)** - Complete technical documentation for the structured monster management system including architecture, components, validation, and integration details.
 
 ### 📁 Testing Documentation (`/testing/`)
 Contains testing guides, procedures, and results for quality assurance.
 
 #### Available Documents:
+- **[Challenge Builder Testing Guide](testing/CHALLENGE_TESTING_GUIDE.md)** - Comprehensive testing procedures for the Challenge Builder feature including functional testing, UI validation, and export functionality.
+- **[Combat Kit Builder Testing Guide](testing/COMBAT_KIT_TESTING_GUIDE.md)** - Complete testing procedures for the Combat Kit Builder including threats system, monsters integration, and complex scenario testing.
+- **[Common Components Testing Guide](testing/COMMON_COMPONENTS_TESTING_GUIDE.md)** - Testing procedures for shared components including color management, image export, and UI component validation.
 - **[Monsters Testing Guide](testing/MONSTERS_TESTING_GUIDE.md)** - Comprehensive testing procedures for the enhanced monsters feature including test plans, expected results, and bug reporting templates.
 - **[Monsters Test Results](testing/MONSTERS_TEST_RESULTS.md)** - Complete test execution results with coverage summary, browser compatibility, performance metrics, and production readiness assessment.
 
