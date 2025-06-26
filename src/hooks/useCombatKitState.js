@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPoolThreat, createHazardThreat, convertThreatsToText } from '../utils/threatUtils';
+import { getDefaultMonsters } from '../utils/monsterUtils';
 
 const DEFAULT_COMBAT_KIT = {
   title: 'Boarding a Pirate Ship',
@@ -8,14 +9,14 @@ const DEFAULT_COMBAT_KIT = {
     createPoolThreat('4', 'Waves Crashing'),
     createHazardThreat('Kraken Tentacles')
   ],
-  monsters: '4d Deckhands (Mook Brutes)\n4d Rigging Archers (Mook Marksmen)\n3 Swashbucklers (Tough Marauders)\n4d | Pirate Captain (Elite Overseer)'
+  monsters: getDefaultMonsters()
 };
 
 const EMPTY_COMBAT_KIT = {
   title: '',
   features: '',
   threats: [],
-  monsters: ''
+  monsters: []
 };
 
 export function useCombatKitState() {
@@ -38,6 +39,11 @@ export function useCombatKitState() {
     updateCombatKit({ threats });
   };
 
+  // Direct monsters management - no conversion needed
+  const updateMonsters = (monsters) => {
+    updateCombatKit({ monsters });
+  };
+
   return {
     combatKit,
     updateCombatKit,
@@ -45,6 +51,9 @@ export function useCombatKitState() {
     clearForm,
     // Direct threats access
     threats: combatKit.threats,
-    updateThreats
+    updateThreats,
+    // Direct monsters access
+    monsters: combatKit.monsters,
+    updateMonsters
   };
 }

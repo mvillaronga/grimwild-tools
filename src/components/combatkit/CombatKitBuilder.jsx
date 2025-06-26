@@ -12,7 +12,9 @@ function CombatKitBuilder() {
     resetToDefaults,
     clearForm,
     threats,
-    updateThreats
+    updateThreats,
+    monsters,
+    updateMonsters
   } = useCombatKitState();
 
   return (
@@ -25,6 +27,8 @@ function CombatKitBuilder() {
           onClear={clearForm}
           threats={threats}
           onUpdateThreats={updateThreats}
+          monsters={monsters}
+          onUpdateMonsters={updateMonsters}
         />
         <div className={styles.previewContainer}>
           <ImageActionsWrapper

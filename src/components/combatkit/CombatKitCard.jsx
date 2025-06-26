@@ -1,5 +1,6 @@
 import React from 'react';
 import { convertThreatsToText } from '../../utils/threatUtils';
+import { convertMonstersToText } from '../../utils/monsterUtils';
 import styles from './CombatKitCard.module.css';
 
 function CombatKitCard({ combatKit }) {
@@ -144,12 +145,12 @@ function CombatKitCard({ combatKit }) {
         )}
       </div>
 
-      {combatKit.monsters && (
+      {combatKit.monsters && combatKit.monsters.length > 0 && (
         <>
           <hr className={styles.divider} />
           <div className={styles.sectionBottom}>
             <div className={styles.monsters}>
-              {renderMonsters(combatKit.monsters)}
+              {renderMonsters(Array.isArray(combatKit.monsters) ? convertMonstersToText(combatKit.monsters) : combatKit.monsters)}
             </div>
           </div>
         </>

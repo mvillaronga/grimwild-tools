@@ -90,10 +90,17 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
   - **Interactive Controls:** Add, edit, delete, and reorder individual threats
   - **Compact Entry:** Dedicated buttons for each threat type (🎲 for pools, ⚠️ for hazards)
 - **Divider:** Visual separation before monster listings
-- **Monster Format:**
-  - **Mook/Tough Pools:** "Xd Name (Tier Role)" - e.g., "4d Deckhands (Mook Brutes)"
-  - **Individual Toughs:** "X Name (Tier Role)" - e.g., "3 Swashbucklers (Tough Marauders)"
-  - **Elite/Boss:** "Xd | Name (Tier Role)" - e.g., "4d | Pirate Captain (Elite Overseer)"
+- **Enhanced Monsters:** Structured monster management with individual entries:
+  - **Size Input:** Numeric field for pool/count values (1-12 range)
+  - **Name Input:** Text field for monster descriptions
+  - **Tier Selection:** Dropdown with 4 options (Mook, Tough, Elite, Boss)
+  - **Role Selection:** Dropdown with 12 combat roles (Blaster, Brute, Lurker, etc.)
+  - **Tier-Specific Formatting:** Automatic formatting based on tier rules
+    - Mook: "4d Deckhands (Mook Brute)"
+    - Tough: "3 Swashbucklers (Tough Marauder)"
+    - Elite/Boss: "4d | Pirate Captain (Elite Overseer)"
+  - **Interactive Controls:** Add, edit, delete, and reorder individual monsters
+  - **Real-time Validation:** Field validation with visual feedback
 
 **Tier Definitions:**
 - **Mook:** Mostly just set dressing, one action can take out several, large groups can be a task pool
@@ -112,7 +119,11 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
    - Click 🎲 to add pool threats (enter number for dice pool)
    - Click ⚠️ to add hazard threats (auto-assigns ○○ circles)
    - Edit, delete, or reorder threats as needed
-4. List monsters with appropriate tier formatting
+4. Build monsters using structured entry system:
+   - Click "⚔️ Add Monster" to create new monster entries
+   - Fill in size (1-12), name, tier (Mook/Tough/Elite/Boss), and role
+   - Edit, delete, or reorder monsters as needed
+   - Automatic tier-specific formatting applied
 5. Export as compact combat reference card
 
 ### 4. Image Export System

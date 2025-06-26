@@ -1,8 +1,9 @@
 import React from 'react';
 import ThreatsList from './ThreatsList';
+import MonstersList from './MonstersList';
 import styles from './CombatKitForm.module.css';
 
-function CombatKitForm({ combatKit, onChange, onReset, onClear, threats, onUpdateThreats }) {
+function CombatKitForm({ combatKit, onChange, onReset, onClear, threats, onUpdateThreats, monsters, onUpdateMonsters }) {
   const handleInputChange = (field, value) => {
     onChange({ [field]: value });
   };
@@ -64,16 +65,10 @@ function CombatKitForm({ combatKit, onChange, onReset, onClear, threats, onUpdat
         onUpdateThreats={onUpdateThreats}
       />
 
-      <label className={styles.label}>
-        <span className={styles.labelText}>Monsters</span>
-        <textarea
-          value={combatKit.monsters || ''}
-          onChange={(e) => handleInputChange('monsters', e.target.value)}
-          className={styles.textarea}
-          placeholder="One monster per line. Format examples:&#10;4d Deckhands (Mook Brutes)&#10;3 Swashbucklers (Tough Marauders)&#10;4d | Pirate Captain (Elite Overseer)"
-          rows={4}
-        />
-      </label>
+      <MonstersList
+        monsters={monsters}
+        onUpdateMonsters={onUpdateMonsters}
+      />
     </form>
   );
 }
