@@ -75,14 +75,20 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 **Key Functionality:**
 - **Scenario Title:** Combat encounter name with crossed swords icon
 - **Features System:** Comma-delimited environmental elements that impact combat
-- **Threats System:** Individual threat lines with dice pools (Xd) or suspense circles (○○)
+- **Enhanced Threats System:** Structured threat management with two distinct types:
+  - **Pool Threats (🎲):** Repeating threats with dice pools (e.g., "4d Waves Crashing")
+  - **Hazard Threats (⚠️):** Environmental dangers with suspense circles (e.g., "○○ Kraken Tentacles")
 - **Monster Listings:** Tiered opponents with specific formatting rules
 - **Visual Layout:** Compact card format with clear section divisions
 
 **Display Format:**
 - **Title Bar:** Scenario name with crossed swords (⚔) icon on the right
 - **Features:** Single line, comma-separated environmental elements
-- **Threats:** Individual lines showing either dice pools (4d Waves Crashing) or suspense markers (○○ Kraken Tentacles)
+- **Threats:** Structured list with individual threat management:
+  - **Pool Threats:** Dice notation with user-defined pool size (4d Waves Crashing)
+  - **Hazard Threats:** Auto-generated suspense circles with custom names (○○ Kraken Tentacles)
+  - **Interactive Controls:** Add, edit, delete, and reorder individual threats
+  - **Compact Entry:** Dedicated buttons for each threat type (🎲 for pools, ⚠️ for hazards)
 - **Divider:** Visual separation before monster listings
 - **Monster Format:**
   - **Mook/Tough Pools:** "Xd Name (Tier Role)" - e.g., "4d Deckhands (Mook Brutes)"
@@ -102,7 +108,10 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 **User Workflow:**
 1. Enter scenario title
 2. Define environmental features (comma-separated)
-3. Add threats with dice pools or suspense markers
+3. Build threats using structured entry system:
+   - Click 🎲 to add pool threats (enter number for dice pool)
+   - Click ⚠️ to add hazard threats (auto-assigns ○○ circles)
+   - Edit, delete, or reorder threats as needed
 4. List monsters with appropriate tier formatting
 5. Export as compact combat reference card
 
@@ -178,14 +187,18 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 ### Combat Kit Builder Requirements
 - **FR-CK1:** Scenario title with crossed swords icon (⚔) positioning
 - **FR-CK2:** Features as comma-delimited single line display
-- **FR-CK3:** Threats with dice pool notation (Xd) or suspense circles (○○)
+- **FR-CK3:** Enhanced structured threats system with individual management:
+  - Pool threats with user-defined dice notation (Xd format)
+  - Hazard threats with automatic suspense circles (○○ format)
+  - Interactive add/edit/delete/reorder functionality
+  - Dual-button entry system (🎲 for pools, ⚠️ for hazards)
 - **FR-CK4:** Monster formatting based on tier rules:
   - Mook/Tough pools: "Xd Name (Tier Role)"
   - Individual Toughs: "X Name (Tier Role)"
   - Elite/Boss: "Xd | Name (Tier Role)"
 - **FR-CK5:** Visual divider between threats and monsters sections
 - **FR-CK6:** Compact card layout matching reference format
-- **FR-CK7:** Support for mixed threat types (dice pools and suspense)
+- **FR-CK7:** Backward compatibility with legacy text-based threat format
 - **FR-CK8:** Proper tier and role parenthetical formatting
 - **FR-CK9:** Export as standardized combat reference card
 

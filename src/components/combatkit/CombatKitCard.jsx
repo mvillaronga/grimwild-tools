@@ -1,4 +1,5 @@
 import React from 'react';
+import { convertThreatsToText } from '../../utils/threatUtils';
 import styles from './CombatKitCard.module.css';
 
 function CombatKitCard({ combatKit }) {
@@ -131,13 +132,13 @@ function CombatKitCard({ combatKit }) {
           </div>
         )}
 
-        {combatKit.threats && (
+        {combatKit.threats && combatKit.threats.length > 0 && (
           <div className={styles.threats}>
             <div className={styles.threatsLabel}>
               {renderLabel('Threats', styles.threatsLabelFirstLetter)}
             </div>
             <div className={styles.threatsContent}>
-              {renderThreats(combatKit.threats)}
+              {renderThreats(Array.isArray(combatKit.threats) ? convertThreatsToText(combatKit.threats) : combatKit.threats)}
             </div>
           </div>
         )}

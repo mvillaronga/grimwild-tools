@@ -1,7 +1,8 @@
 import React from 'react';
+import ThreatsList from './ThreatsList';
 import styles from './CombatKitForm.module.css';
 
-function CombatKitForm({ combatKit, onChange, onReset, onClear }) {
+function CombatKitForm({ combatKit, onChange, onReset, onClear, threats, onUpdateThreats }) {
   const handleInputChange = (field, value) => {
     onChange({ [field]: value });
   };
@@ -58,16 +59,10 @@ function CombatKitForm({ combatKit, onChange, onReset, onClear }) {
         />
       </label>
 
-      <label className={styles.label}>
-        <span className={styles.labelText}>Threats</span>
-        <textarea
-          value={combatKit.threats || ''}
-          onChange={(e) => handleInputChange('threats', e.target.value)}
-          className={styles.textarea}
-          placeholder="One threat per line. Use 'Xd' for dice pools or '○○' for suspense&#10;e.g., 4d Waves Crashing&#10;○○ Kraken Tentacles"
-          rows={3}
-        />
-      </label>
+      <ThreatsList
+        threats={threats}
+        onUpdateThreats={onUpdateThreats}
+      />
 
       <label className={styles.label}>
         <span className={styles.labelText}>Monsters</span>

@@ -148,8 +148,14 @@
 }
 
 .suspenseCircles {
-  font-size: 1.1em;
-  color: var(--ink);
+  font-size: 1.4em;
+  color: #000;
+  font-weight: bold;
+  transform: scale(1.5);
+  display: inline-block;
+  line-height: 1;
+  vertical-align: baseline;
+  margin-right: 0.2em;
 }
 
 .monsterCount {

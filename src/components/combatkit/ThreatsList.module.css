@@ -1,0 +1,110 @@
+/* Threats list styles */
+.threatsList {
+  margin-bottom: 1rem;
+}
+
+.header {
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.addButtons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e9ecef;
+  justify-content: center;
+}
+
+.addButton {
+  border: none;
+  background: #007bff;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+}
+
+.addButton:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.addButton:active {
+  transform: translateY(0);
+}
+
+.threatsContainer {
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: #f8f9fa;
+  min-height: 100px;
+  padding: 0.5rem;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.emptyText {
+  color: #6c757d;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.emptyHint {
+  color: #adb5bd;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .addButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .addButton {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .threatsContainer {
+    padding: 0.25rem;
+  }
+
+  .emptyState {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .emptyText {
+    font-size: 0.9rem;
+  }
+
+  .emptyHint {
+    font-size: 0.8rem;
+  }
+}
