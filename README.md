@@ -69,7 +69,40 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 6. Add flavor content with custom title
 7. Export as PNG image or copy to clipboard
 
-### 3. Image Export System
+### 3. Combat Kit Builder
+**Purpose:** Create dynamic antagonists and combat scenarios quickly using tier-based opponents and environmental battlegrounds
+
+**Key Functionality:**
+- **Tier System:** Four opponent threat levels (Mook, Tough, Elite, Boss) with distinct characteristics
+- **Role Assignment:** Twelve behavioral archetypes to guide combat tactics
+- **Battleground Generator:** Environmental elements with features and threats
+- **Dynamic Scaling:** Opponents scale based on tier selection
+- **Tactical Guidance:** Built-in behavioral keywords for each role
+- **Scenario Templates:** Pre-configured combat encounters with environmental hazards
+
+**Tier Definitions:**
+- **Mook:** Mostly just set dressing, one action can take out several, large groups can be a task pool
+- **Tough:** A typical dangerous enemy, one action can take out one of them, small groups can be a task pool
+- **Elite:** Strong scene presence, 4d/6d challenge, often leads a group of lesser enemies
+- **Boss:** Commands the scene, 6d/8d challenge or linked challenge, extremely powerful
+
+**Available Roles:**
+- **Blaster, Brute, Lurker, Marauder, Marksman, Overseer**
+- **Predator, Protector, Skirmisher, Swarmer, Tactician, Trickster**
+
+**Battleground Elements:**
+- **Features:** Environmental elements that impact combat (lava pools, unstable ground, etc.)
+- **Threats:** Hazards that present extra dangers with suspense mechanics
+- **Integration:** Mix features and threats for dynamic combat environments
+
+**User Workflow:**
+1. Select opponent tier (Mook/Tough/Elite/Boss)
+2. Choose behavioral role from available archetypes
+3. Configure battleground features and environmental threats
+4. Generate combat scenario with scaling recommendations
+5. Export complete combat kit as reference card
+
+### 4. Image Export System
 **Purpose:** Generate high-quality images for digital and print use
 
 **Key Functionality:**
@@ -138,6 +171,17 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 - **FR-M7:** Customizable flavor tables with dice icons (1-6)
 - **FR-M8:** Dynamic flavor table sizing based on content
 
+### Combat Kit Builder Requirements
+- **FR-CK1:** Four-tier opponent system (Mook, Tough, Elite, Boss) with distinct characteristics
+- **FR-CK2:** Twelve role archetypes with behavioral guidance keywords
+- **FR-CK3:** Tier-based scaling recommendations and challenge ratings
+- **FR-CK4:** Battleground feature system with environmental elements
+- **FR-CK5:** Threat system with suspense mechanics and hazard descriptions
+- **FR-CK6:** Dynamic scenario generation combining tiers, roles, and environments
+- **FR-CK7:** Template system for common combat encounter types
+- **FR-CK8:** Integration with existing challenge and monster systems
+- **FR-CK9:** Export combat scenarios as structured reference cards
+
 ### Export Requirements
 - **FR-E1:** PNG image generation at print-quality resolution
 - **FR-E2:** Clipboard integration for direct paste into other applications
@@ -178,6 +222,7 @@ To streamline the content creation process for Grimwild RPG by providing user-fr
 ## Future Roadmap
 
 ### Phase 2 Enhancements
+- **Combat Kit Builder:** Complete implementation of tier-based opponents and battleground system
 - **Additional Builders:** Location, NPC, and Item generators
 - **Monster Enhancement:** Updating the monster builder to allow optional functionality of the fan created bestiary format
 - **Template System:** Pre-built templates for common content types

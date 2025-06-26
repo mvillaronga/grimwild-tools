@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ChallengeBuilder from "./components/challenge/ChallengeBuilder";
 import MonsterBuilder from "./components/monster/MonsterBuilder";
+import CombatKitBuilder from "./components/combatkit/CombatKitBuilder";
 import styles from "./App.module.css";
 
 function Tabs({ tabs, activeTab, setActiveTab }) {
@@ -28,13 +29,14 @@ function App() {
     <div className={styles.app}>
       <h1 className={styles.title}>Grimwild Tools</h1>
       <Tabs
-        tabs={["Challenge", "Monsters"]}
+        tabs={["Challenge", "Monsters", "Combat Kit"]}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
       <div className={styles.tabContent}>
         {activeTab === "Challenge" && <ChallengeBuilder />}
         {activeTab === "Monsters" && <MonsterBuilder />}
+        {activeTab === "Combat Kit" && <CombatKitBuilder />}
       </div>
     </div>
   );
