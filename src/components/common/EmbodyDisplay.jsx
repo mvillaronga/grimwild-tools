@@ -11,7 +11,7 @@ function EmbodyDisplay({ embody }) {
       <div className="embody-item">
         <img
           className="embody-icon"
-          src="./images/icons/hand.png"
+          src="/grimwild-tools/images/icons/hand.png"
           alt="Embody at the table"
         />
         <span className="embody-text">{embody}</span>

@@ -150,7 +150,7 @@ export default function MonsterDisplay({
                   <li key={itemIndex} className="flavor-item">
                     <img
                       className="dice-face"
-                      src={`./images/dice_faces/dice_face_${(itemIndex % 6) + 1}.png`}
+                      src={`/grimwild-tools/images/dice_faces/dice_face_${(itemIndex % 6) + 1}.png`}
                       alt={`Dice ${itemIndex + 1}`}
                     />
                     <span>

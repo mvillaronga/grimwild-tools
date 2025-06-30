@@ -130,12 +130,12 @@ export const formatDisplayText = (text) => {
  * Icon mapping for sensory and embody elements
  */
 export const SENSORY_ICONS = {
-  sight: './images/sensories/sight.png',
-  sound: './images/sensories/sound.png',
-  smell: './images/sensories/smell.png'
+  sight: '/grimwild-tools/images/sensories/sight.png',
+  sound: '/grimwild-tools/images/sensories/sound.png',
+  smell: '/grimwild-tools/images/sensories/smell.png'
 };
 
-export const EMBODY_ICON = './images/icons/hand.png';
+export const EMBODY_ICON = '/grimwild-tools/images/icons/hand.png';
 
 /**
  * Get example fiction pillars for inspiration
