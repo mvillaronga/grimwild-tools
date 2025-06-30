@@ -43,7 +43,7 @@ Combat Kits are managed through a complex state object with multiple sub-systems
 
 ```
 CombatKitBuilder (Container)
-├── CombatKitForm (Input Interface)
+├── CombatKitForm (Input Interface - 50% width, left column)
 │   ├── Title Input (Text field)
 │   ├── Features Input (Text field)
 │   ├── ThreatsList (Structured Management)
@@ -60,7 +60,9 @@ CombatKitBuilder (Container)
 │       │   ├── RoleDropdown (12 options)
 │       │   └── Action Buttons (Move/Delete)
 │       └── Add Monster Button
-└── CombatKitCard (Display Component)
+└── Preview Container (50% width, right column, centered)
+    ├── Builder Title ("Combat Kit Builder")
+    └── CombatKitCard (Display Component)
     ├── Header (Title with crossed swords)
     ├── Features Section (Comma-delimited)
     ├── Threats Section (Formatted display)

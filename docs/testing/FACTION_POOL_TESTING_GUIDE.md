@@ -10,9 +10,10 @@ The Faction/Campaign Pool Builder enables creation of faction and campaign refer
 - Faction/campaign titles with professional styling
 - Structured goals system with dice pool mechanics
 - Optional resources section with italicized display
-- Visual dividers between sections
+- Conditional visual dividers (only shown when resources exist)
 - Professional faction pool card export
 - Default data loading for immediate usability
+- Half-width centered column layout with builder titles
 
 ## Test Plan
 
@@ -160,15 +161,16 @@ The Faction/Campaign Pool Builder enables creation of faction and campaign refer
 - Resources appear below divider
 
 #### Test 4.2: Empty Resources Handling
-**Objective:** Test optional resources behavior
+**Objective:** Test optional resources behavior and conditional divider
 
 **Steps:**
 1. Clear all text from resources textarea
 2. Observe card display
 
 **Expected Results:**
-- Resources section hidden in card when empty
-- Divider still appears between goals and empty space
+- Resources section completely hidden in card when empty
+- Divider between resources and goals is also hidden when no resources exist
+- Goals section appears directly after header with no divider
 - No empty resource lines displayed
 - Form remains functional
 
@@ -188,6 +190,23 @@ The Faction/Campaign Pool Builder enables creation of faction and campaign refer
 - No formatting issues in card
 - Italics applied to entire resource text
 - No parsing errors
+
+#### Test 4.4: Conditional Divider Behavior
+**Objective:** Test divider visibility based on resources presence
+
+**Steps:**
+1. Start with empty resources textarea
+2. Verify no divider appears in card
+3. Add resources: "Ancient spirits"
+4. Verify divider appears between resources and goals
+5. Clear resources again
+6. Verify divider disappears
+
+**Expected Results:**
+- Divider only appears when resources exist
+- Divider disappears immediately when resources are cleared
+- Goals section positioning adjusts appropriately
+- No visual artifacts or spacing issues
 
 ### 5. Card Display and Styling Testing
 

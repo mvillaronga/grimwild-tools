@@ -25,7 +25,7 @@ Challenges are managed through a state object with the following structure:
 
 ```
 ChallengeBuilder (Container)
-├── ChallengeForm (Input Interface)
+├── ChallengeForm (Input Interface - 50% width, left column)
 │   ├── Pool Input (Number field, 1-12)
 │   ├── Title Input (Text field)
 │   ├── Traits Input (Textarea, multi-line)
@@ -33,12 +33,14 @@ ChallengeBuilder (Container)
 │   ├── Fail Pool Input (Number field, 0-12)
 │   ├── Fail Description Input (Textarea)
 │   └── Action Buttons (Defaults/Clear)
-└── ChallengeCard (Display Component)
-    ├── Challenge Header (Pool + Title)
-    ├── Challenge Circles (Visual indicators)
-    ├── Traits Section (Bullet list)
-    ├── Moves Section (Bullet list)
-    └── Failure Section (Optional)
+└── Preview Container (50% width, right column, centered)
+    ├── Builder Title ("Challenge Builder")
+    └── ChallengeCard (Display Component)
+        ├── Challenge Header (Pool + Title)
+        ├── Challenge Circles (Visual indicators)
+        ├── Traits Section (Bullet list)
+        ├── Moves Section (Bullet list)
+        └── Failure Section (Optional)
 ```
 
 ### State Management
@@ -166,18 +168,22 @@ const defaultChallengeData = {
 
 ### Form Layout
 
+- **Two-Column Layout:** Form occupies left 50% of screen width, preview occupies right 50%
+- **Centered Design:** Both columns are center-locked rather than left/right aligned
 - **Header Row:** Section title with action buttons (Defaults/Clear)
 - **Pool and Title Row:** Side-by-side number and text inputs
 - **Traits Section:** Large textarea with label
-- **Moves Section:** Large textarea with label  
+- **Moves Section:** Large textarea with label
 - **Failure Section:** Number input and textarea for optional failure conditions
+- **Builder Title:** "Challenge Builder" title appears above the preview card
 
 ### Visual Design
 
 - **Consistent Styling:** Matches overall Grimwild Tools aesthetic
-- **Responsive Design:** Adapts to mobile and desktop screens
+- **Responsive Design:** Adapts to mobile and desktop screens (stacks vertically on mobile)
 - **Clear Typography:** Uses Libre Baskerville and Cinzel fonts
 - **Professional Layout:** Clean, organized form with proper spacing
+- **Half-Width Columns:** Each column takes exactly 50% of device width on desktop
 
 ### Card Styling
 

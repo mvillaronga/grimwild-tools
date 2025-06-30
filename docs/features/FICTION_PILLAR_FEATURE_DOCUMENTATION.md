@@ -26,7 +26,7 @@ Fiction pillars are managed through a state object with the following structure:
 
 ```
 FictionPillarBuilder (Container)
-├── FictionPillarForm (Input Interface)
+├── FictionPillarForm (Input Interface - 50% width, left column)
 │   ├── Title Input (Text field)
 │   ├── WantsDislikesForm (Shared Component)
 │   │   ├── Wants Input (Text field)
@@ -37,12 +37,14 @@ FictionPillarBuilder (Container)
 │   │   └── Smell Input (Text field)
 │   ├── Embody Input (Text field)
 │   └── Action Buttons (Defaults/Clear)
-└── FictionPillarCard (Display Component)
-    ├── Pillar Header (Title)
-    ├── WantsDislikesDisplay (Shared Component)
-    ├── SensoryDisplay (Shared Component)
-    ├── Divider
-    └── EmbodyDisplay (Hand icon + description)
+└── Preview Container (50% width, right column, centered)
+    ├── Builder Title ("Fiction Pillar Builder")
+    └── FictionPillarCard (Display Component)
+        ├── Pillar Header (Title)
+        ├── WantsDislikesDisplay (Shared Component)
+        ├── SensoryDisplay (Shared Component)
+        ├── Divider
+        └── EmbodyDisplay (Hand icon + description)
 ```
 
 ### State Management
@@ -218,18 +220,22 @@ const defaultFictionPillarData = {
 
 ### Form Layout
 
+- **Two-Column Layout:** Form occupies left 50% of screen width, preview occupies right 50%
+- **Centered Design:** Both columns are center-locked rather than left/right aligned
 - **Header Row:** Section title with action buttons (Defaults/Clear)
 - **Title Row:** Text input for pillar name
 - **Wants/Doesn't Want:** Shared component with side-by-side text inputs
 - **Sensory Information:** Shared component with sight, sound, smell inputs
 - **Embody Actions:** Text input for physical actions to embody at the table
+- **Builder Title:** "Fiction Pillar Builder" title appears above the preview card
 
 ### Visual Design
 
 - **Consistent Styling:** Matches overall Grimwild Tools aesthetic
-- **Responsive Design:** Adapts to mobile and desktop screens
+- **Responsive Design:** Adapts to mobile and desktop screens (stacks vertically on mobile)
 - **Clear Typography:** Uses Libre Baskerville and Cinzel fonts
 - **Professional Layout:** Clean, organized form with proper spacing
+- **Half-Width Columns:** Each column takes exactly 50% of device width on desktop
 
 ### Card Styling
 

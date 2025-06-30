@@ -51,7 +51,7 @@ Faction/Campaign Pools serve as:
 ### Component Structure
 ```
 FactionPoolBuilder (Container)
-├── FactionPoolForm (Input Interface)
+├── FactionPoolForm (Input Interface - 50% width, left column)
 │   ├── Title Input (Text field)
 │   ├── Resources Input (Textarea - optional)
 │   ├── GoalsList (Structured Management)
@@ -61,11 +61,13 @@ FactionPoolBuilder (Container)
 │   │   │   └── Action Buttons (Move/Delete)
 │   │   └── Add Goal Button
 │   └── Action Controls (Reset/Clear buttons)
-└── FactionPoolCard (Display Component)
-    ├── Header (Title with styling)
-    ├── Goals Section (Pool + Description)
-    ├── Divider (Visual separator)
-    └── Resources Section (Optional)
+└── Preview Container (50% width, right column, centered)
+    ├── Builder Title ("Faction Pool Builder")
+    └── FactionPoolCard (Display Component)
+        ├── Header (Title with styling)
+        ├── Resources Section (Optional - only if resources exist)
+        ├── Divider (Conditional - only shown if resources exist)
+        └── Goals Section (Pool + Description)
 ```
 
 ### Data Structure
@@ -94,9 +96,11 @@ FactionPoolBuilder (Container)
 ## User Interface Specifications
 
 ### Form Layout
+- **Two-Column Layout:** Form occupies left 50% of screen width, preview occupies right 50%
+- **Centered Design:** Both columns are center-locked rather than left/right aligned
 - **Header Row:** Section title with standard action buttons (Defaults/Clear)
 - **Title Input:** Single text field for faction/campaign name
-- **Goals Section:** 
+- **Goals Section:**
   - List-based management interface
   - Add/edit/delete/reorder functionality
   - Pool input (number) + description input (text) per goal
@@ -105,6 +109,7 @@ FactionPoolBuilder (Container)
   - Optional textarea input
   - Line-by-line entry format
   - Can be left empty
+- **Builder Title:** "Faction Pool Builder" title appears above the preview card
 
 ### Goals List Management
 - **Entry Interface:** Similar to Combat Kit threats list
@@ -125,9 +130,9 @@ FactionPoolBuilder (Container)
 
 ### Layout Structure
 1. **Header:** Title with standard card header styling
-2. **Goals Section:** Pool notation + descriptions
-3. **Divider:** Visual separator between sections
-4. **Resources Section:** Italicized resource list (if present)
+2. **Resources Section:** Italicized resource list (only displayed if resources exist)
+3. **Divider:** Visual separator between sections (only displayed if resources exist)
+4. **Goals Section:** Pool notation + descriptions (always displayed)
 
 ### Styling Requirements
 
@@ -146,7 +151,8 @@ FactionPoolBuilder (Container)
 #### Divider
 - **Style:** 2px solid line, 30% opacity
 - **Margins:** 0.35rem vertical, 1.5rem horizontal
-- **Position:** Between goals and resources sections
+- **Position:** Between resources and goals sections
+- **Conditional Display:** Only shown when resources exist (hidden when no resources)
 
 #### Resources Display
 - **Font Style:** Italicized (similar to Combat Kit features)
