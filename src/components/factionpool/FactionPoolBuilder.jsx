@@ -39,6 +39,7 @@ function FactionPoolBuilder() {
           onUpdateResources={updateResources}
         />
         <div className={styles.previewContainer}>
+          <h2 className={styles.title}>Faction Pool Builder</h2>
           <ImageActionsWrapper
             filename={filename}
           >

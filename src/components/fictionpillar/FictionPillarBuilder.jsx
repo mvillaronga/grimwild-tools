@@ -41,6 +41,7 @@ function FictionPillarBuilder() {
           validationErrors={validationErrors}
         />
         <div className={styles.previewContainer}>
+          <h2 className={styles.title}>Fiction Pillar Builder</h2>
           <ImageActionsWrapper
             filename={filename}
           >

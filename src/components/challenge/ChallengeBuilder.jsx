@@ -21,6 +21,7 @@ export default function ChallengeBuilder() {
       <div className={styles.builderLayout}>
         <ChallengeForm {...challengeState} />
         <div className={styles.previewContainer}>
+          <h2 className={styles.title}>Challenge Builder</h2>
           <ImageActionsWrapper filename={filename}>
             <ChallengeCard
               pool={challengeState.pool}

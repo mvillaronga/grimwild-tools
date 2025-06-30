@@ -84,8 +84,8 @@ function FactionPoolCard({ factionPool }) {
         </div>
       )}
 
-      {/* Divider - always show between resources and goals */}
-      <hr className={styles.divider} />
+      {/* Divider - only show if resources exist */}
+      {parsedResources.length > 0 && <hr className={styles.divider} />}
 
       {/* Goals Section */}
       <div className={styles.sectionBottom}>

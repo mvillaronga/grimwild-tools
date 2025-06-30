@@ -31,6 +31,7 @@ function CombatKitBuilder() {
           onUpdateMonsters={updateMonsters}
         />
         <div className={styles.previewContainer}>
+          <h2 className={styles.title}>Combat Kit Builder</h2>
           <ImageActionsWrapper
             targetId="combat-kit-card"
             filename={`combat-kit-${combatKit.title || 'scenario'}`}
